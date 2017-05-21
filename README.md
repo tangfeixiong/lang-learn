@@ -1,3 +1,3 @@
 # About
 
-## Standard Input/Output
+## Java Swing GUI example

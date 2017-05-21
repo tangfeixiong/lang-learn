@@ -1,3 +1,7 @@
 java/**/*.class
 java/**/*.jar
 java/**/*.zip
+
+./idea
+**/*.iml
+java/out/
