@@ -21,4 +21,10 @@ func main() {
 		fmt.Printf("golang-versionized command %s\n %s", "hostname", hostname)
 	}
 
+	lang := os.Getenv("LANG")
+	fmt.Printf("Value of environment %ss is %s", "LANG", lang)
+
+	if login, found := os.LookupEnv("LOGNAME"); found {
+		fmt.Println("Found environment LOGNAME, its value is", login)
+	}
 }
