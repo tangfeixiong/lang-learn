@@ -22,7 +22,14 @@ func main() {
 		fmt.Println(string(out))
 	}
 
-	cmd := exec.Command("python", "--version")
-	out, _ = cmd.Output()
+	cmd = exec.Command("python", "--version")
+	out, _ = cmd.CombinedOutput()
+	fmt.Println(string(out))
+
+	cmd = exec.Command("java", "-version")
+	out, err = cmd.CombinedOutput()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 	fmt.Println(string(out))
 }
