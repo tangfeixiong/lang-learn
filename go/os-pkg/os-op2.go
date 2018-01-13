@@ -21,4 +21,8 @@ func main() {
 	} else {
 		fmt.Println(string(out))
 	}
+
+	cmd := exec.Command("python", "--version")
+	out, _ = cmd.Output()
+	fmt.Println(string(out))
 }
