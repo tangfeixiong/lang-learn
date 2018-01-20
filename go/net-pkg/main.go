@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"log"
 	"net"
 	"time"
@@ -18,26 +19,33 @@ func main() {
 
 	defer listener.Close()
 
-	conn, err := listener.Accept()
-	if err != nil {
-		log.Println("Networking has trouble")
-		return
-	}
-	log.Printf("Guest %s is calling\n", conn.RemoteAddr().String())
-	conn.Write([]byte("hi"))
 	for {
-		b := make([]byte, 1024)
-		n, err := conn.Read(b)
+		conn, err := listener.Accept()
 		if err != nil {
-			log.Println("Get connection error:", err.Error())
-			conn.Close()
-			break
+			log.Println("Networking has trouble")
+			return
 		}
-		if n > 0 {
-			log.Println("Listened:", string(b))
-			log.Println("keep connection")
-		}
-		time.Sleep(time.Second)
-	}
+		go func(conn net.Conn) {
+			log.Printf("Guest %s is calling\n", conn.RemoteAddr().String())
+			conn.Write([]byte("hi"))
+			for {
+				b := make([]byte, 1024)
+				n, err := conn.Read(b)
+				if err != nil {
+					log.Println("Get connection error:", err.Error())
+					if err == io.EOF {
+						conn.Close()
+						break
+					}
+				}
+				if n > 0 {
+					log.Println("Listened:", string(b))
+				}
+				log.Println("keep connection")
+			}
+		}(conn)
 
+		time.Sleep(time.Second)
+		log.Println("enable more acception")
+	}
 }
