@@ -1,3 +1,3 @@
 # About
 
-## Java Swing GUI example
+## Go language

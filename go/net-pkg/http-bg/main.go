@@ -148,7 +148,7 @@ func processRequest(rb []byte) string {
 		return fmt.Sprintf("%s\r\n%s\r\n%s\r\n\r\n%s\r\n", protocolResponseLine, contentTypeLine, contentLengthLine, msg)
 	default:
 		protocolResponseLine = "HTTP/1.1 404 Not Found"
-		return fmt.Sprintf("%s\r\n", protocolResponseLine)
+		return fmt.Sprintf("%s\r\n\r\n", protocolResponseLine)
 	}
 }
 
