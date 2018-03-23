@@ -1,3 +1,6 @@
+https://alvinalexander.com/android/android-asynctask-http-client-rest-example-tutorial
+
+https://github.com/alvinj/AndroidAsyncTaskExample
 
 https://www.techrepublic.com/blog/software-engineer/calling-restful-services-from-your-android-app/
 
