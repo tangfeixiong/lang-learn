@@ -27,25 +27,30 @@ import org.apache.http.protocol.HttpContext;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MainActivity  extends AppCompatActivity  implements OnClickListener {
+public class MainActivity  extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String API_PATH = "http://192.168.0.20:8080/apis";
+
+    private AsyncHttpClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://127.0.0.1:8080/apis", new AsyncHttpResponseHandler() {
+        client = new AsyncHttpClient();
+        client.get(API_PATH, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 // called before request is started
+                System.out.println("started");
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                 // called when response HTTP status is "200 OK"
-                Log.d(TAG, response.toString());
+                Log.i(TAG, response.toString());
+                System.out.println(response.toString());
             }
 
             @Override
@@ -69,16 +74,66 @@ public class MainActivity  extends AppCompatActivity  implements OnClickListener
             }
 
         });
+
+        final Button b = (Button)findViewById(R.id.my_button);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                b.setClickable(false);
+
+                Log.i(TAG, "clicked");
+
+                client.get(API_PATH, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onStart() {
+                        // called before request is started
+                        System.out.println("started");
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+                        // called when response HTTP status is "200 OK"
+                        Log.i(TAG, response.toString());
+                        System.out.println(response.toString());
+                        if (response!=null) {
+                            EditText et = (EditText)findViewById(R.id.my_edit);
+
+
+                            et.setText(response.toString());
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e)
+                    {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onRetry(int retryNo) {
+                        // Request was retried
+                    }
+
+                    public void onProgress(int bytesWritten, int totalSize) {
+                        // Progress notification
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        // Completed the request (either success or failure)
+                    }
+
+                });
+
+                new LongRunningGetIO().execute();
+            }
+
+                             }
+        );
     }
 
-    @Override
-    public void onClick(View arg0) {
-        Button b = (Button)findViewById(R.id.my_button);
-
-
-        b.setClickable(false);
-        new LongRunningGetIO().execute();
-    }
 
     private class LongRunningGetIO extends AsyncTask <Void, Void, String> {
         protected String getASCIIContentFromEntity(HttpEntity entity) throws IllegalStateException, IOException {
@@ -106,7 +161,7 @@ public class MainActivity  extends AppCompatActivity  implements OnClickListener
         protected String doInBackground(Void... params) {
             HttpClient httpClient = new DefaultHttpClient();
             HttpContext localContext = new BasicHttpContext();
-            HttpGet httpGet = new HttpGet("http://127.0.0.1:8080/apis");
+            HttpGet httpGet = new HttpGet(API_PATH);
             String text = null;
             try {
                 HttpResponse response = httpClient.execute(httpGet, localContext);
@@ -122,7 +177,8 @@ public class MainActivity  extends AppCompatActivity  implements OnClickListener
                 return e.getLocalizedMessage();
             }
 
-
+            Log.i(TAG, text);
+            System.out.println(text);
             return text;
         }
 
