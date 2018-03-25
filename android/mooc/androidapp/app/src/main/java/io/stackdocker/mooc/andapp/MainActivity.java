@@ -150,7 +150,7 @@ public class MainActivity  extends AppCompatActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                         // called when response HTTP status is "200 OK"
-                        Log.i(TAG, response.toString());
+                        Log.i(TAG, "onSuccess");
                         System.out.println(response.toString());
 
                         if (response != null && response.length > 0) {
