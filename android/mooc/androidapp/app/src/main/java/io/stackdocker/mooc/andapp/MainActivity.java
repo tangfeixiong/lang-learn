@@ -5,17 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.os.AsyncTask;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.MapType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.HashMap;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -29,7 +36,18 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity  extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String API_PATH = "http://192.168.0.20:8080/apis";
+    //private static final String API_PATH = "http://192.168.0.20:8080/apis";
+    private final String API_HOST = getResources().getString(R.string.api_host);
+    private final String APIS_PATH = API_HOST + "/apis";
+//    private final String TOP_CLASS_PATH = Paths.get(API_HOST,
+//            "api/v1alpha", getResources().getString(R.string.top_classes_path)).toString();
+    private final String TOP_CLASS_PATH = API_HOST +
+        "/api/v1alpha/namespaces/default/" + getResources().getString(R.string.top_classes_path);
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private HashMap<String, Object> myDataset;
 
     private AsyncHttpClient client;
 
@@ -38,8 +56,23 @@ public class MainActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        //mLayoutManager = new LinearLayoutManager(this);
+        //mRecyclerView.setLayoutManager(mLayoutManager);
+
+        myDataset = new HashMap<String, Object>();
+        // specify an adapter (see also next example)
+        mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
         client = new AsyncHttpClient();
-        client.get(API_PATH, new AsyncHttpResponseHandler() {
+        client.get(TOP_CLASS_PATH, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 // called before request is started
@@ -51,6 +84,17 @@ public class MainActivity  extends AppCompatActivity {
                 // called when response HTTP status is "200 OK"
                 Log.i(TAG, response.toString());
                 System.out.println(response.toString());
+
+                if (response != null && response.length > 0) {
+                    ObjectMapper mapper = new ObjectMapper();
+                    TypeFactory typeFactory = mapper.getTypeFactory();
+                    MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Object.class);
+                    try {
+                        myDataset = mapper.readValue(response.toString(), mapType);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             @Override
@@ -83,7 +127,7 @@ public class MainActivity  extends AppCompatActivity {
 
                 Log.i(TAG, "clicked");
 
-                client.get(API_PATH, new AsyncHttpResponseHandler() {
+                client.get(APIS_PATH, new AsyncHttpResponseHandler() {
                     @Override
                     public void onStart() {
                         // called before request is started
@@ -161,7 +205,7 @@ public class MainActivity  extends AppCompatActivity {
         protected String doInBackground(Void... params) {
             HttpClient httpClient = new DefaultHttpClient();
             HttpContext localContext = new BasicHttpContext();
-            HttpGet httpGet = new HttpGet(API_PATH);
+            HttpGet httpGet = new HttpGet(APIS_PATH);
             String text = null;
             try {
                 HttpResponse response = httpClient.execute(httpGet, localContext);

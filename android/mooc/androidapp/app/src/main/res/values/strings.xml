@@ -49,4 +49,15 @@
     <string name="title_use_pool_thread">Use Pool Thread in Response</string>
     <string name="title_request_params_debug">Request Params debug</string>
 
+    <string name="api_host">http://192.168.0.20:8080</string>
+    <string name="top_classes_path">top-classes</string>
+    <string name="top_coaches_path">top-coaches</string>
+    <string name="top_practices_path">top-pratices</string>
+    <string name="top_trainees_path">top-trainees</string>
+    <string name="top_hires_path">top-hires</string>
+    <string name="top_hunters_path">top-hunters</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="my_text_view_text">Hello text view</string>
+
 </resources>
