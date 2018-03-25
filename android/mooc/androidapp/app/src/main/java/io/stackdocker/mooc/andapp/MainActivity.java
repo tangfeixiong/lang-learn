@@ -52,7 +52,11 @@ public class MainActivity  extends AppCompatActivity {
         @JsonProperty
         private long id;
         @JsonProperty
+        private String kind;
+        @JsonProperty
         private String name;
+        @JsonProperty
+        private String tag;
     }
     private ArrayList<MyClass> myDataset;
 
