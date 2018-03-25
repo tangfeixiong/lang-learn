@@ -57,6 +57,10 @@ public class MainActivity  extends AppCompatActivity {
         private String name;
         @JsonProperty
         private String tag;
+
+        public String toString() {
+            return name;
+        }
     }
     private ArrayList<MyClass> myDataset;
 
