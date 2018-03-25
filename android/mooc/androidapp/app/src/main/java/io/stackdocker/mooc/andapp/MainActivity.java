@@ -90,7 +90,7 @@ public class MainActivity  extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
         client = new AsyncHttpClient();
-        client.get(TOP_CLASS_PATH, new AsyncHttpResponseHandler() {
+        client.get(APIS_PATH, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
                 // called before request is started
@@ -102,16 +102,13 @@ public class MainActivity  extends AppCompatActivity {
                 // called when response HTTP status is "200 OK"
                 Log.i(TAG, response.toString());
                 System.out.println(response.toString());
+                if (response!=null) {
+                    EditText et = (EditText)findViewById(R.id.my_edit);
 
-                if (response != null && response.length > 0) {
-                    ObjectMapper mapper = new ObjectMapper();
-                    TypeFactory typeFactory = mapper.getTypeFactory();
-                    CollectionType mapType = typeFactory.constructCollectionType(ArrayList.class, MyClass.class);
-                    try {
-                        myDataset = mapper.readValue(response, mapType);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+                    et.setText(response.toString());
+
+
                 }
             }
 
@@ -137,19 +134,17 @@ public class MainActivity  extends AppCompatActivity {
 
         });
 
+
         final Button b = (Button)findViewById(R.id.my_button);
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
-                b.setClickable(false);
-
-                Log.i(TAG, "clicked");
-
-                client.get(APIS_PATH, new AsyncHttpResponseHandler() {
+                client.get(TOP_CLASS_PATH, new AsyncHttpResponseHandler() {
                     @Override
                     public void onStart() {
                         // called before request is started
-                        System.out.println("started");
+                        Log.i(TAG, "onStart");
+                        System.out.println("onStart");
                     }
 
                     @Override
@@ -157,13 +152,16 @@ public class MainActivity  extends AppCompatActivity {
                         // called when response HTTP status is "200 OK"
                         Log.i(TAG, response.toString());
                         System.out.println(response.toString());
-                        if (response!=null) {
-                            EditText et = (EditText)findViewById(R.id.my_edit);
 
-
-                            et.setText(response.toString());
-
-
+                        if (response != null && response.length > 0) {
+                            ObjectMapper mapper = new ObjectMapper();
+                            TypeFactory typeFactory = mapper.getTypeFactory();
+                            CollectionType mapType = typeFactory.constructCollectionType(ArrayList.class, MyClass.class);
+                            try {
+                                myDataset = mapper.readValue(response, mapType);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 
@@ -176,24 +174,31 @@ public class MainActivity  extends AppCompatActivity {
                     @Override
                     public void onRetry(int retryNo) {
                         // Request was retried
+                        Log.i(TAG, "onRetry");
+                        System.out.println("onRetry");
                     }
 
                     public void onProgress(int bytesWritten, int totalSize) {
                         // Progress notification
+                        Log.i(TAG, "onProgress");
+                        System.out.println("onProgress");
                     }
 
                     @Override
                     public void onFinish() {
                         // Completed the request (either success or failure)
+                        Log.i(TAG, "onFinish");
+                        System.out.println("onFinish");
                     }
 
                 });
 
-                new LongRunningGetIO().execute();
+
+                //b.setClickable(false);
+                //new LongRunningGetIO().execute();
             }
 
-                             }
-        );
+                             });
     }
 
 
