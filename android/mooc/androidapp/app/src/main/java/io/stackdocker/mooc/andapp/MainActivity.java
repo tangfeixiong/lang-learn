@@ -107,7 +107,7 @@ public class MainActivity  extends AppCompatActivity {
                             EditText et = (EditText)findViewById(R.id.my_edit);
 
 
-                            et.setText(response.toString());
+                            et.setText(new String(response));
 
 
                         }
@@ -162,7 +162,7 @@ public class MainActivity  extends AppCompatActivity {
                             TypeFactory typeFactory = mapper.getTypeFactory();
                             CollectionType mapType = typeFactory.constructCollectionType(ArrayList.class, MyClass.class);
                             try {
-                                myDataset = mapper.readValue(response, mapType);
+                                myDataset = mapper.readValue(new String(response), mapType);
                                 mAdapter = new MyAdapter(myDataset);
                                 mRecyclerView.setAdapter(mAdapter);
                             } catch (IOException e) {
