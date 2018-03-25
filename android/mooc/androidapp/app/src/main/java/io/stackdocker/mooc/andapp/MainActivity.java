@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.loopj.android.http.AsyncHttpClient;
@@ -101,9 +102,9 @@ public class MainActivity  extends AppCompatActivity {
                 if (response != null && response.length > 0) {
                     ObjectMapper mapper = new ObjectMapper();
                     TypeFactory typeFactory = mapper.getTypeFactory();
-                    MapType mapType = typeFactory.constructMapType(HashMap.class, String.class, Object.class);
+                    CollectionType mapType = typeFactory.constructCollectionType(ArrayList.class, MyClass.class);
                     try {
-                        myDataset = mapper.readValue(response.toString(), mapType);
+                        myDataset = mapper.readValue(response, mapType);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
