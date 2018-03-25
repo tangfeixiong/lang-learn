@@ -38,10 +38,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup,
                                                    int viewType) {
         // create a new view
-        TextView v = (TextView) LayoutInflater.from(viewGroup.getContext())
+        View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_view_item, viewGroup, false);
+        TextView textView = (TextView)v.findViewById(R.id.text_view_item);
 
-        ViewHolder vh = new ViewHolder(v);
+        ViewHolder vh = new ViewHolder(textView);
         return vh;
     }
 
