@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -22,6 +23,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.http.HttpEntity;
@@ -44,7 +46,14 @@ public class MainActivity  extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private HashMap<String, Object> myDataset;
+
+    public static class MyClass {
+        @JsonProperty
+        private long id;
+        @JsonProperty
+        private String name;
+    }
+    private ArrayList<MyClass> myDataset;
 
     private AsyncHttpClient client;
 
@@ -70,7 +79,7 @@ public class MainActivity  extends AppCompatActivity {
         //mLayoutManager = new LinearLayoutManager(this);
         //mRecyclerView.setLayoutManager(mLayoutManager);
 
-        myDataset = new HashMap<String, Object>();
+        myDataset = new ArrayList<MyClass>();
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
