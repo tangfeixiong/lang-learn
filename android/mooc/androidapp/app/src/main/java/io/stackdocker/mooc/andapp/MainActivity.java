@@ -37,12 +37,9 @@ import cz.msebera.android.httpclient.Header;
 public class MainActivity  extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     //private static final String API_PATH = "http://192.168.0.20:8080/apis";
-    private final String API_HOST = getResources().getString(R.string.api_host);
-    private final String APIS_PATH = API_HOST + "/apis";
-//    private final String TOP_CLASS_PATH = Paths.get(API_HOST,
-//            "api/v1alpha", getResources().getString(R.string.top_classes_path)).toString();
-    private final String TOP_CLASS_PATH = API_HOST +
-        "/api/v1alpha/namespaces/default/" + getResources().getString(R.string.top_classes_path);
+    private String API_HOST;
+    private String APIS_PATH;
+    private String TOP_CLASS_PATH;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -55,6 +52,13 @@ public class MainActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        API_HOST = getResources().getString(R.string.api_host);
+        APIS_PATH = API_HOST + "/apis";
+//    TOP_CLASS_PATH = Paths.get(API_HOST,
+//            "api/v1alpha", getResources().getString(R.string.top_classes_path)).toString();
+        TOP_CLASS_PATH = API_HOST +
+                "/api/v1alpha/namespaces/default/" + getResources().getString(R.string.top_classes_path);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
