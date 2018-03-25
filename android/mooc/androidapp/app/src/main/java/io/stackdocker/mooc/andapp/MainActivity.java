@@ -90,50 +90,54 @@ public class MainActivity  extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
         client = new AsyncHttpClient();
-        client.get(APIS_PATH, new AsyncHttpResponseHandler() {
-            @Override
-            public void onStart() {
-                // called before request is started
-                System.out.println("started");
+
+        final Button b1 = (Button)findViewById(R.id.my_button1);
+        b1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0) {
+                client.get(APIS_PATH, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onStart() {
+                        // called before request is started
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] response) {
+                        // called when response HTTP status is "200 OK"
+                        if (response!=null) {
+                            EditText et = (EditText)findViewById(R.id.my_edit);
+
+
+                            et.setText(response.toString());
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e)
+                    {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onRetry(int retryNo) {
+                        // Request was retried
+                    }
+
+                    public void onProgress(int bytesWritten, int totalSize) {
+                        // Progress notification
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        // Completed the request (either success or failure)
+                    }
+
+                });
+
+
             }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-                // called when response HTTP status is "200 OK"
-                Log.i(TAG, response.toString());
-                System.out.println(response.toString());
-                if (response!=null) {
-                    EditText et = (EditText)findViewById(R.id.my_edit);
-
-
-                    et.setText(response.toString());
-
-
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e)
-            {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onRetry(int retryNo) {
-                // Request was retried
-            }
-
-            public void onProgress(int bytesWritten, int totalSize) {
-                // Progress notification
-            }
-
-            @Override
-            public void onFinish() {
-                // Completed the request (either success or failure)
-            }
-
         });
-
 
         final Button b = (Button)findViewById(R.id.my_button);
         b.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +163,8 @@ public class MainActivity  extends AppCompatActivity {
                             CollectionType mapType = typeFactory.constructCollectionType(ArrayList.class, MyClass.class);
                             try {
                                 myDataset = mapper.readValue(response, mapType);
+                                mAdapter = new MyAdapter(myDataset);
+                                mRecyclerView.setAdapter(mAdapter);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

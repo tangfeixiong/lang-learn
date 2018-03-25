@@ -58,12 +58,23 @@
         android:minLines="5"
         android:textSize="8sp" />
 
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"><TableRow>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:text="GET"
         android:id="@+id/my_button"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="GET"
+        android:id="@+id/my_button1"/>
+    </TableRow></TableLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
