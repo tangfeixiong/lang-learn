@@ -6,8 +6,8 @@
 1. [在命令行下的协同示例](#general-progress) General Progress
 1. [请求合并](#pull-request) Pull Request
 1. [从上游拉取](#merge-upstream) Merge Upsteam
-1. 用Eclipse代替命令方式
-1. 用Idea代理命令方式
+1. 用Eclipse代替命令方式 - [link](./eclipse/)
+1. 用Idea代理命令方式 - [link](./idea/)
 
 ## 警告
 
