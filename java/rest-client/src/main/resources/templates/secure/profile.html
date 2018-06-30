@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(title=~{::title/text()})">
+    <title>Profile : View</title>
+</head>
+<body>
+<div class="container">
+    <div th:replace="fragments :: navbar"></div>
+    <div class="float-right mt-2">
+        <a class="btn btn-primary btn-sm" href="index.html" th:href="@{/}">Index</a>
+    </div>
+    <h4 class="float-left mt-2">Profile : View</h4>
+    <div class="clearfix"></div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" th:text="${person.id + ': ' + person.username}">123 - A short summary...</h4>
+            <p class="card-text" th:text="${person.username}">A detailed message that is longer than the summary.</p>
+            <a class="card-link" href="index.html" th:href="@{'/sign-out/' + ${person.id}}"> sign out</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
