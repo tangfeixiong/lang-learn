@@ -18,29 +18,31 @@ credentials = [
     {
         'id': 1,
         'username': u'foo',
-        'password': u'secret', 
+        'password': u'bar', 
         'disabled': False
     },
     {
         'id': 2,
-        'username': u'bar',
-        'password': u'secure', 
+        'username': u'baz',
+        'password': u'qux', 
         'disabled': False
     }
 ]
 
 class Authentication(Resource):
     def post(self):
-        print(request.json)
+        print(request.get_json())
         username = request.json['username']
         password = request.json['password']
-        cred = [cred for cred in credentials if cred['username'] == username AND cred['password'] == password]
+        cred = [cred for cred in credentials if cred['username'] == username and cred['password'] == password]
         if len(cred) == 0:
             abort(404)
-        return jsonify({'id': cred[id]})
+        print(cred)
+        return jsonify({'id': cred[0]['id']})
 
 class UserCreation(Resource):        
     def post(self):
+        print(request.json)
         if not request.json or not 'username' in request.json:
             abort(400)
         cred = {
@@ -50,7 +52,7 @@ class UserCreation(Resource):
             'disabled': False
         }
         credentials.append(cred)
-        return jsonify({'id': cred['id']}), 201
+        return jsonify({'id': cred['id']})
     
 class SecurityUpdation(Resource):        
     def put(self, id):
