@@ -3,7 +3,7 @@ ubuntu-bionic-18.04-cloudimg-console.log
 ubuntu-*-cloudimg-console.log
 
 c-cpp/**/*.o
-c-cpp/reversedstr
+c-cpp/reversedstr/reversefirsthalf
 
 java/**/*.class
 java/**/*.jar
