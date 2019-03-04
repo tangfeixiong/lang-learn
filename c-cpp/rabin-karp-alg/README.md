@@ -61,3 +61,43 @@ calculate from left to right:
 (3, 0, 1020611); (3, 1, 1082021); (3, 2, 1102624); (3, 3, 0); (3, 4, 0); 
 (4, 0, 1091509); (4, 1, 1030614); (4, 2, 1062014); (4, 3, 0); (4, 4, 0); 
 ```
+
+__example 3__
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ gcc calc2validation.c -lm -o calc2validation
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ ./calc2validation
+Rabin-Karp hash of each word:
+wok: 1225237	dog: 1031414	bat: 1009611	elk: 1041316	
+========
+calculate from left to right:
+search word into horizontal right:
+--------
+calculate from right to left:
+search word into horizontal left:
+dog;(4,4;2)
+--------
+calculate from top left to bottom right:
+search word into top left to bottom right angel:
+elk;(0,2;5)
+--------
+calculate from bottom right to top left:
+search word into bottom right to top left angel:
+--------
+calculate from bottom left to top right:
+search word into bottom left to top right angel:
+--------
+calculate from top right to bottom left:
+search word into top right to bottom left angel:
+--------
+calculate from top to bottom:
+search word into vertical down:
+wok;(0,4;3)
+--------
+calculate from bottom to top:
+search word into vertical up:
+--------
+```
