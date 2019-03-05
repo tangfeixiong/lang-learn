@@ -1,6 +1,33 @@
 
 # About Lab
 
+## Develop
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ make clean
+rm -f ./*.o *~ core ./*~ topleft bottomleft calculategrid calc2validation output.txt
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ make bin
+gcc -c -o puzzle.o puzzle.c -I. -Wall -std=c99
+gcc -o rksearch puzzle.o rksearch.o -I. -Wall -std=c99
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ ./rksearch -p puzzle.txt -w wordlist.txt -l 3
+aflag = 0, bflag = 0, cvalue = (null)
+Will output into default solution file, aka output.txt
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/rabin-karp-alg$ cat output.txt 
+wok;(0,4);3
+dog;(4,4);2
+bat;(0,0);0
+elk;(0,2);5
+```
+
 ## Test
 
 __example 1__

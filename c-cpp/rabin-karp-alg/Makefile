@@ -2,7 +2,7 @@
 CC=gcc
 CFLAGS=-I. -Wall -std=c99
 DEPS = puzzle.h
-OBJ = puzzle.o searchpuzzle.o 
+OBJ = puzzle.o rksearch.o 
 
 INCDIR =.
 ODIR=.
@@ -13,12 +13,12 @@ ODIR=.
 .PHONY: bin
 
 bin: $(OBJ)
-	$(CC) -o searchpuzzle $^ $(CFLAGS)
+	$(CC) -o rksearch $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ topleft bottomleft calculategrid calc2validation
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ topleft bottomleft calculategrid calc2validation output.txt
 	
 .PHONY: test
 test:

@@ -1,0 +1,4 @@
+wok
+dog
+bat
+elk
