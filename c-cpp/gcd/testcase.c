@@ -17,10 +17,24 @@ int main(int argc, char** argv) {
     };
     
     int l = sizeof(tests) / (sizeof(int) * 2);
-    printf("%d\n", l);
+    // printf("%d\n", l);
     
     for (int i = 0; i < l; i++) {
         int result = gcd(tests[i][0], tests[i][1]);
+        switch (result) {
+            case -1:
+            case 0:
+                printf("Test failed! compute not ready with numbers %d and %d\n", tests[i][0], tests[i][1]);
+                break;
+            default:
+                printf("Test passed. The gcd of %d and %d is %d.\n", tests[i][0], tests[i][1], result);
+        }
+    }
+
+    printf(">>>Test with no recursive\n");
+    
+    for (int i = 0; i < l; i++) {
+        int result = gcd2(tests[i][0], tests[i][1]);
         switch (result) {
             case -1:
             case 0:

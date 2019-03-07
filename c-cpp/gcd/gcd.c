@@ -23,3 +23,13 @@ int gcd(int m, int n) {
         
     return gcd(n, m%n);
 }
+
+// no recursive
+int gcd2(int m, int n) {
+    while (n != 0) {
+        int i = m%n;
+        m = n;
+        n = i;
+    }
+    return m;
+}
