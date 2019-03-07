@@ -1,0 +1,16 @@
+# Greatest Common Divisor
+
+Development
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ make test
+gcc -c -o gcd.o gcd.c -I. -Wall -std=c99
+gcc -o test gcd.o testcase.o -I. -Wall -std=c99
+./test
+6
+Test passed. The gcd of 12 and 28 is 4.
+Test passed. The gcd of 48 and 16 is 16.
+Test failed! compute not ready with numbers 0 and 10
+Test passed. The gcd of 1 and 2147483647 is 1.
+Test failed! compute not ready with numbers -1 and 10
+Test failed! compute not ready with numbers -2147483648 and 1
+```

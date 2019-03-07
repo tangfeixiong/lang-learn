@@ -1,0 +1,4 @@
+*.o
+testcase
+test
+a.out
