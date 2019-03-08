@@ -2,7 +2,7 @@
 CC=gcc
 CFLAGS=-I. -Wall -std=c99
 DEPS = palindrome.h
-OBJ = palindrome.o
+OBJ = palindrome.o demo.o
 
 INCDIR =../include
 ODIR=.
@@ -10,13 +10,15 @@ ODIR=.
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-palindrome: $(OBJ)
+demo: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean test
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ a.out *.o
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ $(OBJ) *.o *.out
 
-test: $(OBJ)
+test: palindrome.o
+	rm -f testcase
 	gcc -o testcase $^ testcase.c $(CFLAGS)
+	./testcase
