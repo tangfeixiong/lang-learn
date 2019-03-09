@@ -1,0 +1,9 @@
+create_files.sh
+run_all.sh
+f1.txt
+f2.txt
+delete.txt
+
+*.o
+*.out
+comparedate
