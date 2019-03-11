@@ -1,6 +1,6 @@
-# Greatest Common Divisor
+# Devel
 
-Development
+Greatest Common Divisor
 ```
 vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ make test
 gcc -c -o gcd.o gcd.c -I. -Wall -std=c99
@@ -13,4 +13,18 @@ Test failed! compute not ready with numbers 0 and 10
 Test passed. The gcd of 1 and 2147483647 is 1.
 Test failed! compute not ready with numbers -1 and 10
 Test failed! compute not ready with numbers -2147483648 and 1
+```
+
+
+Greeting
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ gcc greeting.c -DENGLISH
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ ./a.out 
+Insert disk 1
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ gcc greeting.c -DFRENCH
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ ./a.out 
+Inserez Le Disque 1
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ gcc greeting.c -DSPANISH
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/c-cpp/gcd$ ./a.out 
+Inserte El Disco 1
 ```

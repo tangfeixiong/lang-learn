@@ -1,4 +1,5 @@
 *.o
+*.out
+
 testcase
 test
-a.out
