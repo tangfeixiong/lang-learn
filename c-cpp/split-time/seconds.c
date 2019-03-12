@@ -2,12 +2,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "simpletime.h"
+
 struct dtseconds {
 	int days;
 	int hours;
 	int minutes;
 	int seconds;
 };
+
+time secondstohms(int totalseconds) {
+    time t;
+    
+    t.minutes = totalseconds / 60;
+    t.seconds = totalseconds % 60;
+    t.hours = t.minutes / 60;
+    t.minutes %= 60;
+    
+    return t;
+}
 
 int secondstotime(int totalseconds, int* days, int* hours, int* minutes, int* seconds) {
 	struct dtseconds dts;

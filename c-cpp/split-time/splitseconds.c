@@ -50,6 +50,10 @@ int main(int argc, char* argv[]) {
   for (index = optind; index < argc; index++) {
     printf ("Non-option argument %s\n", argv[index]);
 	fprintf(stdout, "%s\n", split_time(argv[index]));
+    if (aflag) {
+        time t = secondstohms(atoi(argv[index]));
+        printf("times=%d:%d:%d\n", t.hours, t.minutes, t.seconds);
+    }
   }
   return 0;
 }

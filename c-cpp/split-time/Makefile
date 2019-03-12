@@ -3,6 +3,7 @@ CC=gcc
 CFLAGS=-I. -Wall
 DEPS = simpletime.h
 OBJ = seconds.o splitseconds.o 
+BIN = splitseconds
 
 INCDIR =../include
 ODIR=.
@@ -10,10 +11,10 @@ ODIR=.
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-splitseconds: $(OBJ)
+$(BIN): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ $(OBJ) $(BIN) *.out 
