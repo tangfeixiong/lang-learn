@@ -1,0 +1,5 @@
+*.o
+*.out
+
+main
+find_last_node
