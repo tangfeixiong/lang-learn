@@ -25,12 +25,7 @@ main:
 LOOP_PUTS:
         beq t6, s1, DONE_PUTS
         la t0, str                      # Message addr to output
-loop_str:   lb t1, 0(t0)
-        beqz t1, done_str
-1:      jal ra, PUT_CHAR
-        addi t0, t0, 1                  # Traverse addresses for each char in message
-        j loop_str
-done_str:
+        jal ra, PUT_STRING
         addi t1, t6, 0x30               # Encode timer number with ascii
         jal ra, PUT_CHAR
         li t1, ':'
@@ -60,6 +55,24 @@ done_str:
 DONE_PUTS:
         jr ra, 0
       
+    
+; Display string (ended with null)
+; The string address is registered in t0
+PUT_STRING:
+        addi s0, s0, -8                 # Allocate memory in stack to push register        
+        sw t1, 0(s0)
+loop_char:
+        lb t1, 0(t0)
+        beqz t1, done_char
+        jal ra, PUT_CHAR
+        addi t0, t0, 1                  # Traverse addresses for each char in message
+        j loop_char
+done_char:
+        lw t1, 0(s0)
+        addi s0, s0, 8                  # Free memory in stack
+        ret
+            
+    
 ; Display a char
 ; The char registered in t1      
 PUT_CHAR:
