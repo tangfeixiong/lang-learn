@@ -12,3 +12,7 @@ java/**/*.zip
 .idea
 **/*.iml
 java/out/
+
+*.ppt
+*.pdf
+.DS_Store
