@@ -34,8 +34,10 @@ line_feed .byte 0x0A                    # ascii '\n'
 .align 2
 timers_count
         .word 0x000006                  # Amount of timers
+.align 2
 timers_remaining_seconds
         .word 0, 0, 0, 0, 0, 0          # Hold remaining seconds for all 6 timers
+.align 2
 
 .section .text
 .global main
@@ -255,6 +257,7 @@ countdown_all:
         li t5, 0(a6)                    
         beqz t5, 2f
         addi t5, t5, -1
+        sw t5, 0(a6)                    # Save new time
         lw s9, a6                       # Store value temporary
         lw a7, t6                       # show time arguments
         lw a6, t5
