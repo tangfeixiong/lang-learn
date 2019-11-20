@@ -151,17 +151,6 @@ display_timer:
         addi s0, s0, 120                # Free memory in stack
         ret
         
-# Display remaining time for speified timer number
-# Register param: 
-#   a7: timer number
-#   a1: remaining seconds
-# Exception:
-#   Invalid timer number
-#   Time is out of bounds
-show_time:
-
-
-        ret
 
 # Display string (ended with null)
 # The string address is registered in t0
@@ -180,22 +169,54 @@ put_string:
             
     
 # Display a char
-# The char registered in t1      
+# Reg param:
+#   a7: char
+#   a6: row
+#   a5: column
+# Exception:
+#   Char is not alphabet or such code (\t, ' ', \n)      
 put_char:
-        addi s0, s0, -16                # Allocate memory in stack to push register
+        addi s0, s0, -16                # Allocate memory in stack
 1:      sw t1, 0(s0)                    # Push
         sw t2, 4(s0)
         sw t3, 8(s0)
-        ; sw t4, 12(s0)
 poll:   lw t2, REG_DISP_CTRL            
         beqz t2, poll                   # Check ready status of displayer
         li t3, REG_DISP_DATA            
+        lb t1, a7
         sw t1, 0(t3)                    # Write a char into mm of displayer
 2:      ; lw t4, 12(s0)                 # Pop
         lw t3, 8(s0)
         lw t2, 4(s0)
         lw t1, 0(s0)
         addi s0, s0, 16                 # Free memory in stack
+        ret        
+            
+    
+# Move display cursor
+# Reg param:
+#   a7: row
+#   a6: column     
+# Exception:
+#   row is exceeded
+#   col is exceeded 
+move_cursor:
+        addi sp, sp, -16                # Allocate memory in stack to push register
+        sw t6, 0(sp)                    # Push
+        sw t5, 4(sp)
+        lb t6, a7                       # Format row and col to send
+        slli t6, 20
+        lb t5, a6
+        slli t5, 8
+        add t6, t6, t5
+        addi t6, t6, 0x07 
+poll:   lw t5, REG_DISP_CTRL            
+        beqz t5, poll                   # Check ready status of displayer
+        li t5, REG_DISP_DATA            
+        sw t6, 0(t5)                    # Send into mmr of displayer
+        lw t6, 0(sp)                    # Pop
+        lw t5, 4(sp)
+        addi sp, sp, 16                 # Free memory in stack
         ret        
 
 
@@ -261,7 +282,7 @@ countdown_all:
         lw s9, a6                       # Store value temporary
         lw a7, t6                       # show time arguments
         lw a6, t5
-        jal show_time
+        jal ra, show_time
         lw a6, s9                       # Restore value
         lw a7, s11
 2:                                      # Next timer
@@ -276,5 +297,95 @@ countdown_all:
         lw s9, 40(sp)
         lw t6, 96(sp)
         lw t5, 100(sp)
+        addi sp, sp, 128
+        ret
+
+
+# Display remaining time for speified timer number
+# Register param: 
+#   a7: timer number, also meaning row that display cursor should move to
+#   a6: remaining seconds
+# Exception:
+#   Invalid timer number
+#   Time is out of bounds
+show_time:
+        addi sp, sp, -128
+        sw a7, 0(sp)
+        sw a6, 4(sp)
+        sw a5, 8(sp)
+        sw a3, 16(sp)
+        sw a2, 20(sp)
+        sw a1, 24(sp)
+        sw a0, 28(sp)
+        sw s11, 32(sp)
+        sw s10, 36(sp)
+        sw s9, 40(sp)
+        sw s8, 44(sp)
+        sw s7, 48(sp)
+        sw t0, 80(sp)
+        sw t1, 84(sp) 
+
+        lw s11, a7                       
+        lw s10, a6
+        lw s9, 9                        # The 1st column to show time
+        li s8, 60                       # Minite base (60 seconds)
+        li s7, 10                       # Decimal base 10
+
+        div t0, a6, s8                  # Calculate timer count into minutes and seconds
+        rem t1, a6, s8
+        div a0, t0, s7                  # Calculate minutes
+        rem a1, t0, s7
+        div a2, t1, s7                  # Calculate seconds
+        rem a3, t1, s7
+
+        lw a7, s11                      # Row to cursor
+        lw a6, s9                       # Col to cursor
+        jal ra, move_cursor
+        addi s0, a6, 1                  # Save new col 
+        addi a5, a6, 0
+        addi a6, s11, 0
+        addi a7, a0, 0x30
+        jal ra, put_char
+        
+        lw a7, s11
+        lw a6, s0
+        jal ra, move_cursor
+        addi s0, a6, 2
+        addi a5, a6, 0
+        addi a6, s11, 0
+        addi a7, a1, 0x30
+        jal ra, put_char
+        
+        lw a7, s11
+        lw a6, s0
+        jal ra, move_cursor
+        addi s0, a6, 1
+        addi a5, a6, 0
+        addi a6, s11, 0
+        addi a7, a2, 0x30
+        jal ra, put_char
+        
+        lw a7, s11
+        lw a6, s0
+        jal ra, move_cursor
+        addi a5, a6, 0
+        addi a6, s11, 0
+        addi a7, a3, 0x30
+        jal ra, put_char
+
+        lw a7, 0(sp)
+        lw a6, 4(sp)
+        lw a5, 8(sp)
+        lw a3, 16(sp)
+        lw a2, 20(sp)
+        lw a1, 24(sp)
+        lw a0, 28(sp)
+        lw s11, 32(sp)
+        lw s10, 36(sp)
+        lw s9, 40(sp)
+        lw s8, 44(sp)
+        lw s7, 48(sp)
+        lw t0, 80(sp)
+        lw t1, 84(sp)         
         addi sp, sp, 128
         ret
