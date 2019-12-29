@@ -1,0 +1,639 @@
+# Hands-on: Build gousb and libusb
+
+## Make
+### Linux
+
+ubuntu
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/go-to-kubernetes$ git clone https://github.com/google/gousb /Users/fanhongling/go/src/github.com/google/gousb
+Cloning into '/Users/fanhongling/go/src/github.com/google/gousb'...
+remote: Enumerating objects: 22, done.
+remote: Counting objects: 100% (22/22), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 1938 (delta 9), reused 16 (delta 7), pack-reused 1916
+Receiving objects: 100% (1938/1938), 3.51 MiB | 696.00 KiB/s, done.
+Resolving deltas: 100% (1344/1344), done.
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com$ go test -v -run OpenDevice /Users/fanhongling/go/src/github.com/google/gousb/...
+# pkg-config --cflags  -- libusb-1.0
+Package libusb-1.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libusb-1.0.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libusb-1.0' found
+pkg-config: exit status 1
+FAIL	github.com/google/gousb [build failed]
+# pkg-config --cflags  -- libusb-1.0
+Package libusb-1.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libusb-1.0.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libusb-1.0' found
+pkg-config: exit status 1
+FAIL	github.com/google/gousb/usbid [build failed]
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com$ sudo apt-get install libusb-1.0-0-dev 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  fontconfig fonts-font-awesome libdatrie1 libdbi1 libhiredis0.13 libjemalloc1 libjs-bootstrap libjs-d3 libjs-jquery-form libjs-jquery-metadata
+  libjs-jquery-tablesorter libjs-rickshaw libmysqlclient20 libndpi5 libnorm1 libpango-1.0-0 libpangoft2-1.0-0 libpgm-5.2-0 libsodium23 libthai-data
+  libthai0 libwireshark-data libxcb-render0 libxcb-shm0 libxrender1 libzmq5 mysql-common ntopng-data redis-server redis-tools
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  libusb-1.0-doc
+The following NEW packages will be installed:
+  libusb-1.0-0-dev libusb-1.0-doc
+0 upgraded, 2 newly installed, 0 to remove and 151 not upgraded.
+Need to get 230 kB of archives.
+After this operation, 1774 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu bionic/main amd64 libusb-1.0-0-dev amd64 2:1.0.21-2 [60.5 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 libusb-1.0-doc all 2:1.0.21-2 [170 kB]
+Fetched 230 kB in 2s (100 kB/s)     
+Selecting previously unselected package libusb-1.0-0-dev:amd64.
+(Reading database ... 141625 files and directories currently installed.)
+Preparing to unpack .../libusb-1.0-0-dev_2%3a1.0.21-2_amd64.deb ...
+Unpacking libusb-1.0-0-dev:amd64 (2:1.0.21-2) ...
+Selecting previously unselected package libusb-1.0-doc.
+Preparing to unpack .../libusb-1.0-doc_2%3a1.0.21-2_all.deb ...
+Unpacking libusb-1.0-doc (2:1.0.21-2) ...
+Setting up libusb-1.0-doc (2:1.0.21-2) ...
+Setting up libusb-1.0-0-dev:amd64 (2:1.0.21-2) ...
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com$ go test -v -run OpenDevice /Users/fanhongling/go/src/github.com/google/gousb/...
+=== RUN   TestOpenDeviceWithVIDPID
+=== PAUSE TestOpenDeviceWithVIDPID
+=== CONT  TestOpenDeviceWithVIDPID
+--- PASS: TestOpenDeviceWithVIDPID (0.00s)
+PASS
+ok  	github.com/google/gousb	0.005s
+?   	github.com/google/gousb/lsusb	[no test files]
+?   	github.com/google/gousb/rawread	[no test files]
+testing: warning: no tests to run
+PASS
+ok  	github.com/google/gousb/usbid	0.021s [no tests to run]
+?   	github.com/google/gousb/usbid/regen	[no test files]
+```
+
+### Mac
+
+Darwin
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ uname -a
+Darwin fanhonglingdeMacBook-Pro.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64
+```
+
+```
+fanhonglingdeMacBook-Pro:go-to-kubernetes fanhongling$ git clone git://github.com/libusb/libusb.git ~/Downloads/workspace/src/github.com/libusb/libsub
+Cloning into '/Users/fanhongling/Downloads/workspace/src/github.com/libusb/libsub'...
+remote: Enumerating objects: 35, done.
+remote: Counting objects: 100% (35/35), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 13781 (delta 13), reused 19 (delta 3), pack-reused 13746
+Receiving objects: 100% (13781/13781), 3.82 MiB | 650.00 KiB/s, done.
+Resolving deltas: 100% (9970/9970), done.
+Checking connectivity... done.
+```
+
+```
+fanhonglingdeMacBook-Pro:go-to-kubernetes fanhongling$ cd ../../libusb/libsub/
+fanhonglingdeMacBook-Pro:libsub fanhongling$ ls
+AUTHORS			Makefile.am		README.md		appveyor_cygwin.bat	doc			tests
+Brewfile		NEWS			TODO			appveyor_minGW.bat	examples		travis-autogen.sh
+COPYING			PORTING			Xcode			autogen.sh		libusb
+ChangeLog		README			android			bootstrap.sh		libusb-1.0.pc.in
+INSTALL_WIN.txt		README.git		appveyor.yml		configure.ac		msvc
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ ./autogen.sh 
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal --force -I m4
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+autoreconf: running: /opt/gnu/bin/autoconf --force
+autoreconf: running: /opt/gnu/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:37: installing './compile'
+configure.ac:39: installing './config.guess'
+configure.ac:39: installing './config.sub'
+configure.ac:29: installing './install-sh'
+configure.ac:29: installing './missing'
+Makefile.am: installing './INSTALL'
+examples/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory `.'
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... ./install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking build system type... x86_64-apple-darwin14.4.0
+checking host system type... x86_64-apple-darwin14.4.0
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Library/Developer/CommandLineTools/usr/bin/ld
+checking if the linker (/Library/Developer/CommandLineTools/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin14.4.0 file names to x86_64-apple-darwin14.4.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin14.4.0 file names to toolchain format... func_convert_file_noop
+checking for /Library/Developer/CommandLineTools/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Library/Developer/CommandLineTools/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin14.4.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /Library/Developer/CommandLineTools/usr/bin/ld
+checking if the linker (/Library/Developer/CommandLineTools/usr/bin/ld) is GNU ld... no
+checking whether the g++ linker (/Library/Developer/CommandLineTools/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fno-common -DPIC
+checking if g++ PIC flag -fno-common -DPIC works... yes
+checking if g++ static flag -static works... no
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/Library/Developer/CommandLineTools/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin14.4.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for windres... no
+checking for inline... inline
+checking operating system... Darwin/Mac OS X
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking for nfds_t... yes
+checking sys/timerfd.h usability... no
+checking sys/timerfd.h presence... no
+checking for sys/timerfd.h... no
+checking whether TFD_NONBLOCK is declared... no
+checking whether TFD_CLOEXEC is declared... no
+checking whether to use timerfd for timing... no (header not available)
+checking for pipe2... no
+checking for struct timespec... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sigaction... yes
+checking whether CC supports -std=gnu99... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libusb-1.0.pc
+config.status: creating Makefile
+config.status: creating libusb/Makefile
+config.status: creating examples/Makefile
+config.status: creating tests/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/doxygen.cfg
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ make
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+Making all in libusb
+  CC       libusb_1_0_la-core.lo
+  CC       libusb_1_0_la-descriptor.lo
+  CC       libusb_1_0_la-hotplug.lo
+  CC       libusb_1_0_la-io.lo
+  CC       libusb_1_0_la-strerror.lo
+  CC       libusb_1_0_la-sync.lo
+  CC       os/libusb_1_0_la-poll_posix.lo
+  CC       os/libusb_1_0_la-threads_posix.lo
+  CC       os/libusb_1_0_la-darwin_usb.lo
+  CCLD     libusb-1.0.la
+Making all in doc
+make[2]: Nothing to be done for `all'.
+Making all in examples
+  CC       listdevs.o
+  CCLD     listdevs
+  CC       xusb.o
+  CCLD     xusb
+  CC       fxload-ezusb.o
+  CC       fxload-fxload.o
+  CCLD     fxload
+  CC       hotplugtest.o
+  CCLD     hotplugtest
+  CC       testlibusb.o
+  CCLD     testlibusb
+  CC       dpfp.o
+  CCLD     dpfp
+  CC       dpfp_threaded-dpfp_threaded.o
+  CCLD     dpfp_threaded
+  CC       sam3u_benchmark.o
+  CCLD     sam3u_benchmark
+Making all in tests
+  CC       stress.o
+  CC       testlib.o
+  CCLD     stress
+make[2]: Nothing to be done for `all-am'.
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ sudo make install
+Password:
+Making install in libusb
+ .././install-sh -c -d '/usr/local/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libusb-1.0.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.0.dylib /usr/local/lib/libusb-1.0.0.dylib
+libtool: install: (cd /usr/local/lib && { ln -s -f libusb-1.0.0.dylib libusb-1.0.dylib || { rm -f libusb-1.0.dylib && ln -s libusb-1.0.0.dylib libusb-1.0.dylib; }; })
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.lai /usr/local/lib/libusb-1.0.la
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.a /usr/local/lib/libusb-1.0.a
+libtool: install: chmod 644 /usr/local/lib/libusb-1.0.a
+libtool: install: ranlib /usr/local/lib/libusb-1.0.a
+ .././install-sh -c -d '/usr/local/include/libusb-1.0'
+ /usr/bin/install -c -m 644 libusb.h '/usr/local/include/libusb-1.0'
+Making install in doc
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in examples
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in tests
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Nothing to be done for `install-exec-am'.
+ ./install-sh -c -d '/usr/local/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libusb-1.0.pc '/usr/local/lib/pkgconfig'
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go install github.com/google/gousb/lsusb/...
+# pkg-config --cflags  -- libusb-1.0
+pkg-config: exec: "pkg-config": executable file not found in $PATH
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ git clone https://github.com/rjeczalik/pkgconfig ~/go/src/github.com/rjeczalik/pkgconfig
+Cloning into '/Users/fanhongling/go/src/github.com/rjeczalik/pkgconfig'...
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 98 (delta 0), reused 1 (delta 0), pack-reused 97
+Unpacking objects: 100% (98/98), done.
+Checking connectivity... done.
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go install -v github.com/rjeczalik/pkgconfig/cmd/pkg-config/...
+github.com/rjeczalik/pkgconfig
+github.com/rjeczalik/pkgconfig/cmd/pkg-config
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go install github.com/google/gousb/lsusb/...
+# github.com/google/gousb/lsusb
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000006.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000007.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000008.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000009.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000010.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000011.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000012.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000013.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000014.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000015.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000016.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000017.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000018.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000019.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000022.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000023.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000024.o) was built for newer OSX version (10.11) than being linked (10.10)
+ld: warning: object file (/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/go-link-519456544/000025.o) was built for newer OSX version (10.11) than being linked (10.10)
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ make CXXFLAGS="-mmacosx-version-min=10.10"
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+Making all in libusb
+  CC       libusb_1_0_la-core.lo
+  CC       libusb_1_0_la-descriptor.lo
+  CC       libusb_1_0_la-hotplug.lo
+  CC       libusb_1_0_la-io.lo
+  CC       libusb_1_0_la-strerror.lo
+  CC       libusb_1_0_la-sync.lo
+  CC       os/libusb_1_0_la-poll_posix.lo
+  CC       os/libusb_1_0_la-threads_posix.lo
+  CC       os/libusb_1_0_la-darwin_usb.lo
+  CCLD     libusb-1.0.la
+Making all in doc
+make[2]: Nothing to be done for `all'.
+Making all in examples
+  CC       listdevs.o
+  CCLD     listdevs
+  CC       xusb.o
+  CCLD     xusb
+  CC       fxload-ezusb.o
+  CC       fxload-fxload.o
+  CCLD     fxload
+  CC       hotplugtest.o
+  CCLD     hotplugtest
+  CC       testlibusb.o
+  CCLD     testlibusb
+  CC       dpfp.o
+  CCLD     dpfp
+  CC       dpfp_threaded-dpfp_threaded.o
+  CCLD     dpfp_threaded
+  CC       sam3u_benchmark.o
+  CCLD     sam3u_benchmark
+Making all in tests
+  CC       stress.o
+  CC       testlib.o
+  CCLD     stress
+make[2]: Nothing to be done for `all-am'.
+fanhonglingdeMacBook-Pro:libsub fanhongling$ sudo make install
+Password:
+Making install in libusb
+ .././install-sh -c -d '/usr/local/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libusb-1.0.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.0.dylib /usr/local/lib/libusb-1.0.0.dylib
+libtool: install: (cd /usr/local/lib && { ln -s -f libusb-1.0.0.dylib libusb-1.0.dylib || { rm -f libusb-1.0.dylib && ln -s libusb-1.0.0.dylib libusb-1.0.dylib; }; })
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.lai /usr/local/lib/libusb-1.0.la
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.a /usr/local/lib/libusb-1.0.a
+libtool: install: chmod 644 /usr/local/lib/libusb-1.0.a
+libtool: install: ranlib /usr/local/lib/libusb-1.0.a
+ .././install-sh -c -d '/usr/local/include/libusb-1.0'
+ /usr/bin/install -c -m 644 libusb.h '/usr/local/include/libusb-1.0'
+Making install in doc
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in examples
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+Making install in tests
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Nothing to be done for `install-exec-am'.
+ ./install-sh -c -d '/usr/local/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libusb-1.0.pc '/usr/local/lib/pkgconfig'
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ cat m4/libtool.m4 | grep MACOSX_DEPLOYMENT_TARGET
+      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ export MACOSX_DEPLOYMENT_TARGET=10.10
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ make CXXFLAGS="-mmacosx-version-min=10.7 -mtriple=x86_64-apple-macosx10.7"
+/Library/Developer/CommandLineTools/usr/bin/make  all-recursive
+Making all in libusb
+  CC       libusb_1_0_la-core.lo
+  CC       libusb_1_0_la-descriptor.lo
+  CC       libusb_1_0_la-hotplug.lo
+  CC       libusb_1_0_la-io.lo
+  CC       libusb_1_0_la-strerror.lo
+  CC       libusb_1_0_la-sync.lo
+  CC       os/libusb_1_0_la-poll_posix.lo
+  CC       os/libusb_1_0_la-threads_posix.lo
+  CC       os/libusb_1_0_la-darwin_usb.lo
+  CCLD     libusb-1.0.la
+Making all in doc
+make[2]: Nothing to be done for `all'.
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ sudo make install
+Password:
+Making install in libusb
+ .././install-sh -c -d '/usr/local/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libusb-1.0.la '/usr/local/lib'
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.0.dylib /usr/local/lib/libusb-1.0.0.dylib
+libtool: install: (cd /usr/local/lib && { ln -s -f libusb-1.0.0.dylib libusb-1.0.dylib || { rm -f libusb-1.0.dylib && ln -s libusb-1.0.0.dylib libusb-1.0.dylib; }; })
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.lai /usr/local/lib/libusb-1.0.la
+libtool: install: /usr/bin/install -c .libs/libusb-1.0.a /usr/local/lib/libusb-1.0.a
+libtool: install: chmod 644 /usr/local/lib/libusb-1.0.a
+libtool: install: ranlib /usr/local/lib/libusb-1.0.a
+ .././install-sh -c -d '/usr/local/include/libusb-1.0'
+ /usr/bin/install -c -m 644 libusb.h '/usr/local/include/libusb-1.0'
+Making install in doc
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Nothing to be done for `install-exec-am'.
+ ./install-sh -c -d '/usr/local/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libusb-1.0.pc '/usr/local/lib/pkgconfig'
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go version
+go version go1.11 darwin/amd64
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go get golang.org/dl/go1.10.7
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go1.10.7 download
+Downloaded   0.0% (   15145 / 90335150 bytes) ...
+Downloaded   0.1% (   47913 / 90335150 bytes) ...
+Downloaded   0.4% (  359197 / 90335150 bytes) ...
+...
+Downloaded  99.6% (89930525 / 90335150 bytes) ...
+Downloaded 100.0% (90335150 / 90335150 bytes)
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go1.10.7 version
+go version go1.10.7 darwin/amd64
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go1.10.7 install -v github.com/rjeczalik/pkgconfig/cmd/pkg-config/...
+github.com/rjeczalik/pkgconfig
+github.com/rjeczalik/pkgconfig/cmd/pkg-config
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ go1.10.7 install -v github.com/google/gousb/lsusb/...
+```
+
+#### Demo
+
+while no USB device
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ lsusb -debug 3
+020.129 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused) Single TT
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+021.128 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+```
+
+USB stick plugin
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ lsusb -debug 3
+020.003 0951:1665 Digital DataTraveler SE9 64GB (Kingston Technology)
+  Protocol: (Defined at Interface level)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x02(2,OUT) 0x81(1,IN)])
+      Mass Storage (SCSI) Bulk-Only
+      ep #1 IN (address 0x81) bulk [512 bytes]
+      ep #2 OUT (address 0x02) bulk [512 bytes]
+    --------------
+020.129 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused) Single TT
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+021.128 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+```
+
+USB drive plugin
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ lsusb -debug 3
+021.004 4971:1024 Unknown (SimpleTech)
+  Protocol: (Defined at Interface level)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x02(2,OUT) 0x81(1,IN)])
+      Mass Storage (SCSI) Bulk-Only
+      ep #1 IN (address 0x81) bulk [1024 bytes]
+      ep #2 OUT (address 0x02) bulk [1024 bytes]
+    Interface 0 alternate setting 1 (available endpoints: [0x02(2,OUT) 0x04(4,OUT) 0x81(1,IN) 0x83(3,IN)])
+      Mass Storage (SCSI)
+      ep #1 IN (address 0x81) bulk [1024 bytes]
+      ep #2 OUT (address 0x02) bulk [1024 bytes]
+      ep #3 IN (address 0x83) bulk [1024 bytes]
+      ep #4 OUT (address 0x04) bulk [1024 bytes]
+    --------------
+020.003 0951:1665 Digital DataTraveler SE9 64GB (Kingston Technology)
+  Protocol: (Defined at Interface level)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x02(2,OUT) 0x81(1,IN)])
+      Mass Storage (SCSI) Bulk-Only
+      ep #1 IN (address 0x81) bulk [512 bytes]
+      ep #2 OUT (address 0x02) bulk [512 bytes]
+    --------------
+020.129 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused) Single TT
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+021.128 05ac:8007 XHCI Root Hub USB 2.0 Simulation (Apple, Inc.)
+  Protocol: Hub (Unused)
+  Configuration 1:
+    --------------
+    Interface 0 alternate setting 0 (available endpoints: [0x81(1,IN)])
+      Hub (Unused) Full speed (or root) hub
+      ep #1 IN (address 0x81) interrupt - undefined usage [2 bytes]
+    --------------
+```
+
+```
+fanhonglingdeMacBook-Pro:libsub fanhongling$ ls /Volumes/
+Macintosh HD	TOURO Mobile	WIN10-BOOT-USB
+```
