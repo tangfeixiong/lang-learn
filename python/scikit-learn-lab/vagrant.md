@@ -1,3 +1,7 @@
+__Provide VM__
+
+Ubuntu 18.04 Vagrant image failed to configure private network interface
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Box 'u1804_at_cloud-images_dot_ubuntu_dot_com' could not be found. Attempting to find and install...
@@ -92,14 +96,17 @@ Stderr from the command:
 bash: line 4: /sbin/ifdown: No such file or directory
 bash: line 20: /sbin/ifup: No such file or directory
 
+```
 
 
-
-
-
+VirtualBox command
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ VBoxManage list runningvms
-"go-to-kubernetes_default_1513507231694_54213" {be44b6c5-a7e9-4afc-ae0d-0e3a7acce03a}
 "scikit-learn-lab_default_1542195237244_50777" {cdb2fbc6-b584-4381-8dd4-ae996b928283}
+```
+
+Vagrant command _ssh_
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant ssh
 Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
@@ -120,8 +127,10 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
 0 packages can be updated.
 0 updates are security updates.
+```
 
-
+Private network interface
+```
 vagrant@ubuntu-bionic:~$ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -137,10 +146,10 @@ vagrant@ubuntu-bionic:~$ ip a
        valid_lft forever preferred_lft forever
 3: enp0s8: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
     link/ether 08:00:27:e5:e2:33 brd ff:ff:ff:ff:ff:ff
+```
 
-
-
-
+Private network configuration
+```
 vagrant@ubuntu-bionic:~$ cat /etc/network/interfaces
 # ifupdown has been replaced by netplan(5) on this system.  See
 # /etc/netplan for current configuration.
@@ -152,9 +161,10 @@ auto enp0s8
 iface enp0s8 inet dhcp
     post-up route del default dev $IFACE || true
 #VAGRANT-END
+```
 
-
-
+APT install network tool
+```
 vagrant@ubuntu-bionic:~$ sudo apt install ifupdown
 Reading package lists... Done
 Building dependency tree       
@@ -178,12 +188,17 @@ Created symlink /etc/systemd/system/network-online.target.wants/networking.servi
 Processing triggers for ureadahead (0.100.0-20) ...
 Processing triggers for systemd (237-3ubuntu10.3) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+```
 
-
-
+Quit guest machine
+```
 vagrant@ubuntu-bionic:~$ exit
 logout
 Connection to 127.0.0.1 closed.
+```
+
+Vagrant command _reload_
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant reload
 ==> default: Attempting graceful shutdown of VM...
 ==> default: Clearing any previously set forwarded ports...
@@ -217,8 +232,10 @@ fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant reload
 ==> default: Mounting shared folders...
     default: /Users/fanhongling/go => /Users/fanhongling/go
     default: /Users/fanhongling/Downloads => /Users/fanhongling/Downloads
+```
 
-
+The guest is OK
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant ssh
 Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
@@ -239,8 +256,10 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
 0 packages can be updated.
 0 updates are security updates.
+```
 
-
+The private network is OK
+```
 vagrant@ubuntu-bionic:~$ ip a show enp0s8
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
     link/ether 08:00:27:e5:e2:33 brd ff:ff:ff:ff:ff:ff
@@ -248,11 +267,25 @@ vagrant@ubuntu-bionic:~$ ip a show enp0s8
        valid_lft forever preferred_lft forever
     inet6 fe80::a00:27ff:fee5:e233/64 scope link 
        valid_lft forever preferred_lft forever
+```
 
+__Default ssh key pair__
 
+Already has vagrant default public key
+```
+vagrant@ubuntu-bionic:~$ cat .ssh/authorized_keys 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key
+```
+
+Quit
+```
 vagrant@ubuntu-bionic:~$ exit
 logout
 Connection to 127.0.0.1 closed.
+```
+
+Require vagrant default private key
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ ssh vagrant@172.28.128.4
 The authenticity of host '172.28.128.4 (172.28.128.4)' can't be established.
 RSA key fingerprint is 45:d9:36:e5:7e:1c:a8:9e:66:2d:98:7c:81:9c:87:3f.
@@ -260,20 +293,16 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added '172.28.128.4' (RSA) to the list of known hosts.
 Permission denied (publickey).
 
+```
 
-
-
-
-vagrant@ubuntu-bionic:~$ cat .ssh/authorized_keys 
-ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key
-
-
+Directory of vagrant default private key
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ ls ~/.vagrant.d/insecure_private_key 
 /Users/fanhongling/.vagrant.d/insecure_private_key
-fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ ls .vagrant/machines/default/virtualbox/
-action_set_name	creator_uid	id		index_uuid	vagrant_cwd
+```
 
-
+So ssh with private network addr
+```
 fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ ssh -i ~/.vagrant.d/insecure_private_key vagrant@172.28.128.4
 Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
@@ -298,5 +327,19 @@ Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-38-generic x86_64)
 
 Last login: Wed Nov 14 12:27:54 2018 from 172.28.128.1
 vagrant@ubuntu-bionic:~$ 
+```
 
+__Others__
 
+Vagrant footprint of guest machine
+```
+fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ ls .vagrant/machines/default/virtualbox/
+action_set_name	creator_uid	id		index_uuid	vagrant_cwd
+```
+
+Vagrant plugins
+```
+fanhonglingdeMacBook-Pro:scikit-learn-lab fanhongling$ vagrant plugin list
+vagrant-share (1.1.9, system)
+vagrant-vbguest (0.17.2)
+```

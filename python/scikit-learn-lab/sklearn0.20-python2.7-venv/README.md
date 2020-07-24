@@ -1,15 +1,29 @@
 
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/scikit-learn-lab/sklearn0.20-python2.7-venv$ git clone -b 0.20.X https://github.com/scikit-learn/scikit-learn github.com/scikit-learn/scikit-learn
+Cloning into 'github.com/scikit-learn/scikit-learn'...
+remote: Enumerating objects: 28, done.
+remote: Counting objects: 100% (28/28), done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 161560 (delta 7), reused 8 (delta 4), pack-reused 161532
+Receiving objects: 100% (161560/161560), 93.60 MiB | 124.00 KiB/s, done.
+Resolving deltas: 100% (120690/120690), done.
+Checking out files: 100% (1207/1207), done.
+```
+
 ### Linux
 
+```
 vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/scikit-learn-lab/scikit-learn-0.21-python2.7-venv$ virtualenv venv-linux
 New python executable in /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/scikit-learn-lab/scikit-learn-0.21-python2.7-venv/venv-linux/bin/python
 Installing setuptools, pip, wheel...
 done.
+```
 
-
+```
 vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/scikit-learn-lab$ scikit-learn-0.21-python2.7-venv/venv-linux/bin/python --version
 Python 2.7.15rc1
-
+```
 
 ### Mac
 

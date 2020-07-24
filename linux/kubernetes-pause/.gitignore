@@ -1,0 +1,7 @@
+.deps/
+autom4te.cache
+*.log
+*.in~
+pause
+*.o
+stamp-h1

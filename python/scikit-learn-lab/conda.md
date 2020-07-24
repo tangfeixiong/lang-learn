@@ -1,18 +1,27 @@
 
+__reference__
+
 https://conda.io/docs/user-guide/install/linux.html
-
-
 https://www.anaconda.com/download/#linux
 
+__Deploy__
+
+Download bootstrap script
+```
 vagrant@ubuntu-bionic:~$ curl -jkSLO https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  636M  100  636M    0     0   460k      0  0:23:37  0:23:37 --:--:--  520k
+```
 
+Script file
+```
 vagrant@ubuntu-bionic:~$ ls -l Anaconda3-5.3.0-Linux-x86_64.sh 
 -rw-rw-r-- 1 vagrant vagrant 667822837 Nov 14 14:00 Anaconda3-5.3.0-Linux-x86_64.sh
+```
 
-
+Execute script
+```
 vagrant@ubuntu-bionic:~$ bash Anaconda3-5.3.0-Linux-x86_64.sh 
 
 Welcome to Anaconda3 5.3.0
@@ -414,20 +423,41 @@ Visual Studio Code License: https://code.visualstudio.com/license
 
 Do you wish to proceed with the installation of Microsoft VSCode? [yes|no]
 >>> no
+```
 
-
-
+Refresh env
+```
 vagrant@ubuntu-bionic:~$ . .bashrc
-vagrant@ubuntu-bionic:~$ conda --version
-conda 4.5.11
+```
 
-
+Installed under HOME
+```
 vagrant@ubuntu-bionic:~$ echo $PATH
 /home/vagrant/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+
+Versioned conda
+```
+vagrant@ubuntu-bionic:~$ conda --version
+conda 4.5.11
+```
+
+__Python__
+
+Python3 is also installed
+```
 vagrant@ubuntu-bionic:~$ which python
 /home/vagrant/anaconda3/bin/python
+```
+
+Versioned python
+```
 vagrant@ubuntu-bionic:~$ which python3.7
 /home/vagrant/anaconda3/bin/python3.7
+```
+
+Python3 is default python
+```
 vagrant@ubuntu-bionic:~$ python --version
 Python 3.7.0
-
+```

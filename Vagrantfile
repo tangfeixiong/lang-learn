@@ -12,11 +12,14 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu-18.04-server-cloud"
-  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
-  # refer to https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190212.1.0
+  ###--- https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190212.1.0 ---
   #config.vm.box = "ubuntu/bionic64"
   #config.vm.box_version = "20190212.1.0"
+  ###--- https://cloud-images.ubuntu.com/releases ---
+  #config.vm.box = "ubuntu-bionic-18.04-server-cloud"
+  #config.vm.box_url = "https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
+  config.vm.box = "ubuntu-focal-20.04-server-cloud"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/focal/release-20200625/ubuntu-20.04-server-cloudimg-amd64-vagrant.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -65,8 +68,8 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.provider "virtualbox" do |vb, override|
-    vb.cpus = "2"
-    vb.memory = "4096"
+    vb.cpus = "1"
+    vb.memory = "5120"
 
     #override.ssh.insert_key = false
     #override.vm.base_mac = "08002708697F"

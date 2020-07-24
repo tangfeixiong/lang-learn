@@ -12,9 +12,13 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu-18.04-server-cloud"
-  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/18.04/release-20181101/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
-  #config.vm.box = "ubuntu/bionic64"
+  ##--- https://app.vagrantup.com/boxes/search ---
+  ##config.vm.box = "ubuntu/bionic64"
+  ##config.vm.box = "ubuntu-18.04-server-cloud"
+  ##config.vm.box_url = "https://cloud-images.ubuntu.com/releases/18.04/release-20181101/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
+  ##config.vm.box = "ubuntu/focal64"
+  config.vm.box = "ubuntu-focal-20.04-server-cloud"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/focal/release-20200625/ubuntu-20.04-server-cloudimg-amd64-vagrant.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -25,16 +29,14 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  # Redis Server
-  config.vm.network "forwarded_port", guest: 6379, host: 6379
-  # Docker unencrypted
-  config.vm.network "forwarded_port", guest: 2375, host: 2375
+  ##---Docker unencrypted---
+  ##config.vm.network "forwarded_port", guest: 2375, host: 2375
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  ##config.vm.network "private_network", type: "dhcp"
-  config.vm.network "private_network", ip: "172.28.128.4"
-  ##config.vm.network "private_network", ip: "172.28.128.4", auto_config: false
+  config.vm.network "private_network", type: "dhcp"
+  ##config.vm.network "private_network", ip: "172.28.128.114"
+  ##config.vm.network "private_network", ip: "172.28.128.114", auto_config: false
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -49,8 +51,9 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "/Users/fanhongling/Downloads", "/Users/fanhongling/Downloads"
   config.vm.synced_folder "/Users/fanhongling/go", "/Users/fanhongling/go"
-  # config.vm.synced_folder "f:/", "/windows_drive_f"
-  # config.vm.synced_folder "g:/", "/windows_drive_g"
+  ##---windows---
+  ##config.vm.synced_folder "f:/", "/windows_drive_f"
+  ##config.vm.synced_folder "g:/", "/windows_drive_g"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -92,10 +95,10 @@ Vagrant.configure("2") do |config|
   # SHELL
 
 
-  #; https://github.com/sprotheroe/vagrant-disksize
-  config.disksize.size = '16GB'
+  ###---https://github.com/sprotheroe/vagrant-disksize---
+  config.disksize.size = '13GB'
 
-  #; https://github.com/dotless-de/vagrant-vbguest
+  ###---https://github.com/dotless-de/vagrant-vbguest---
   # we will try to autodetect this path. 
   # However, if we cannot or you have a special one you may pass it like:
   # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
@@ -112,4 +115,3 @@ Vagrant.configure("2") do |config|
   config.vbguest.no_remote = true
 
 end
-

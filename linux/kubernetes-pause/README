@@ -1,0 +1,899 @@
+# About
+
+borrowed from https://github.com/kubernetes/kubernetes/blob/master/build/pause/pause.c
+
+## autoconf
+
+configure.scan
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ autoscan 
+```
+
+configure.ac
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ mv configure.scan configure.ac
+```
+
+autoconf
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ autoconf -v
+autoconf: running /usr/bin/autom4te -v --language=autoconf --output=configure configure.ac
+autom4te: formatting traces for `/tmp/am4t1rTfji/dependencies': include, m4_include
+autom4te: up_to_date (autom4te.cache/traces.0): up to date
+autom4te: the trace request object is:
+autom4te: $VAR1 = bless( [
+autom4te:                  '0',
+autom4te:                  1,
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf'
+autom4te:                  ],
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf/autoconf/autoconf.m4f',
+autom4te:                    'configure.ac'
+autom4te:                  ],
+autom4te:                  {
+autom4te:                    'm4_pattern_forbid' => 1,
+autom4te:                    'AM_SILENT_RULES' => 1,
+autom4te:                    'AM_PROG_F77_C_O' => 1,
+autom4te:                    'AM_PROG_AR' => 1,
+autom4te:                    'AM_PROG_CC_C_O' => 1,
+autom4te:                    '_AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'm4_include' => 1,
+autom4te:                    'AC_CONFIG_HEADERS' => 1,
+autom4te:                    '_LT_AC_TAGCONFIG' => 1,
+autom4te:                    'AM_PROG_FC_C_O' => 1,
+autom4te:                    'AM_AUTOMAKE_VERSION' => 1,
+autom4te:                    'm4_sinclude' => 1,
+autom4te:                    'AC_SUBST_TRACE' => 1,
+autom4te:                    'AC_CONFIG_LIBOBJ_DIR' => 1,
+autom4te:                    'AC_DEFINE_TRACE_LITERAL' => 1,
+autom4te:                    'include' => 1,
+autom4te:                    'AM_MAINTAINER_MODE' => 1,
+autom4te:                    'AM_POT_TOOLS' => 1,
+autom4te:                    'AC_CONFIG_SUBDIRS' => 1,
+autom4te:                    'AM_GNU_GETTEXT' => 1,
+autom4te:                    '_AM_COND_IF' => 1,
+autom4te:                    'AM_PATH_GUILE' => 1,
+autom4te:                    'AC_CHECK_HEADERS' => 1,
+autom4te:                    'AC_CONFIG_FILES' => 1,
+autom4te:                    'AC_CONFIG_AUX_DIR' => 1,
+autom4te:                    'sinclude' => 1,
+autom4te:                    'LT_SUPPORTED_TAG' => 1,
+autom4te:                    'AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'AC_PREREQ' => 1,
+autom4te:                    'AM_PROG_MOC' => 1,
+autom4te:                    'AC_CANONICAL_SYSTEM' => 1,
+autom4te:                    '_AM_COND_ELSE' => 1,
+autom4te:                    'AC_SUBST' => 1,
+autom4te:                    'LT_INIT' => 1,
+autom4te:                    'AH_OUTPUT' => 1,
+autom4te:                    'AM_ENABLE_MULTILIB' => 1,
+autom4te:                    'AM_INIT_AUTOMAKE' => 1,
+autom4te:                    'AM_CONDITIONAL' => 1,
+autom4te:                    'AC_CANONICAL_HOST' => 1,
+autom4te:                    'AC_CHECK_FUNCS' => 1,
+autom4te:                    'm4_pattern_allow' => 1,
+autom4te:                    'AC_PROG_CC' => 1,
+autom4te:                    'AC_PROG_LIBTOOL' => 1,
+autom4te:                    'AC_CANONICAL_TARGET' => 1,
+autom4te:                    'AC_LIBSOURCE' => 1,
+autom4te:                    'AC_FC_PP_DEFINE' => 1,
+autom4te:                    'LT_CONFIG_LTDL_DIR' => 1,
+autom4te:                    '_AM_SUBST_NOTMAKE' => 1,
+autom4te:                    'AC_FC_SRCEXT' => 1,
+autom4te:                    'AC_INIT' => 1,
+autom4te:                    'AM_XGETTEXT_OPTION' => 1,
+autom4te:                    'AM_GNU_GETTEXT_INTL_SUBDIR' => 1,
+autom4te:                    'AC_REQUIRE_AUX_FILE' => 1,
+autom4te:                    '_AM_COND_ENDIF' => 1,
+autom4te:                    'AM_PROG_LIBTOOL' => 1,
+autom4te:                    'AC_CANONICAL_BUILD' => 1,
+autom4te:                    'AC_CONFIG_LINKS' => 1,
+autom4te:                    'AM_NLS' => 1,
+autom4te:                    'AC_FC_FREEFORM' => 1,
+autom4te:                    'AM_PROG_CXX_C_O' => 1,
+autom4te:                    '_m4_warn' => 1,
+autom4te:                    'AC_FC_PP_SRCEXT' => 1
+autom4te:                  }
+autom4te:                ], 'Autom4te::Request' );
+autom4te: formatting traces for `/tmp/am4t1rTfji/warnings': _m4_warn
+autom4te: reading /tmp/am4t1rTfji/warnings
+autom4te: creating configure
+autom4te: formatting traces for `/tmp/am4t1rTfji/patterns': m4_pattern_allow, m4_pattern_forbid
+autom4te: forbidden tokens: ^_?A[CHUM]_|_AC_|^LIBOBJS$|^_?m4_|^dnl$|^_?AS_
+autom4te: forbidden token : ^LIBOBJS$ => do not use LIBOBJS directly, use AC_LIBOBJ (see section `AC_LIBOBJ vs LIBOBJS'
+autom4te: allowed   tokens: ^AS_FLAGS$|^SHELL$|^PATH_SEPARATOR$|^PACKAGE_NAME$|^PACKAGE_TARNAME$|^PACKAGE_VERSION$|^PACKAGE_STRING$|^PACKAGE_BUGREPORT$|^PACKAGE_URL$|^exec_prefix$|^prefix$|^program_transform_name$|^bindir$|^sbindir$|^libexecdir$|^datarootdir$|^datadir$|^sysconfdir$|^sharedstatedir$|^localstatedir$|^runstatedir$|^includedir$|^oldincludedir$|^docdir$|^infodir$|^htmldir$|^dvidir$|^pdfdir$|^psdir$|^libdir$|^localedir$|^mandir$|^PACKAGE_NAME$|^PACKAGE_TARNAME$|^PACKAGE_VERSION$|^PACKAGE_STRING$|^PACKAGE_BUGREPORT$|^PACKAGE_URL$|^DEFS$|^ECHO_C$|^ECHO_N$|^ECHO_T$|^LIBS$|^build_alias$|^host_alias$|^target_alias$|^CC$|^CFLAGS$|^LDFLAGS$|^LIBS$|^CPPFLAGS$|^CC$|^CC$|^CC$|^CC$|^ac_ct_CC$|^EXEEXT$|^OBJEXT$|^CPP$|^CPPFLAGS$|^CPP$|^GREP$|^EGREP$|^STDC_HEADERS$|^HAVE_STRCASECMP$|^LIBOBJS$|^LTLIBOBJS$
+```
+
+config.h.in
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ ./configure 
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strcasecmp... yes
+configure: creating ./config.status
+config.status: error: cannot find input file: `config.h.in'
+```
+
+[autoheader](https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoheader-Invocation)
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ autoheader -v
+autoheader: autoheader: running '/usr/bin/autom4te' --language=autoconf  --verbose to trace from configure.ac
+autoheader: running: '/usr/bin/autom4te' --language=autoconf  --verbose --trace AC_CONFIG_HEADERS:'$$config_h ||= '"'"'$1'"'"';' --trace AH_OUTPUT:'$$verbatim{'"'"'$1'"'"'} = '"'"'$2'"'"';' --trace AC_DEFINE_TRACE_LITERAL:'$$symbol{'"'"'$1'"'"'} = 1;' configure.ac >/tmp/ah1aPgFd/traces.pl
+autom4te: formatting traces for `/tmp/am4taIqwyw/dependencies': include, m4_include
+autom4te: up_to_date (autom4te.cache/traces.0): up to date
+autom4te: the trace request object is:
+autom4te: $VAR1 = bless( [
+autom4te:                  '0',
+autom4te:                  1,
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf'
+autom4te:                  ],
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf/autoconf/autoconf.m4f',
+autom4te:                    'configure.ac'
+autom4te:                  ],
+autom4te:                  {
+autom4te:                    'include' => 1,
+autom4te:                    '_AM_COND_ELSE' => 1,
+autom4te:                    '_m4_warn' => 1,
+autom4te:                    'AC_CONFIG_AUX_DIR' => 1,
+autom4te:                    'AM_XGETTEXT_OPTION' => 1,
+autom4te:                    'AC_CONFIG_FILES' => 1,
+autom4te:                    'm4_pattern_allow' => 1,
+autom4te:                    'AM_SILENT_RULES' => 1,
+autom4te:                    'AC_INIT' => 1,
+autom4te:                    'LT_SUPPORTED_TAG' => 1,
+autom4te:                    'sinclude' => 1,
+autom4te:                    'AC_FC_PP_DEFINE' => 1,
+autom4te:                    '_LT_AC_TAGCONFIG' => 1,
+autom4te:                    'AC_PROG_CC' => 1,
+autom4te:                    'AC_CONFIG_LINKS' => 1,
+autom4te:                    'AC_CONFIG_HEADERS' => 1,
+autom4te:                    'm4_sinclude' => 1,
+autom4te:                    'AC_DEFINE_TRACE_LITERAL' => 1,
+autom4te:                    '_AM_SUBST_NOTMAKE' => 1,
+autom4te:                    'AC_FC_FREEFORM' => 1,
+autom4te:                    'AC_PREREQ' => 1,
+autom4te:                    'AM_CONDITIONAL' => 1,
+autom4te:                    'LT_INIT' => 1,
+autom4te:                    'AC_CANONICAL_SYSTEM' => 1,
+autom4te:                    'AC_LIBSOURCE' => 1,
+autom4te:                    'AC_SUBST_TRACE' => 1,
+autom4te:                    'AM_INIT_AUTOMAKE' => 1,
+autom4te:                    'AM_ENABLE_MULTILIB' => 1,
+autom4te:                    '_AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'AM_GNU_GETTEXT' => 1,
+autom4te:                    'AC_REQUIRE_AUX_FILE' => 1,
+autom4te:                    'AM_MAINTAINER_MODE' => 1,
+autom4te:                    'AC_CONFIG_SUBDIRS' => 1,
+autom4te:                    'm4_pattern_forbid' => 1,
+autom4te:                    '_AM_COND_ENDIF' => 1,
+autom4te:                    'AM_PROG_MOC' => 1,
+autom4te:                    'AM_PROG_LIBTOOL' => 1,
+autom4te:                    'AM_PROG_CC_C_O' => 1,
+autom4te:                    'AC_FC_SRCEXT' => 1,
+autom4te:                    'AM_PROG_AR' => 1,
+autom4te:                    '_AM_COND_IF' => 1,
+autom4te:                    'AM_POT_TOOLS' => 1,
+autom4te:                    'AC_CANONICAL_TARGET' => 1,
+autom4te:                    'AM_PROG_CXX_C_O' => 1,
+autom4te:                    'AM_NLS' => 1,
+autom4te:                    'AC_CANONICAL_HOST' => 1,
+autom4te:                    'AM_GNU_GETTEXT_INTL_SUBDIR' => 1,
+autom4te:                    'AC_CANONICAL_BUILD' => 1,
+autom4te:                    'AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'AM_AUTOMAKE_VERSION' => 1,
+autom4te:                    'AC_FC_PP_SRCEXT' => 1,
+autom4te:                    'AC_SUBST' => 1,
+autom4te:                    'AC_CHECK_FUNCS' => 1,
+autom4te:                    'm4_include' => 1,
+autom4te:                    'AM_PROG_F77_C_O' => 1,
+autom4te:                    'AM_PATH_GUILE' => 1,
+autom4te:                    'AM_PROG_FC_C_O' => 1,
+autom4te:                    'AC_PROG_LIBTOOL' => 1,
+autom4te:                    'AC_CHECK_HEADERS' => 1,
+autom4te:                    'AH_OUTPUT' => 1,
+autom4te:                    'AC_CONFIG_LIBOBJ_DIR' => 1,
+autom4te:                    'LT_CONFIG_LTDL_DIR' => 1
+autom4te:                  }
+autom4te:                ], 'Autom4te::Request' );
+autom4te: formatting traces for `/tmp/am4taIqwyw/warnings': _m4_warn
+autom4te: reading /tmp/am4taIqwyw/warnings
+autom4te: formatting traces for `-': AC_CONFIG_HEADERS, AC_DEFINE_TRACE_LITERAL, AH_OUTPUT
+autoheader: 'config.h.in' is created
+```
+
+config.h
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ ./configure 
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strcasecmp... yes
+configure: creating ./config.status
+config.status: creating config.h
+```
+
+aclocal
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ aclocal --verbose
+aclocal: found macro AM_PROG_VALAC in /usr/share/aclocal-1.15/vala.m4: 21
+aclocal: found macro AM_PROG_UPC in /usr/share/aclocal-1.15/upc.m4: 9
+aclocal: found macro _AM_PROG_TAR in /usr/share/aclocal-1.15/tar.m4: 23
+aclocal: found macro _AM_SUBST_NOTMAKE in /usr/share/aclocal-1.15/substnot.m4: 12
+aclocal: found macro AM_SUBST_NOTMAKE in /usr/share/aclocal-1.15/substnot.m4: 17
+aclocal: found macro AM_PROG_INSTALL_STRIP in /usr/share/aclocal-1.15/strip.m4: 17
+aclocal: found macro AM_SILENT_RULES in /usr/share/aclocal-1.15/silent.m4: 12
+aclocal: found macro AM_SANITY_CHECK in /usr/share/aclocal-1.15/sanity.m4: 11
+aclocal: found macro AM_RUN_LOG in /usr/share/aclocal-1.15/runlog.m4: 12
+aclocal: found macro AM_PATH_PYTHON in /usr/share/aclocal-1.15/python.m4: 35
+aclocal: found macro AM_PYTHON_CHECK_VERSION in /usr/share/aclocal-1.15/python.m4: 230
+aclocal: found macro _AM_PROG_CC_C_O in /usr/share/aclocal-1.15/prog-cc-c-o.m4: 12
+aclocal: found macro AM_PROG_CC_C_O in /usr/share/aclocal-1.15/prog-cc-c-o.m4: 47
+aclocal: found macro _AM_MANGLE_OPTION in /usr/share/aclocal-1.15/options.m4: 11
+aclocal: found macro _AM_SET_OPTION in /usr/share/aclocal-1.15/options.m4: 17
+aclocal: found macro _AM_SET_OPTIONS in /usr/share/aclocal-1.15/options.m4: 23
+aclocal: found macro _AM_IF_OPTION in /usr/share/aclocal-1.15/options.m4: 29
+aclocal: found macro AM_CONFIG_HEADER in /usr/share/aclocal-1.15/obsolete.m4: 11
+aclocal: found macro AM_PROG_CC_STDC in /usr/share/aclocal-1.15/obsolete.m4: 17
+aclocal: found macro AM_C_PROTOTYPES in /usr/share/aclocal-1.15/obsolete.m4: 26
+aclocal: found macro fp_C_PROTOTYPES in /usr/share/aclocal-1.15/obsolete.m4: 28
+aclocal: found macro AM_PROG_MKDIR_P in /usr/share/aclocal-1.15/mkdirp.m4: 11
+aclocal: found macro AM_MISSING_PROG in /usr/share/aclocal-1.15/missing.m4: 11
+aclocal: found macro AM_MISSING_HAS_RUN in /usr/share/aclocal-1.15/missing.m4: 20
+aclocal: found macro AM_MAKE_INCLUDE in /usr/share/aclocal-1.15/make.m4: 12
+aclocal: found macro AM_MAINTAINER_MODE in /usr/share/aclocal-1.15/maintainer.m4: 16
+aclocal: found macro AM_PATH_LISPDIR in /usr/share/aclocal-1.15/lispdir.m4: 14
+aclocal: found macro AM_PROG_LEX in /usr/share/aclocal-1.15/lex.m4: 13
+aclocal: found macro AM_SET_LEADING_DOT in /usr/share/aclocal-1.15/lead-dot.m4: 10
+aclocal: found macro AM_PROG_INSTALL_SH in /usr/share/aclocal-1.15/install-sh.m4: 11
+aclocal: found macro AM_INIT_AUTOMAKE in /usr/share/aclocal-1.15/init.m4: 29
+aclocal: found macro _AC_AM_CONFIG_HEADER_HOOK in /usr/share/aclocal-1.15/init.m4: 186
+aclocal: found macro AM_PROG_GCJ in /usr/share/aclocal-1.15/gcj.m4: 10
+aclocal: found macro AM_EXTRA_RECURSIVE_TARGETS in /usr/share/aclocal-1.15/extra-recurs.m4: 16
+aclocal: found macro AM_WITH_DMALLOC in /usr/share/aclocal-1.15/dmalloc.m4: 12
+aclocal: found macro _AM_OUTPUT_DEPENDENCY_COMMANDS in /usr/share/aclocal-1.15/depout.m4: 12
+aclocal: found macro AM_OUTPUT_DEPENDENCY_COMMANDS in /usr/share/aclocal-1.15/depout.m4: 71
+aclocal: found macro _AM_DEPENDENCIES in /usr/share/aclocal-1.15/depend.m4: 26
+aclocal: found macro AM_SET_DEPDIR in /usr/share/aclocal-1.15/depend.m4: 163
+aclocal: found macro AM_DEP_TRACK in /usr/share/aclocal-1.15/depend.m4: 171
+aclocal: found macro AM_CONDITIONAL in /usr/share/aclocal-1.15/cond.m4: 12
+aclocal: found macro AM_COND_IF in /usr/share/aclocal-1.15/cond-if.m4: 23
+aclocal: found macro AM_AUX_DIR_EXPAND in /usr/share/aclocal-1.15/auxdir.m4: 47
+aclocal: found macro AM_PROG_AS in /usr/share/aclocal-1.15/as.m4: 11
+aclocal: found macro AM_PROG_AR in /usr/share/aclocal-1.15/ar-lib.m4: 13
+aclocal: found macro AM_AUTOMAKE_VERSION in /usr/share/aclocal-1.15/amversion.m4: 14
+aclocal: found macro AM_SET_CURRENT_AUTOMAKE_VERSION in /usr/share/aclocal-1.15/amversion.m4: 33
+aclocal: found macro XTRANS_TCP_FLAGS in /usr/share/aclocal/xtrans.m4: 27
+aclocal: found macro XTRANS_CONNECTION_FLAGS in /usr/share/aclocal/xtrans.m4: 101
+aclocal: found macro XTRANS_SECURE_RPC_FLAGS in /usr/share/aclocal/xtrans.m4: 144
+aclocal: found macro gl_XSIZE in /usr/share/aclocal/xsize.m4: 7
+aclocal: found macro gt_TYPE_WINT_T in /usr/share/aclocal/wint_t.m4: 11
+aclocal: found macro gt_TYPE_WCHAR_T in /usr/share/aclocal/wchar_t.m4: 11
+aclocal: found macro gl_VISIBILITY in /usr/share/aclocal/visibility.m4: 23
+aclocal: found macro gl_AC_TYPE_UINTMAX_T in /usr/share/aclocal/uintmax_t.m4: 14
+aclocal: found macro gl_THREADLIB_EARLY in /usr/share/aclocal/threadlib.m4: 29
+aclocal: found macro gl_THREADLIB_EARLY_BODY in /usr/share/aclocal/threadlib.m4: 36
+aclocal: found macro gl_THREADLIB_BODY in /usr/share/aclocal/threadlib.m4: 107
+aclocal: found macro gl_THREADLIB in /usr/share/aclocal/threadlib.m4: 318
+aclocal: found macro gl_DISABLE_THREADS in /usr/share/aclocal/threadlib.m4: 331
+aclocal: found macro gl_AC_HEADER_STDINT_H in /usr/share/aclocal/stdint_h.m4: 12
+aclocal: found macro gl_SIZE_MAX in /usr/share/aclocal/size_max.m4: 9
+aclocal: found macro AC_COMPUTE_INT in /usr/share/aclocal/size_max.m4: 78
+aclocal: found macro AM_PATH_PROG_WITH_TEST in /usr/share/aclocal/progtest.m4: 25
+aclocal: found macro gt_PRINTF_POSIX in /usr/share/aclocal/printf-posix.m4: 11
+aclocal: found macro AM_PO_SUBDIRS in /usr/share/aclocal/po.m4: 23
+aclocal: found macro AM_POSTPROCESS_PO_MAKEFILE in /usr/share/aclocal/po.m4: 220
+aclocal: found macro AM_XGETTEXT_OPTION_INIT in /usr/share/aclocal/po.m4: 443
+aclocal: found macro AM_XGETTEXT_OPTION in /usr/share/aclocal/po.m4: 449
+aclocal: found macro PKG_PROG_PKG_CONFIG in /usr/share/aclocal/pkg.m4: 58
+aclocal: found macro PKG_CHECK_EXISTS in /usr/share/aclocal/pkg.m4: 92
+aclocal: found macro _PKG_SHORT_ERRORS_SUPPORTED in /usr/share/aclocal/pkg.m4: 121
+aclocal: found macro PKG_CHECK_MODULES in /usr/share/aclocal/pkg.m4: 139
+aclocal: found macro PKG_CHECK_MODULES_STATIC in /usr/share/aclocal/pkg.m4: 208
+aclocal: found macro PKG_INSTALLDIR in /usr/share/aclocal/pkg.m4: 226
+aclocal: found macro PKG_NOARCH_INSTALLDIR in /usr/share/aclocal/pkg.m4: 248
+aclocal: found macro PKG_CHECK_VAR in /usr/share/aclocal/pkg.m4: 267
+aclocal: found macro AM_NLS in /usr/share/aclocal/nls.m4: 23
+aclocal: found macro LTOBSOLETE_VERSION in /usr/share/aclocal/lt~obsolete.m4: 37
+aclocal: found macro AC_LIBTOOL_LINKER_OPTION in /usr/share/aclocal/lt~obsolete.m4: 39
+aclocal: found macro AC_PROG_EGREP in /usr/share/aclocal/lt~obsolete.m4: 40
+aclocal: found macro _LT_AC_PROG_ECHO_BACKSLASH in /usr/share/aclocal/lt~obsolete.m4: 41
+aclocal: found macro _LT_AC_SHELL_INIT in /usr/share/aclocal/lt~obsolete.m4: 42
+aclocal: found macro _LT_AC_SYS_LIBPATH_AIX in /usr/share/aclocal/lt~obsolete.m4: 43
+aclocal: found macro _LT_PROG_LTMAIN in /usr/share/aclocal/lt~obsolete.m4: 44
+aclocal: found macro _LT_AC_TAGVAR in /usr/share/aclocal/lt~obsolete.m4: 45
+aclocal: found macro AC_LTDL_ENABLE_INSTALL in /usr/share/aclocal/lt~obsolete.m4: 46
+aclocal: found macro AC_LTDL_PREOPEN in /usr/share/aclocal/lt~obsolete.m4: 47
+aclocal: found macro _LT_AC_SYS_COMPILER in /usr/share/aclocal/lt~obsolete.m4: 48
+aclocal: found macro _LT_AC_LOCK in /usr/share/aclocal/lt~obsolete.m4: 49
+aclocal: found macro AC_LIBTOOL_SYS_OLD_ARCHIVE in /usr/share/aclocal/lt~obsolete.m4: 50
+aclocal: found macro _LT_AC_TRY_DLOPEN_SELF in /usr/share/aclocal/lt~obsolete.m4: 51
+aclocal: found macro AC_LIBTOOL_PROG_CC_C_O in /usr/share/aclocal/lt~obsolete.m4: 52
+aclocal: found macro AC_LIBTOOL_SYS_HARD_LINK_LOCKS in /usr/share/aclocal/lt~obsolete.m4: 53
+aclocal: found macro AC_LIBTOOL_OBJDIR in /usr/share/aclocal/lt~obsolete.m4: 54
+aclocal: found macro AC_LTDL_OBJDIR in /usr/share/aclocal/lt~obsolete.m4: 55
+aclocal: found macro AC_LIBTOOL_PROG_LD_HARDCODE_LIBPATH in /usr/share/aclocal/lt~obsolete.m4: 56
+aclocal: found macro AC_LIBTOOL_SYS_LIB_STRIP in /usr/share/aclocal/lt~obsolete.m4: 57
+aclocal: found macro AC_PATH_MAGIC in /usr/share/aclocal/lt~obsolete.m4: 58
+aclocal: found macro AC_PROG_LD_GNU in /usr/share/aclocal/lt~obsolete.m4: 59
+aclocal: found macro AC_PROG_LD_RELOAD_FLAG in /usr/share/aclocal/lt~obsolete.m4: 60
+aclocal: found macro AC_DEPLIBS_CHECK_METHOD in /usr/share/aclocal/lt~obsolete.m4: 61
+aclocal: found macro AC_LIBTOOL_PROG_COMPILER_NO_RTTI in /usr/share/aclocal/lt~obsolete.m4: 62
+aclocal: found macro AC_LIBTOOL_SYS_GLOBAL_SYMBOL_PIPE in /usr/share/aclocal/lt~obsolete.m4: 63
+aclocal: found macro AC_LIBTOOL_PROG_COMPILER_PIC in /usr/share/aclocal/lt~obsolete.m4: 64
+aclocal: found macro AC_LIBTOOL_PROG_LD_SHLIBS in /usr/share/aclocal/lt~obsolete.m4: 65
+aclocal: found macro AC_LIBTOOL_POSTDEP_PREDEP in /usr/share/aclocal/lt~obsolete.m4: 66
+aclocal: found macro LT_AC_PROG_EGREP in /usr/share/aclocal/lt~obsolete.m4: 67
+aclocal: found macro LT_AC_PROG_SED in /usr/share/aclocal/lt~obsolete.m4: 68
+aclocal: found macro _LT_CC_BASENAME in /usr/share/aclocal/lt~obsolete.m4: 69
+aclocal: found macro _LT_COMPILER_BOILERPLATE in /usr/share/aclocal/lt~obsolete.m4: 70
+aclocal: found macro _LT_LINKER_BOILERPLATE in /usr/share/aclocal/lt~obsolete.m4: 71
+aclocal: found macro _AC_PROG_LIBTOOL in /usr/share/aclocal/lt~obsolete.m4: 72
+aclocal: found macro AC_LIBTOOL_SETUP in /usr/share/aclocal/lt~obsolete.m4: 73
+aclocal: found macro _LT_AC_CHECK_DLFCN in /usr/share/aclocal/lt~obsolete.m4: 74
+aclocal: found macro AC_LIBTOOL_SYS_DYNAMIC_LINKER in /usr/share/aclocal/lt~obsolete.m4: 75
+aclocal: found macro _LT_AC_TAGCONFIG in /usr/share/aclocal/lt~obsolete.m4: 76
+aclocal: found macro AC_DISABLE_FAST_INSTALL in /usr/share/aclocal/lt~obsolete.m4: 77
+aclocal: found macro _LT_AC_LANG_CXX in /usr/share/aclocal/lt~obsolete.m4: 78
+aclocal: found macro _LT_AC_LANG_F77 in /usr/share/aclocal/lt~obsolete.m4: 79
+aclocal: found macro _LT_AC_LANG_GCJ in /usr/share/aclocal/lt~obsolete.m4: 80
+aclocal: found macro AC_LIBTOOL_LANG_C_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 81
+aclocal: found macro _LT_AC_LANG_C_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 82
+aclocal: found macro AC_LIBTOOL_LANG_CXX_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 83
+aclocal: found macro _LT_AC_LANG_CXX_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 84
+aclocal: found macro AC_LIBTOOL_LANG_F77_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 85
+aclocal: found macro _LT_AC_LANG_F77_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 86
+aclocal: found macro AC_LIBTOOL_LANG_GCJ_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 87
+aclocal: found macro _LT_AC_LANG_GCJ_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 88
+aclocal: found macro AC_LIBTOOL_LANG_RC_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 89
+aclocal: found macro _LT_AC_LANG_RC_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 90
+aclocal: found macro AC_LIBTOOL_CONFIG in /usr/share/aclocal/lt~obsolete.m4: 91
+aclocal: found macro _LT_AC_FILE_LTDLL_C in /usr/share/aclocal/lt~obsolete.m4: 92
+aclocal: found macro _LT_REQUIRED_DARWIN_CHECKS in /usr/share/aclocal/lt~obsolete.m4: 93
+aclocal: found macro _LT_AC_PROG_CXXCPP in /usr/share/aclocal/lt~obsolete.m4: 94
+aclocal: found macro _LT_PREPARE_SED_QUOTE_VARS in /usr/share/aclocal/lt~obsolete.m4: 95
+aclocal: found macro _LT_PROG_ECHO_BACKSLASH in /usr/share/aclocal/lt~obsolete.m4: 96
+aclocal: found macro _LT_PROG_F77 in /usr/share/aclocal/lt~obsolete.m4: 97
+aclocal: found macro _LT_PROG_FC in /usr/share/aclocal/lt~obsolete.m4: 98
+aclocal: found macro _LT_PROG_CXX in /usr/share/aclocal/lt~obsolete.m4: 99
+aclocal: found macro LTVERSION_VERSION in /usr/share/aclocal/ltversion.m4: 18
+aclocal: found macro LTSUGAR_VERSION in /usr/share/aclocal/ltsugar.m4: 14
+aclocal: found macro LTOPTIONS_VERSION in /usr/share/aclocal/ltoptions.m4: 14
+aclocal: found macro AC_LIBTOOL_DLOPEN in /usr/share/aclocal/ltoptions.m4: 113
+aclocal: found macro AC_LIBTOOL_WIN32_DLL in /usr/share/aclocal/ltoptions.m4: 148
+aclocal: found macro AC_ENABLE_SHARED in /usr/share/aclocal/ltoptions.m4: 197
+aclocal: found macro AC_DISABLE_SHARED in /usr/share/aclocal/ltoptions.m4: 201
+aclocal: found macro AM_ENABLE_SHARED in /usr/share/aclocal/ltoptions.m4: 205
+aclocal: found macro AM_DISABLE_SHARED in /usr/share/aclocal/ltoptions.m4: 206
+aclocal: found macro AC_ENABLE_STATIC in /usr/share/aclocal/ltoptions.m4: 251
+aclocal: found macro AC_DISABLE_STATIC in /usr/share/aclocal/ltoptions.m4: 255
+aclocal: found macro AM_ENABLE_STATIC in /usr/share/aclocal/ltoptions.m4: 259
+aclocal: found macro AM_DISABLE_STATIC in /usr/share/aclocal/ltoptions.m4: 260
+aclocal: found macro AC_ENABLE_FAST_INSTALL in /usr/share/aclocal/ltoptions.m4: 305
+aclocal: ignoring macro AC_DISABLE_FAST_INSTALL in /usr/share/aclocal/ltoptions.m4: 312
+aclocal: found macro AC_LIBTOOL_PICMODE in /usr/share/aclocal/ltoptions.m4: 411
+aclocal: found macro LT_CONFIG_LTDL_DIR in /usr/share/aclocal/ltdl.m4: 16
+aclocal: found macro LTDL_CONVENIENCE in /usr/share/aclocal/ltdl.m4: 68
+aclocal: found macro AC_LIBLTDL_CONVENIENCE in /usr/share/aclocal/ltdl.m4: 81
+aclocal: found macro LTDL_INSTALLABLE in /usr/share/aclocal/ltdl.m4: 124
+aclocal: found macro AC_LIBLTDL_INSTALLABLE in /usr/share/aclocal/ltdl.m4: 137
+aclocal: found macro _LT_LIBOBJ in /usr/share/aclocal/ltdl.m4: 213
+aclocal: found macro LTDL_INIT in /usr/share/aclocal/ltdl.m4: 226
+aclocal: found macro AC_LIB_LTDL in /usr/share/aclocal/ltdl.m4: 352
+aclocal: found macro AC_WITH_LTDL in /usr/share/aclocal/ltdl.m4: 353
+aclocal: found macro LT_WITH_LTDL in /usr/share/aclocal/ltdl.m4: 354
+aclocal: found macro _LTDL_SETUP in /usr/share/aclocal/ltdl.m4: 367
+aclocal: found macro LT_SYS_DLOPEN_DEPLIBS in /usr/share/aclocal/ltdl.m4: 443
+aclocal: found macro AC_LTDL_SYS_DLOPEN_DEPLIBS in /usr/share/aclocal/ltdl.m4: 545
+aclocal: found macro LT_SYS_MODULE_EXT in /usr/share/aclocal/ltdl.m4: 552
+aclocal: found macro AC_LTDL_SHLIBEXT in /usr/share/aclocal/ltdl.m4: 580
+aclocal: found macro LT_SYS_MODULE_PATH in /usr/share/aclocal/ltdl.m4: 587
+aclocal: found macro AC_LTDL_SHLIBPATH in /usr/share/aclocal/ltdl.m4: 599
+aclocal: found macro LT_SYS_DLSEARCH_PATH in /usr/share/aclocal/ltdl.m4: 606
+aclocal: found macro AC_LTDL_SYSSEARCHPATH in /usr/share/aclocal/ltdl.m4: 627
+aclocal: found macro LT_LIB_DLLOAD in /usr/share/aclocal/ltdl.m4: 653
+aclocal: found macro AC_LTDL_DLLIB in /usr/share/aclocal/ltdl.m4: 748
+aclocal: found macro LT_SYS_SYMBOL_USCORE in /usr/share/aclocal/ltdl.m4: 756
+aclocal: found macro AC_LTDL_SYMBOL_USCORE in /usr/share/aclocal/ltdl.m4: 793
+aclocal: found macro LT_FUNC_DLSYM_USCORE in /usr/share/aclocal/ltdl.m4: 800
+aclocal: found macro AC_LTDL_DLSYM_USCORE in /usr/share/aclocal/ltdl.m4: 907
+aclocal: found macro LT_FUNC_ARGZ in /usr/share/aclocal/ltargz.m4: 12
+aclocal: found macro AC_TYPE_LONG_LONG_INT in /usr/share/aclocal/longlong.m4: 17
+aclocal: found macro AC_TYPE_UNSIGNED_LONG_LONG_INT in /usr/share/aclocal/longlong.m4: 67
+aclocal: found macro _AC_TYPE_LONG_LONG_SNIPPET in /usr/share/aclocal/longlong.m4: 89
+aclocal: found macro gl_LOCK in /usr/share/aclocal/lock.m4: 9
+aclocal: found macro gl_PREREQ_LOCK in /usr/share/aclocal/lock.m4: 42
+aclocal: found macro AM_PATH_XSLT in /usr/share/aclocal/libxslt.m4: 14
+aclocal: found macro AM_PATH_XML2 in /usr/share/aclocal/libxml2.m4: 12
+aclocal: found macro LT_INIT in /usr/share/aclocal/libtool.m4: 61
+aclocal: found macro AC_PROG_LIBTOOL in /usr/share/aclocal/libtool.m4: 99
+aclocal: found macro AM_PROG_LIBTOOL in /usr/share/aclocal/libtool.m4: 100
+aclocal: found macro LT_OUTPUT in /usr/share/aclocal/libtool.m4: 619
+aclocal: found macro LT_SUPPORTED_TAG in /usr/share/aclocal/libtool.m4: 811
+aclocal: found macro LT_LANG in /usr/share/aclocal/libtool.m4: 822
+aclocal: found macro AC_LIBTOOL_CXX in /usr/share/aclocal/libtool.m4: 914
+aclocal: found macro AC_LIBTOOL_F77 in /usr/share/aclocal/libtool.m4: 915
+aclocal: found macro AC_LIBTOOL_FC in /usr/share/aclocal/libtool.m4: 916
+aclocal: found macro AC_LIBTOOL_GCJ in /usr/share/aclocal/libtool.m4: 917
+aclocal: found macro AC_LIBTOOL_RC in /usr/share/aclocal/libtool.m4: 918
+aclocal: found macro _LT_WITH_SYSROOT in /usr/share/aclocal/libtool.m4: 1246
+aclocal: found macro _LT_COMPILER_OPTION in /usr/share/aclocal/libtool.m4: 1577
+aclocal: found macro AC_LIBTOOL_COMPILER_OPTION in /usr/share/aclocal/libtool.m4: 1619
+aclocal: found macro _LT_LINKER_OPTION in /usr/share/aclocal/libtool.m4: 1628
+aclocal: ignoring macro AC_LIBTOOL_LINKER_OPTION in /usr/share/aclocal/libtool.m4: 1663
+aclocal: found macro LT_CMD_MAX_LEN in /usr/share/aclocal/libtool.m4: 1670
+aclocal: found macro AC_LIBTOOL_SYS_MAX_CMD_LEN in /usr/share/aclocal/libtool.m4: 1809
+aclocal: found macro LT_SYS_DLOPEN_SELF in /usr/share/aclocal/libtool.m4: 1920
+aclocal: found macro AC_LIBTOOL_DLOPEN_SELF in /usr/share/aclocal/libtool.m4: 2045
+aclocal: found macro _LT_PATH_TOOL_PREFIX in /usr/share/aclocal/libtool.m4: 3166
+aclocal: found macro AC_PATH_TOOL_PREFIX in /usr/share/aclocal/libtool.m4: 3228
+aclocal: found macro LT_PATH_LD in /usr/share/aclocal/libtool.m4: 3251
+aclocal: found macro AM_PROG_LD in /usr/share/aclocal/libtool.m4: 3340
+aclocal: found macro AC_PROG_LD in /usr/share/aclocal/libtool.m4: 3341
+aclocal: found macro LT_PATH_NM in /usr/share/aclocal/libtool.m4: 3670
+aclocal: found macro AM_PROG_NM in /usr/share/aclocal/libtool.m4: 3765
+aclocal: found macro AC_PROG_NM in /usr/share/aclocal/libtool.m4: 3766
+aclocal: found macro _LT_DLL_DEF_P in /usr/share/aclocal/libtool.m4: 3837
+aclocal: found macro LT_LIB_M in /usr/share/aclocal/libtool.m4: 3851
+aclocal: found macro AC_CHECK_LIBM in /usr/share/aclocal/libtool.m4: 3870
+aclocal: found macro LT_PROG_GCJ in /usr/share/aclocal/libtool.m4: 8140
+aclocal: found macro LT_AC_PROG_GCJ in /usr/share/aclocal/libtool.m4: 8149
+aclocal: found macro LT_PROG_GO in /usr/share/aclocal/libtool.m4: 8156
+aclocal: found macro LT_PROG_RC in /usr/share/aclocal/libtool.m4: 8163
+aclocal: found macro LT_AC_PROG_RC in /usr/share/aclocal/libtool.m4: 8168
+aclocal: ignoring macro LT_AC_PROG_SED in /usr/share/aclocal/libtool.m4: 8288
+aclocal: found macro LIBCURL_CHECK_CONFIG in /usr/share/aclocal/libcurl.m4: 59
+aclocal: found macro AC_LIB_ARG_WITH in /usr/share/aclocal/lib-prefix.m4: 13
+aclocal: found macro AC_ in /usr/share/aclocal/lib-prefix.m4: 14
+aclocal: found macro AC_LIB_PREFIX in /usr/share/aclocal/lib-prefix.m4: 22
+aclocal: found macro AC_LIB_PREPARE_PREFIX in /usr/share/aclocal/lib-prefix.m4: 122
+aclocal: found macro AC_LIB_WITH_FINAL_PREFIX in /usr/share/aclocal/lib-prefix.m4: 145
+aclocal: found macro AC_LIB_PREPARE_MULTILIB in /usr/share/aclocal/lib-prefix.m4: 162
+aclocal: found macro AC_LIB_LINKFLAGS in /usr/share/aclocal/lib-link.m4: 17
+aclocal: found macro AC_LIB_HAVE_LINKFLAGS in /usr/share/aclocal/lib-link.m4: 57
+aclocal: found macro AC_LIB_RPATH in /usr/share/aclocal/lib-link.m4: 125
+aclocal: found macro AC_LIB_FROMPACKAGE in /usr/share/aclocal/lib-link.m4: 161
+aclocal: found macro AC_LIB_LINKFLAGS_BODY in /usr/share/aclocal/lib-link.m4: 181
+aclocal: found macro AC_LIB_APPENDTOVAR in /usr/share/aclocal/lib-link.m4: 684
+aclocal: found macro AC_LIB_LINKFLAGS_FROM_LIBS in /usr/share/aclocal/lib-link.m4: 708
+aclocal: found macro AC_LIB_PROG_LD_GNU in /usr/share/aclocal/lib-ld.m4: 12
+aclocal: found macro AC_LIB_PROG_LD in /usr/share/aclocal/lib-ld.m4: 27
+aclocal: found macro gt_LC_MESSAGES in /usr/share/aclocal/lcmessage.m4: 22
+aclocal: found macro gl_AC_HEADER_INTTYPES_H in /usr/share/aclocal/inttypes_h.m4: 12
+aclocal: found macro gt_INTTYPES_PRI in /usr/share/aclocal/inttypes-pri.m4: 14
+aclocal: found macro gt_TYPE_INTMAX_T in /usr/share/aclocal/intmax.m4: 11
+aclocal: found macro gt_INTL_MACOSX in /usr/share/aclocal/intlmacosx.m4: 18
+aclocal: found macro AM_GNU_GETTEXT_INTL_SUBDIR in /usr/share/aclocal/intldir.m4: 19
+aclocal: found macro AM_INTL_SUBDIR in /usr/share/aclocal/intl.m4: 25
+aclocal: found macro gt_INTL_SUBDIR_CORE in /usr/share/aclocal/intl.m4: 211
+aclocal: found macro gt_GL_ATTRIBUTE in /usr/share/aclocal/intl.m4: 282
+aclocal: found macro gt_INTDIV0 in /usr/share/aclocal/intdiv0.m4: 9
+aclocal: found macro AM_ICONV_LINKFLAGS_BODY in /usr/share/aclocal/iconv.m4: 9
+aclocal: found macro AM_ICONV_LINK in /usr/share/aclocal/iconv.m4: 20
+aclocal: found macro AM_ICONV in /usr/share/aclocal/iconv.m4: 233
+aclocal: found macro GLIB_GSETTINGS in /usr/share/aclocal/gsettings.m4: 9
+aclocal: found macro _GSETTINGS_SUBST in /usr/share/aclocal/gsettings.m4: 81
+aclocal: found macro gl_GLIBC21 in /usr/share/aclocal/glibc21.m4: 11
+aclocal: found macro gt_GLIBC2 in /usr/share/aclocal/glibc2.m4: 11
+aclocal: found macro GLIB_GNU_GETTEXT in /usr/share/aclocal/glib-gettext.m4: 366
+aclocal: found macro AM_GLIB_GNU_GETTEXT in /usr/share/aclocal/glib-gettext.m4: 467
+aclocal: found macro AM_GLIB_DEFINE_LOCALEDIR in /usr/share/aclocal/glib-gettext.m4: 468
+aclocal: found macro GLIB_RUN_PROG in /usr/share/aclocal/glib-gettext.m4: 476
+aclocal: found macro AM_PATH_GLIB_2_0 in /usr/share/aclocal/glib-2.0.m4: 11
+aclocal: found macro AM_GNU_GETTEXT in /usr/share/aclocal/gettext.m4: 57
+aclocal: found macro AM_GNU_GETTEXT_NEED in /usr/share/aclocal/gettext.m4: 409
+aclocal: found macro AM_GNU_GETTEXT_VERSION in /usr/share/aclocal/gettext.m4: 416
+aclocal: found macro AM_GNU_GETTEXT_REQUIRE_VERSION in /usr/share/aclocal/gettext.m4: 420
+aclocal: found macro AC_CHECK_FT2 in /usr/share/aclocal/freetype2.m4: 25
+aclocal: found macro gl_FCNTL_O_FLAGS in /usr/share/aclocal/fcntl-o.m4: 12
+aclocal: found macro gl_EXTERN_INLINE in /usr/share/aclocal/extern-inline.m4: 8
+aclocal: found macro AM_WITH_EXPAT in /usr/share/aclocal/expat.m4: 10
+aclocal: found macro AM_LANGINFO_CODESET in /usr/share/aclocal/codeset.m4: 10
+aclocal: found macro CMAKE_FIND_BINARY in /usr/share/aclocal/cmake.m4: 4
+aclocal: found macro CMAKE_FIND_PACKAGE in /usr/share/aclocal/cmake.m4: 19
+aclocal: found macro BISON_I18N in /usr/share/aclocal/bison-i18n.m4: 17
+aclocal: saw macro AM_INIT_AUTOMAKE
+aclocal: saw macro _AM_PROG_CC_C_O
+aclocal: saw macro _AM_PROG_CC_C_O
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro AM_PROG_CC_C_O
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_INIT_AUTOMAKE
+aclocal: saw macro AM_SET_CURRENT_AUTOMAKE_VERSION
+aclocal: saw macro AM_AUTOMAKE_VERSION
+aclocal: saw macro AM_INIT_AUTOMAKE
+aclocal: saw macro AM_SET_CURRENT_AUTOMAKE_VERSION
+aclocal: saw macro AM_AUTOMAKE_VERSION
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SET_OPTION
+aclocal: saw macro _AM_MANGLE_OPTION
+aclocal: saw macro _AM_SET_OPTION
+aclocal: saw macro _AM_MANGLE_OPTION
+aclocal: saw macro _AM_SET_OPTIONS
+aclocal: saw macro _AM_SET_OPTION
+aclocal: saw macro _AM_IF_OPTION
+aclocal: saw macro _AM_MANGLE_OPTION
+aclocal: saw macro _AM_SET_OPTIONS
+aclocal: saw macro _AM_IF_OPTION
+aclocal: saw macro AM_SANITY_CHECK
+aclocal: saw macro AM_SANITY_CHECK
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_MISSING_HAS_RUN
+aclocal: saw macro AM_MISSING_HAS_RUN
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_MISSING_HAS_RUN
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_MISSING_PROG
+aclocal: saw macro AM_PROG_INSTALL_SH
+aclocal: saw macro AM_PROG_INSTALL_SH
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_AUX_DIR_EXPAND
+aclocal: saw macro AM_PROG_INSTALL_STRIP
+aclocal: saw macro AM_PROG_INSTALL_STRIP
+aclocal: saw macro AM_PROG_INSTALL_SH
+aclocal: saw macro AM_PROG_INSTALL_SH
+aclocal: saw macro AM_SET_LEADING_DOT
+aclocal: saw macro AM_SET_LEADING_DOT
+aclocal: saw macro _AM_PROG_TAR
+aclocal: saw macro _AM_PROG_TAR
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro AM_RUN_LOG
+aclocal: saw macro _AM_IF_OPTION
+aclocal: saw macro _AM_PROG_TAR
+aclocal: saw macro _AM_IF_OPTION
+aclocal: saw macro _AM_PROG_TAR
+aclocal: saw macro _AM_IF_OPTION
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro AM_SET_DEPDIR
+aclocal: saw macro AM_OUTPUT_DEPENDENCY_COMMANDS
+aclocal: saw macro _AM_OUTPUT_DEPENDENCY_COMMANDS
+aclocal: saw macro AM_OUTPUT_DEPENDENCY_COMMANDS
+aclocal: saw macro _AM_OUTPUT_DEPENDENCY_COMMANDS
+aclocal: saw macro AM_MAKE_INCLUDE
+aclocal: saw macro AM_MAKE_INCLUDE
+aclocal: saw macro AM_DEP_TRACK
+aclocal: saw macro AM_CONDITIONAL
+aclocal: saw macro AM_CONDITIONAL
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro AM_SET_DEPDIR
+aclocal: saw macro AM_SET_LEADING_DOT
+aclocal: saw macro AM_DEP_TRACK
+aclocal: saw macro AM_CONDITIONAL
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro AM_SET_DEPDIR
+aclocal: saw macro AM_OUTPUT_DEPENDENCY_COMMANDS
+aclocal: saw macro AM_MAKE_INCLUDE
+aclocal: saw macro AM_DEP_TRACK
+aclocal: saw macro AM_SET_LEADING_DOT
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro _AM_DEPENDENCIES
+aclocal: saw macro AM_SILENT_RULES
+aclocal: saw macro AM_SILENT_RULES
+aclocal: saw macro AM_SUBST_NOTMAKE
+aclocal: saw macro AM_SUBST_NOTMAKE
+aclocal: saw macro _AM_SUBST_NOTMAKE
+aclocal: saw macro AM_CONDITIONAL
+aclocal: saw macro _AC_AM_CONFIG_HEADER_HOOK
+aclocal: saw macro AM_SET_CURRENT_AUTOMAKE_VERSION
+aclocal: saw macro AM_SANITY_CHECK
+aclocal: saw macro AM_PROG_INSTALL_SH
+aclocal: saw macro AM_PROG_INSTALL_STRIP
+aclocal: saw macro AM_SET_LEADING_DOT
+aclocal: saw macro AM_SILENT_RULES
+aclocal: running echo 'm4_define([m4_require_silent_probe], [-])' | autom4te --language Autoconf-without-aclocal-m4  - /usr/share/aclocal-1.15/internal/ac-config-macro-dirs.m4 '/usr/share/aclocal-1.15/amversion.m4' '/usr/share/aclocal-1.15/auxdir.m4' '/usr/share/aclocal-1.15/cond.m4' '/usr/share/aclocal-1.15/depend.m4' '/usr/share/aclocal-1.15/depout.m4' '/usr/share/aclocal-1.15/init.m4' '/usr/share/aclocal-1.15/install-sh.m4' '/usr/share/aclocal-1.15/lead-dot.m4' '/usr/share/aclocal-1.15/make.m4' '/usr/share/aclocal-1.15/missing.m4' '/usr/share/aclocal-1.15/options.m4' '/usr/share/aclocal-1.15/prog-cc-c-o.m4' '/usr/share/aclocal-1.15/runlog.m4' '/usr/share/aclocal-1.15/sanity.m4' '/usr/share/aclocal-1.15/silent.m4' '/usr/share/aclocal-1.15/strip.m4' '/usr/share/aclocal-1.15/substnot.m4' '/usr/share/aclocal-1.15/tar.m4' --trace='AC_DEFUN:$f::$n::${::}%' --trace='AC_DEFUN_ONCE:$f::$n::${::}%' --trace='AU_DEFUN:$f::$n::${::}%' --trace='_AM_AUTOCONF_VERSION:$f::$n::${::}%' --trace='AC_CONFIG_MACRO_DIR_TRACE:$f::$n::${::}%' --trace='AC_CONFIG_MACRO_DIR:$f::$n::${::}%' --trace='_AM_CONFIG_MACRO_DIRS:$f::$n::${::}%' --trace='_AM_IF_OPTION:$f::$n' --trace='AM_OUTPUT_DEPENDENCY_COMMANDS:$f::$n' --trace='AM_CONDITIONAL:$f::$n' --trace='AM_PROG_INSTALL_SH:$f::$n' --trace='AM_PROG_CC_C_O:$f::$n' --trace='_AC_AM_CONFIG_HEADER_HOOK:$f::$n' --trace='AM_SET_LEADING_DOT:$f::$n' --trace='AM_SILENT_RULES:$f::$n' --trace='AM_INIT_AUTOMAKE:$f::$n' --trace='_AM_PROG_TAR:$f::$n' --trace='AM_DEP_TRACK:$f::$n' --trace='AM_AUX_DIR_EXPAND:$f::$n' --trace='AM_AUTOMAKE_VERSION:$f::$n' --trace='_AM_MANGLE_OPTION:$f::$n' --trace='AM_MISSING_PROG:$f::$n' --trace='AM_SUBST_NOTMAKE:$f::$n' --trace='AM_MAKE_INCLUDE:$f::$n' --trace='AM_RUN_LOG:$f::$n' --trace='_AM_OUTPUT_DEPENDENCY_COMMANDS:$f::$n' --trace='_AM_SET_OPTION:$f::$n' --trace='_AM_DEPENDENCIES:$f::$n' --trace='_AM_SET_OPTIONS:$f::$n' --trace='AM_PROG_INSTALL_STRIP:$f::$n' --trace='AM_SET_DEPDIR:$f::$n' --trace='_AM_PROG_CC_C_O:$f::$n' --trace='AM_MISSING_HAS_RUN:$f::$n' --trace='AM_SET_CURRENT_AUTOMAKE_VERSION:$f::$n' --trace='_AM_SUBST_NOTMAKE:$f::$n' --trace='AM_SANITY_CHECK:$f::$n' configure.ac
+aclocal: reading aclocal.m4
+aclocal: aclocal.m4 unchanged
+```
+
+autoconf
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ autoconf -v
+autoconf: running /usr/bin/autom4te -v --language=autoconf --output=configure configure.ac
+autom4te: the trace request object is:
+autom4te: $VAR1 = bless( [
+autom4te:                  '2',
+autom4te:                  0,
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf'
+autom4te:                  ],
+autom4te:                  [
+autom4te:                    '/usr/share/autoconf/autoconf/autoconf.m4f',
+autom4te:                    'aclocal.m4',
+autom4te:                    'configure.ac'
+autom4te:                  ],
+autom4te:                  {
+autom4te:                    'AM_MAINTAINER_MODE' => 1,
+autom4te:                    'AM_NLS' => 1,
+autom4te:                    'AC_CANONICAL_BUILD' => 1,
+autom4te:                    'AC_FC_PP_SRCEXT' => 1,
+autom4te:                    'AC_FC_SRCEXT' => 1,
+autom4te:                    'AM_PROG_MOC' => 1,
+autom4te:                    'LT_INIT' => 1,
+autom4te:                    'AC_INIT' => 1,
+autom4te:                    'AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'AM_PROG_F77_C_O' => 1,
+autom4te:                    'AM_PROG_CC_C_O' => 1,
+autom4te:                    'include' => 1,
+autom4te:                    'AC_CANONICAL_HOST' => 1,
+autom4te:                    '_AM_MAKEFILE_INCLUDE' => 1,
+autom4te:                    'm4_pattern_allow' => 1,
+autom4te:                    '_AM_SUBST_NOTMAKE' => 1,
+autom4te:                    'AC_PROG_LIBTOOL' => 1,
+autom4te:                    'AC_DEFINE_TRACE_LITERAL' => 1,
+autom4te:                    'AM_PROG_CXX_C_O' => 1,
+autom4te:                    'm4_include' => 1,
+autom4te:                    'AC_CONFIG_FILES' => 1,
+autom4te:                    '_AM_COND_ELSE' => 1,
+autom4te:                    'AC_CONFIG_LIBOBJ_DIR' => 1,
+autom4te:                    'AM_CONDITIONAL' => 1,
+autom4te:                    'AM_POT_TOOLS' => 1,
+autom4te:                    'm4_pattern_forbid' => 1,
+autom4te:                    'm4_sinclude' => 1,
+autom4te:                    'AM_PROG_LIBTOOL' => 1,
+autom4te:                    'AC_SUBST_TRACE' => 1,
+autom4te:                    'AM_AUTOMAKE_VERSION' => 1,
+autom4te:                    'AC_FC_PP_DEFINE' => 1,
+autom4te:                    'AC_CANONICAL_SYSTEM' => 1,
+autom4te:                    'AC_CONFIG_HEADERS' => 1,
+autom4te:                    'AC_CONFIG_LINKS' => 1,
+autom4te:                    'LT_CONFIG_LTDL_DIR' => 1,
+autom4te:                    'AM_GNU_GETTEXT_INTL_SUBDIR' => 1,
+autom4te:                    'AM_ENABLE_MULTILIB' => 1,
+autom4te:                    '_m4_warn' => 1,
+autom4te:                    'AC_CONFIG_SUBDIRS' => 1,
+autom4te:                    'AC_CANONICAL_TARGET' => 1,
+autom4te:                    'AC_SUBST' => 1,
+autom4te:                    'AC_CONFIG_AUX_DIR' => 1,
+autom4te:                    'AM_PATH_GUILE' => 1,
+autom4te:                    'AM_SILENT_RULES' => 1,
+autom4te:                    'AM_PROG_AR' => 1,
+autom4te:                    'AC_REQUIRE_AUX_FILE' => 1,
+autom4te:                    '_LT_AC_TAGCONFIG' => 1,
+autom4te:                    'AH_OUTPUT' => 1,
+autom4te:                    'AM_GNU_GETTEXT' => 1,
+autom4te:                    '_AM_COND_ENDIF' => 1,
+autom4te:                    'LT_SUPPORTED_TAG' => 1,
+autom4te:                    'AM_PROG_FC_C_O' => 1,
+autom4te:                    'AM_INIT_AUTOMAKE' => 1,
+autom4te:                    '_AM_COND_IF' => 1,
+autom4te:                    'AM_XGETTEXT_OPTION' => 1,
+autom4te:                    'sinclude' => 1,
+autom4te:                    'AC_FC_FREEFORM' => 1,
+autom4te:                    'AC_LIBSOURCE' => 1
+autom4te:                  }
+autom4te:                ], 'Autom4te::Request' );
+autom4te: running: /usr/bin/m4 --nesting-limit=1024 --gnu --include=/usr/share/autoconf --debug=aflq --fatal-warning --debugfile=autom4te.cache/traces.2t --trace=AC_CANONICAL_BUILD --trace=AC_CANONICAL_HOST --trace=AC_CANONICAL_SYSTEM --trace=AC_CANONICAL_TARGET --trace=AC_CONFIG_AUX_DIR --trace=AC_CONFIG_FILES --trace=AC_CONFIG_HEADERS --trace=AC_CONFIG_LIBOBJ_DIR --trace=AC_CONFIG_LINKS --trace=AC_CONFIG_SUBDIRS --trace=AC_DEFINE_TRACE_LITERAL --trace=AC_FC_FREEFORM --trace=AC_FC_PP_DEFINE --trace=AC_FC_PP_SRCEXT --trace=AC_FC_SRCEXT --trace=AC_INIT --trace=AC_LIBSOURCE --trace=AC_PROG_LIBTOOL --trace=AC_REQUIRE_AUX_FILE --trace=AC_SUBST --trace=AC_SUBST_TRACE --trace=AH_OUTPUT --trace=AM_AUTOMAKE_VERSION --trace=AM_CONDITIONAL --trace=AM_ENABLE_MULTILIB --trace=AM_GNU_GETTEXT --trace=AM_GNU_GETTEXT_INTL_SUBDIR --trace=AM_INIT_AUTOMAKE --trace=AM_MAINTAINER_MODE --trace=AM_MAKEFILE_INCLUDE --trace=AM_NLS --trace=AM_PATH_GUILE --trace=AM_POT_TOOLS --trace=AM_PROG_AR --trace=AM_PROG_CC_C_O --trace=AM_PROG_CXX_C_O --trace=AM_PROG_F77_C_O --trace=AM_PROG_FC_C_O --trace=AM_PROG_LIBTOOL --trace=AM_PROG_MOC --trace=AM_SILENT_RULES --trace=AM_XGETTEXT_OPTION --trace=LT_CONFIG_LTDL_DIR --trace=LT_INIT --trace=LT_SUPPORTED_TAG --trace=_AM_COND_ELSE --trace=_AM_COND_ENDIF --trace=_AM_COND_IF --trace=_AM_MAKEFILE_INCLUDE --trace=_AM_SUBST_NOTMAKE --trace=_LT_AC_TAGCONFIG --trace=_m4_warn --trace=include --trace=m4_include --trace=m4_pattern_allow --trace=m4_pattern_forbid --trace=m4_sinclude --trace=sinclude --reload-state=/usr/share/autoconf/autoconf/autoconf.m4f --undefine=__m4_version__ aclocal.m4 configure.ac > autom4te.cache/output.2t
+autom4te: formatting traces for `/tmp/am4tqzfuEf/warnings': _m4_warn
+autom4te: reading /tmp/am4tqzfuEf/warnings
+autom4te: creating configure
+autom4te: formatting traces for `/tmp/am4tqzfuEf/patterns': m4_pattern_allow, m4_pattern_forbid
+autom4te: forbidden tokens: ^_?A[CHUM]_|_AC_|^LIBOBJS$|^_?m4_|^dnl$|^_?AS_
+autom4te: forbidden token : ^LIBOBJS$ => do not use LIBOBJS directly, use AC_LIBOBJ (see section `AC_LIBOBJ vs LIBOBJS'
+autom4te: allowed   tokens: ^AS_FLAGS$|^SHELL$|^PATH_SEPARATOR$|^PACKAGE_NAME$|^PACKAGE_TARNAME$|^PACKAGE_VERSION$|^PACKAGE_STRING$|^PACKAGE_BUGREPORT$|^PACKAGE_URL$|^exec_prefix$|^prefix$|^program_transform_name$|^bindir$|^sbindir$|^libexecdir$|^datarootdir$|^datadir$|^sysconfdir$|^sharedstatedir$|^localstatedir$|^runstatedir$|^includedir$|^oldincludedir$|^docdir$|^infodir$|^htmldir$|^dvidir$|^pdfdir$|^psdir$|^libdir$|^localedir$|^mandir$|^PACKAGE_NAME$|^PACKAGE_TARNAME$|^PACKAGE_VERSION$|^PACKAGE_STRING$|^PACKAGE_BUGREPORT$|^PACKAGE_URL$|^DEFS$|^ECHO_C$|^ECHO_N$|^ECHO_T$|^LIBS$|^build_alias$|^host_alias$|^target_alias$|^AM_[A-Z]+FLAGS$|^INSTALL_PROGRAM$|^INSTALL_SCRIPT$|^INSTALL_DATA$|^am__isrc$|^CYGPATH_W$|^PACKAGE$|^VERSION$|^PACKAGE$|^VERSION$|^ACLOCAL$|^AUTOCONF$|^AUTOMAKE$|^AUTOHEADER$|^MAKEINFO$|^install_sh$|^STRIP$|^INSTALL_STRIP_PROGRAM$|^MKDIR_P$|^mkdir_p$|^AWK$|^SET_MAKE$|^am__leading_dot$|^AMTAR$|^am__tar$|^am__untar$|^AM_V$|^AM_DEFAULT_V$|^AM_DEFAULT_VERBOSITY$|^AM_BACKSLASH$|^CC$|^CFLAGS$|^LDFLAGS$|^LIBS$|^CPPFLAGS$|^CC$|^CC$|^CC$|^CC$|^ac_ct_CC$|^EXEEXT$|^OBJEXT$|^DEPDIR$|^am__include$|^am__quote$|^AMDEP_TRUE$|^AMDEP_FALSE$|^AMDEPBACKSLASH$|^am__nodep$|^CCDEPMODE$|^am__fastdepCC_TRUE$|^am__fastdepCC_FALSE$|^CPP$|^CPPFLAGS$|^CPP$|^GREP$|^EGREP$|^STDC_HEADERS$|^HAVE_STRCASECMP$|^LIBOBJS$|^LTLIBOBJS$|^am__EXEEXT_TRUE$|^am__EXEEXT_FALSE$
+```
+
+## automake
+
+[configure.ac](https://www.gnu.org/savannah-checkouts/gnu/automake/manual/automake.html#Complete) 
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ head configure.ac 
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.69])
+AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR([pause.c])
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+```
+
+[Makefile.am](https://www.gnu.org/savannah-checkouts/gnu/automake/manual/automake.html#Examples)
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ cat Makefile.am
+bin_PROGRAMS = pause
+pause_SOURCES = pause.c
+pause_LDADD = $(LIBOBJS)
+```
+
+required files
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ automake --add-missing -v
+automake: thread 0: reading autoconf --trace=AM_EXTRA_RECURSIVE_TARGETS:\$f:\$l::\$d::\$n::\${::}% --trace=AC_REQUIRE_AUX_FILE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_BUILD:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_SUBST_NOTMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_HOST:\$f:\$l::\$d::\$n::\${::}% --trace=AC_SUBST_TRACE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_FC_SRCEXT:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_IF:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT:\$f:\$l::\$d::\$n::\${::}% --trace=AC_INIT:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_MKDIR_P:\$f:\$l::\$d::\$n::\${::}% --trace=AM_INIT_AUTOMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=AM_CONDITIONAL:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_FILES:\$f:\$l::\$d::\$n::\${::}% --trace=_LT_AC_TAGCONFIG:\$f:\$l::\$d::\$n::\${::}% --trace=AC_LIBSOURCE:\$f:\$l::\$d::\$n::\${::}% --trace=LT_SUPPORTED_TAG:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT_INTL_SUBDIR:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LIBOBJ_DIR:\$f:\$l::\$d::\$n::\${::}% --trace=m4_include:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_HEADERS:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LINKS:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ENDIF:\$f:\$l::\$d::\$n::\${::}% --trace=AM_MAINTAINER_MODE:\$f:\$l::\$d::\$n::\${::}% --trace=sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_AR:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ELSE:\$f:\$l::\$d::\$n::\${::}% --trace=AM_AUTOMAKE_VERSION:\$f:\$l::\$d::\$n::\${::}% --trace=m4_sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_TARGET:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_AUX_DIR:\$f:\$l::\$d::\$n::\${::}%
+automake: thread 0: reading /usr/share/automake-1.15/am/header-vars.am
+automake: thread 0: reading Makefile.am
+Makefile.am: error: required file './NEWS' not found
+Makefile.am: error: required file './README' not found
+Makefile.am: error: required file './AUTHORS' not found
+Makefile.am: error: required file './ChangeLog' not found
+automake: thread 0: reading /usr/share/automake-1.15/am/configure.am
+automake: thread 0: reading /usr/share/automake-1.15/am/remake-hdr.am
+automake: thread 0: reading /usr/share/automake-1.15/am/clean-hdr.am
+automake: thread 0: reading /usr/share/automake-1.15/am/progs.am
+automake: thread 0: reading /usr/share/automake-1.15/am/program.am
+automake: thread 0: reading /usr/share/automake-1.15/am/compile.am
+automake: thread 0: reading /usr/share/automake-1.15/am/depend.am
+automake: thread 0: reading /usr/share/automake-1.15/am/depend2.am
+automake: thread 0: Sources ending in .c become .o
+automake: thread 0: Sources ending in .c become .obj
+automake: thread 0: reading /usr/share/automake-1.15/am/lang-compile.am
+automake: thread 0: reading /usr/share/automake-1.15/am/texinfos.am
+automake: thread 0: reading /usr/share/automake-1.15/am/tags.am
+automake: thread 0: reading /usr/share/automake-1.15/am/distdir.am
+automake: thread 0: reading /usr/share/automake-1.15/am/footer.am
+automake: thread 0: reading /usr/share/automake-1.15/am/install.am
+automake: thread 0: reading /usr/share/automake-1.15/am/clean.am
+automake: thread 0: not writing Makefile.in because of earlier errors
+```
+
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ touch NEWS AUTHORS ChangeLog
+```
+
+automake
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ automake --add-missing -v
+automake: thread 0: reading autoconf --trace=AM_MAINTAINER_MODE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_HEADERS:\$f:\$l::\$d::\$n::\${::}% --trace=AM_EXTRA_RECURSIVE_TARGETS:\$f:\$l::\$d::\$n::\${::}% --trace=AC_SUBST_TRACE:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_SUBST_NOTMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_TARGET:\$f:\$l::\$d::\$n::\${::}% --trace=AC_LIBSOURCE:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT:\$f:\$l::\$d::\$n::\${::}% --trace=m4_include:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LIBOBJ_DIR:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ENDIF:\$f:\$l::\$d::\$n::\${::}% --trace=sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=_LT_AC_TAGCONFIG:\$f:\$l::\$d::\$n::\${::}% --trace=AM_INIT_AUTOMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_REQUIRE_AUX_FILE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LINKS:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_IF:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_BUILD:\$f:\$l::\$d::\$n::\${::}% --trace=AM_CONDITIONAL:\$f:\$l::\$d::\$n::\${::}% --trace=m4_sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=LT_SUPPORTED_TAG:\$f:\$l::\$d::\$n::\${::}% --trace=AC_INIT:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_MKDIR_P:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_AR:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_FILES:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT_INTL_SUBDIR:\$f:\$l::\$d::\$n::\${::}% --trace=AM_AUTOMAKE_VERSION:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_AUX_DIR:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_HOST:\$f:\$l::\$d::\$n::\${::}% --trace=AC_FC_SRCEXT:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ELSE:\$f:\$l::\$d::\$n::\${::}%
+automake: thread 0: reading /usr/share/automake-1.15/am/header-vars.am
+automake: thread 0: reading Makefile.am
+automake: thread 0: reading /usr/share/automake-1.15/am/configure.am
+automake: thread 0: reading /usr/share/automake-1.15/am/remake-hdr.am
+automake: thread 0: reading /usr/share/automake-1.15/am/clean-hdr.am
+automake: thread 0: reading /usr/share/automake-1.15/am/progs.am
+automake: thread 0: reading /usr/share/automake-1.15/am/program.am
+automake: thread 0: reading /usr/share/automake-1.15/am/compile.am
+automake: thread 0: reading /usr/share/automake-1.15/am/depend.am
+automake: thread 0: reading /usr/share/automake-1.15/am/depend2.am
+automake: thread 0: Sources ending in .c become .o
+automake: thread 0: Sources ending in .c become .obj
+automake: thread 0: reading /usr/share/automake-1.15/am/lang-compile.am
+automake: thread 0: reading /usr/share/automake-1.15/am/texinfos.am
+automake: thread 0: reading /usr/share/automake-1.15/am/tags.am
+automake: thread 0: reading /usr/share/automake-1.15/am/distdir.am
+automake: thread 0: reading /usr/share/automake-1.15/am/footer.am
+automake: thread 0: reading /usr/share/automake-1.15/am/install.am
+automake: thread 0: reading /usr/share/automake-1.15/am/clean.am
+automake: thread 0: creating Makefile.in
+```
+
+## Build
+
+configure
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ ./configure 
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strcasecmp... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+```
+
+make
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ make
+make: Warning: File '.deps/pause.Po' has modification time 324 s in the future
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause/missing autoheader)
+rm -f stamp-h1
+touch config.h.in
+make  all-am
+make[1]: Entering directory '/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause'
+make[1]: Warning: File '.deps/pause.Po' has modification time 324 s in the future
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT pause.o -MD -MP -MF .deps/pause.Tpo -c -o pause.o pause.c
+mv -f .deps/pause.Tpo .deps/pause.Po
+gcc  -g -O2   -o pause pause.o  
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause'
+make: warning:  Clock skew detected.  Your build may be incomplete.
+```
+
+trial
+```
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/linux/kubernetes-pause$ ./pause 
+^CShutting down, got signal: Interrupt
+```

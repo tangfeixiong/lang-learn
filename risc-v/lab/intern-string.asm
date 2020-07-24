@@ -1,12 +1,17 @@
 .data
 .align 4
 errEnvc: asciz "error: Environment call failed"
+errDivz: asciz "error: Divided by zero failed"
+
 asciiSpace: .byte '\t', '\n', '\v', '\f', '\r', ' '
 asciiLineFeed: .byte 0x0a
 asciiLineSpace: .byte 0x20
 asciiEOT: .byte 4
 
-theHashTable: .space 512
+arrIdentifiers: .space 512              # Hold identifiers, capacity=128
+sizeIdentifiers: .4byte 0               # Size of identifiers
+pHashTable: .space 128                  # Hold hash, capacity=32
+sizeHashTable: .4byte 0                 # Size of hashtable
 
 .text
 internFileImpl:
@@ -34,14 +39,74 @@ done_space_front:
         
         jal     ra, 0
         
+# Add hashtable
+# 
+# Param:
+#   a7: string address        
+#   a6: registerd hash, also is index of hashtable to add
+# Return:
+#   a5: 
+add_hashtable:
+        la      t0, arrIdentifiers
+        mul     t6, a6, 4
+        addi    t0, t0, t6
+        lw      t1, 0(t0)
+        bne     t1, add_bucket
+        sw      a7, 0(t0)
+        jal     add_identifiers
+        ret
+        
+
+add_bucket:
+        
+        
+        
+        ret
+        
+# Add id into array
+
+add_identifiers:
+
+         
+        
+        
+        
+# Hash string
+# Calculate hash with checksum 
+# Param:
+#   a7: registerd address of string (ended with '\0')
+#   a6: registerd modulo
+# Return:
+#   a5: hash
+calculate_string_hash:
+        beqz    a6, failed             # divide by 0 err
+        li      a5, 0
+loop_string:
+        lb      t0, 0(a7)
+        beqz    t0, pass
+        
+        addi    t1, a5, t0
+        ; div     t1, a6
+        rem     a5, t1, a6
+        
+        addi    a7, a7, 1
+        j       pass
+failed:        
+        la      a0, errDivz             # to stdErr
+        li      a7, 4
+        ecall
+        li      a7, 10                  # terminate
+        ecall        
+pass:
+        ret
         
 # Allocate in heap to perform immutable copy
 # The source are char buffer not include white space
 # The destination are copy of source plus '\0'
-# Parm:
+# Param:
 #   a7: registerd address of source
 #   a6: source length
-# Retrun
+# Retrun:
 #   a5: destination address
 copy_string_buffer:
         lw      t0, a7                  # save source

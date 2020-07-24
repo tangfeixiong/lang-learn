@@ -1,13 +1,33 @@
+__Reference__
+
+[Installing packages using pip and virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
 
+__Python__
+
+Versioned Linux
+```
 vagrant@ubuntu-bionic:~$ uname -a
 Linux ubuntu-bionic 4.15.0-38-generic #41-Ubuntu SMP Wed Oct 10 10:59:38 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+```
 
+Python3 default deliveried
+```
+vagrant@ubuntu-bionic:~$ which python3
+/usr/bin/python3
+```
 
+Versioned python3
+```
 vagrant@ubuntu-bionic:~$ python3 --version
 Python 3.6.6
+```
+
+__Python-pip__
 
 
+Python-pip is Linux distribution for python2
+```
 vagrant@ubuntu-bionic:~$ pip
 
 Command 'pip' not found, but can be installed with:
@@ -21,9 +41,10 @@ Building dependency tree
 Reading state information... Done
 E: Unable to locate package python-pip
 
+```
 
-
-
+APT get fresh index content
+```
 vagrant@ubuntu-bionic:~$ sudo apt-get update
 Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [83.2 kB]              
 Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease           
@@ -62,15 +83,17 @@ Get:34 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages
 Get:35 http://archive.ubuntu.com/ubuntu bionic-backports/universe Translation-en [1200 B]                                                              
 Fetched 26.3 MB in 1min 43s (256 kB/s)                                                                                                                 
 Reading package lists... Done
+```
 
-
+The distribution
+```
 vagrant@ubuntu-bionic:~$ sudo apt-cache search python-pip
 python-pip - Python package installer
 python-pip-whl - Python package installer
-vagrant@ubuntu-bionic:~$ sudo apt-cache search python3-pip
-python3-pip - Python package installer
+```
 
-
+So APT install
+```
 vagrant@ubuntu-bionic:~$ sudo apt -y install python-pip
 Reading package lists... Done
 Building dependency tree       
@@ -487,17 +510,26 @@ Setting up python-secretstorage (2.3.1-2) ...
 Setting up python-keyring (10.6.0-1) ...
 Setting up build-essential (12.4ubuntu1) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
-vagrant@ubuntu-bionic:~$ python
+```
+
+__Demo a virtualenv for python2__
+
+Bash auto-completed (input command prefix then double key TAB)
+```
+vagrant@ubuntu-bionic:~$ python+TAB+TAB
 python               python2              python2.7            python3              python3-jsonpatch    python3-jsonschema   python3.6m
 python-config        python2-config       python2.7-config     python3-jsondiff     python3-jsonpointer  python3.6            python3m
+```
 
-
-
+Versioned python2
+```
 vagrant@ubuntu-bionic:~$ python2 --version
 Python 2.7.15rc1
+```
 
-
-vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/scikit-learn-lab$ sudo pip install virtualenv
+Virtualenv for python2
+```
+vagrant@ubuntu-bionic:~$ sudo pip install virtualenv
 The directory '/home/vagrant/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 The directory '/home/vagrant/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 Collecting virtualenv
@@ -505,17 +537,51 @@ Collecting virtualenv
     100% |████████████████████████████████| 1.9MB 35kB/s 
 Installing collected packages: virtualenv
 Successfully installed virtualenv-16.1.0
+```
 
-
-vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/scikit-learn-lab$ ls
-github.com
-vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/scikit-learn-lab$ virtualenv venv-python2.7
-New python executable in /Users/fanhongling/Downloads/workspace/scikit-learn-lab/venv-python2.7/bin/python
+Demo
+```
+vagrant@ubuntu-bionic:~$ virtualenv virtenv-py2.7
+New python executable in /home/vagrant/virtenv-py2.7/bin/python
 Installing setuptools, pip, wheel...
 done.
+```
 
+Disk space
+```
+vagrant@ubuntu-bionic:~$ du -sh virtenv-py2.7/
+18M	virtenv-py2.7/
+```
 
+The activate script
+```
+vagrant@ubuntu-bionic:~$ ls virtenv-py2.7/bin/activate
+virtenv-py2.7/bin/activate
+```
 
+Activate virtual env
+```
+vagrant@ubuntu-bionic:~$ . virtenv-py2.7/bin/activate
+(virtenv-py2.7) vagrant@ubuntu-bionic:~$ 
+```
+
+Deactivate
+```
+(virtenv-py2.7) vagrant@ubuntu-bionic:~$ deactivate
+```
+
+__Python3-pip__
+
+_Not recommended, as Python3 is already included_
+
+It is Linux distribution for python3
+```
+vagrant@ubuntu-bionic:~$ sudo apt-cache search python3-pip
+python3-pip - Python package installer
+```
+
+So APT install
+```
 vagrant@ubuntu-bionic:~$ sudo apt -y install python3-pip
 Reading package lists... Done
 Building dependency tree       
@@ -609,9 +675,10 @@ Setting up python3-pip (9.0.1-2.3~ubuntu1) ...
 Setting up python3-setuptools (39.0.1-2) ...
 Setting up dh-python (3.20180325ubuntu2) ...
 Setting up python3-dev (3.6.5-3ubuntu1) ...
+```
 
-
-
+Want python3 dev and venv
+```
 vagrant@ubuntu-bionic:~$ sudo apt install python3.7-dev python3.7-venv
 Reading package lists... Done
 Building dependency tree       
@@ -672,11 +739,26 @@ Setting up libpython3.7-dev:amd64 (3.7.0-1~18.04) ...
 Setting up python3.7-venv (3.7.0-1~18.04) ...
 Setting up python3.7-dev (3.7.0-1~18.04) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
+```
 
+__Demo venv in python3__
 
+```
+vagrant@ubuntu-bionic:~$ python3.7 -m venv sklearn-py3.7-venv
+```
 
+Directory
+```
+vagrant@ubuntu-bionic:~$ ls sklearn-py3.7-venv/
+bin  include  lib  lib64  pyvenv.cfg  share
+```
 
-vagrant@ubuntu-bionic:~$ python3.7 -m venv scikit-learn-python3.7-venv
-vagrant@ubuntu-bionic:~$ ls
-scikit-learn-python3.7-venv
+Activate venv
+```
+vagrant@ubuntu-bionic:~$ . ./sklearn-py3.7-venv/bin/activate
+```
 
+Deactivate
+```
+(sklearn-py3.7-venv) vagrant@ubuntu-bionic:~$ deactivate 
+```
