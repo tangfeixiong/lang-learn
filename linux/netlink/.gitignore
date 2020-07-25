@@ -1,0 +1,8 @@
+.deps/
+autom4te.cache
+*.log
+*.in~
+*.o
+stamp-h1
+
+netlink
