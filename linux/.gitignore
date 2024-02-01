@@ -1,1 +1,8 @@
+
 bminor/
+
+.deps/
+autom4te.cache/
+
+openSUSE.txt
+yum-groupinstall-development-tools.txt

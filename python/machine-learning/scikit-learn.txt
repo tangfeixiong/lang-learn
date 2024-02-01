@@ -1,0 +1,352 @@
+
+
+
+
+vagrant@ubuntu-bionic:~$ sudo pip3 install numpy
+The directory '/home/vagrant/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/vagrant/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting numpy
+  Downloading https://files.pythonhosted.org/packages/ff/7f/9d804d2348471c67a7d8b5f84f9bc59fd1cefa148986f2b74552f8573555/numpy-1.15.4-cp36-cp36m-manylinux1_x86_64.whl (13.9MB)
+    100% |████████████████████████████████| 13.9MB 11kB/s 
+Installing collected packages: numpy
+Successfully installed numpy-1.15.4
+
+
+
+vagrant@ubuntu-bionic:~$ sudo pip3 install scipy
+The directory '/home/vagrant/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/vagrant/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting scipy
+  Downloading https://files.pythonhosted.org/packages/a8/0b/f163da98d3a01b3e0ef1cab8dd2123c34aee2bafbb1c5bffa354cc8a1730/scipy-1.1.0-cp36-cp36m-manylinux1_x86_64.whl (31.2MB)
+    100% |████████████████████████████████| 31.2MB 15kB/s 
+Requirement already satisfied: numpy>=1.8.2 in /usr/local/lib/python3.6/dist-packages (from scipy)
+Installing collected packages: scipy
+Successfully installed scipy-1.1.0
+
+
+
+vagrant@ubuntu-bionic:~$ sudo pip3 install scikit-learn
+The directory '/home/vagrant/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/vagrant/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting scikit-learn
+  Downloading https://files.pythonhosted.org/packages/0c/b2/05be9b6da9ae4a4c54f537be22e95833f722742a02b1e355fdc09363877c/scikit_learn-0.20.0-cp36-cp36m-manylinux1_x86_64.whl (5.3MB)
+    100% |████████████████████████████████| 5.3MB 33kB/s 
+Requirement already satisfied: numpy>=1.8.2 in /usr/local/lib/python3.6/dist-packages (from scikit-learn)
+Requirement already satisfied: scipy>=0.13.3 in /usr/local/lib/python3.6/dist-packages (from scikit-learn)
+Installing collected packages: scikit-learn
+Successfully installed scikit-learn-0.20.0
+
+
+
+vagrant@ubuntu-bionic:~$ sudo apt install python3.7-dev python3.7-venv
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libpython3.7 libpython3.7-dev libpython3.7-minimal libpython3.7-stdlib python3.7 python3.7-minimal
+Suggested packages:
+  python3.7-doc binfmt-support
+The following NEW packages will be installed:
+  libpython3.7 libpython3.7-dev libpython3.7-minimal libpython3.7-stdlib python3.7 python3.7-dev python3.7-minimal python3.7-venv
+0 upgraded, 8 newly installed, 0 to remove and 27 not upgraded.
+Need to get 54.5 MB of archives.
+After this operation, 111 MB of additional disk space will be used.
+
+...
+...
+
+Processing triggers for mime-support (3.60ubuntu1) ...
+Setting up libpython3.7-minimal:amd64 (3.7.0-1~18.04) ...
+Setting up python3.7-minimal (3.7.0-1~18.04) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.0-1~18.04) ...
+Setting up python3.7 (3.7.0-1~18.04) ...
+Setting up libpython3.7:amd64 (3.7.0-1~18.04) ...
+Setting up libpython3.7-dev:amd64 (3.7.0-1~18.04) ...
+Setting up python3.7-venv (3.7.0-1~18.04) ...
+Setting up python3.7-dev (3.7.0-1~18.04) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ git describe --all
+tags/0.20.1
+
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ source ~/scikit-learn-python3.7-venv/bin/activate
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ pip3 install -r build_tools/appveyor/requirements.txt 
+
+...
+...
+
+Building wheels for collected packages: cython
+  Running setup.py bdist_wheel for cython ... error
+  Complete output from command /home/vagrant/scikit-learn-python3.7-venv/bin/python3.7 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-j9i7o0v3/cython/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/tmpqu_f1bswpip-wheel- --python-tag cp37:
+  Unable to find pgen, not compiling formal grammar.
+  usage: -c [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+     or: -c --help [cmd1 cmd2 ...]
+     or: -c --help-commands
+     or: -c cmd --help
+  
+  error: invalid command 'bdist_wheel'
+  
+  ----------------------------------------
+  Failed building wheel for cython
+  Running setup.py clean for cython
+Failed to build cython
+Installing collected packages: numpy, scipy, cython, six, attrs, atomicwrites, pluggy, py, more-itertools, pytest, wheel, pyparsing, packaging, urllib3, chardet, idna, certifi, requests, apache-libcloud, wheelhouse-uploader, pillow
+  Running setup.py install for cython ... done
+Successfully installed apache-libcloud-2.2.1 atomicwrites-1.2.1 attrs-18.2.0 certifi-2018.10.15 chardet-3.0.4 cython-0.27.3 idna-2.7 more-itertools-4.3.0 numpy-1.15.4 packaging-18.0 pillow-5.3.0 pluggy-0.8.0 py-1.7.0 pyparsing-2.3.0 pytest-4.0.0 requests-2.20.1 scipy-1.1.0 six-1.11.0 urllib3-1.24.1 wheel-0.32.2 wheelhouse-uploader-0.10.1
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ make all
+rm -f tags
+python setup.py clean
+
+...
+...
+
+customize UnixCCompiler
+customize UnixCCompiler using build_clib
+building 'libsvm-skl' library
+compiling C++ sources
+C compiler: x86_64-linux-gnu-g++ -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC
+
+creating build
+creating build/temp.linux-x86_64-3.7
+creating build/temp.linux-x86_64-3.7/sklearn
+creating build/temp.linux-x86_64-3.7/sklearn/svm
+creating build/temp.linux-x86_64-3.7/sklearn/svm/src
+creating build/temp.linux-x86_64-3.7/sklearn/svm/src/libsvm
+compile options: '-I/home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/numpy/core/include -I/home/vagrant/scikit-learn-python3.7-venv/include -I/usr/include/python3.7m -c'
+x86_64-linux-gnu-g++: sklearn/svm/src/libsvm/libsvm_template.cpp
+x86_64-linux-gnu-gcc-ar: adding 1 object files to build/temp.linux-x86_64-3.7/liblibsvm-skl.a
+
+...
+...
+
+pytest --showlocals -v doc/sphinxext/
+================================================================= test session starts ==================================================================
+platform linux -- Python 3.7.0, pytest-4.0.0, py-1.7.0, pluggy-0.8.0 -- /home/vagrant/scikit-learn-python3.7-venv/bin/python3.7
+cachedir: .pytest_cache
+rootdir: /Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn, inifile: setup.cfg
+collected 1 item / 1 errors                                                                                                                            
+
+======================================================================== ERRORS ========================================================================
+___________________________________________________ ERROR collecting doc/sphinxext/sphinx_issues.py ____________________________________________________
+doc/sphinxext/sphinx_issues.py:25: in <module>
+    from docutils import nodes, utils
+E   ModuleNotFoundError: No module named 'docutils'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=============================================================== 1 error in 0.52 seconds ================================================================
+Makefile:29: recipe for target 'test-sphinxext' failed
+make: *** [test-sphinxext] Error 2
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ pip install docutils
+Collecting docutils
+  Downloading https://files.pythonhosted.org/packages/36/fa/08e9e6e0e3cbd1d362c3bbee8d01d0aedb2155c4ac112b19ef3cae8eed8d/docutils-0.14-py3-none-any.whl (543kB)
+    100% |████████████████████████████████| 552kB 195kB/s 
+Installing collected packages: docutils
+Successfully installed docutils-0.14
+
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ make test-sphinxext test-doc
+pytest --showlocals -v doc/sphinxext/
+================================================================= test session starts ==================================================================
+platform linux -- Python 3.7.0, pytest-4.0.0, py-1.7.0, pluggy-0.8.0 -- /home/vagrant/scikit-learn-python3.7-venv/bin/python3.7
+cachedir: .pytest_cache
+rootdir: /Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn, inifile: setup.cfg
+collected 1 item / 1 errors                                                                                                                            
+
+======================================================================== ERRORS ========================================================================
+___________________________________________________ ERROR collecting doc/sphinxext/sphinx_issues.py ____________________________________________________
+doc/sphinxext/sphinx_issues.py:26: in <module>
+    from sphinx.util.nodes import split_explicit_title
+E   ModuleNotFoundError: No module named 'sphinx'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+=============================================================== 1 error in 0.76 seconds ================================================================
+Makefile:29: recipe for target 'test-sphinxext' failed
+make: *** [test-sphinxext] Error 2
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ pip install sphinx
+Collecting sphinx
+  Downloading https://files.pythonhosted.org/packages/ff/d5/3a8727d6f890b1ae45da72a55bf8449e9f2c535a444923b338c3f509f203/Sphinx-1.8.2-py2.py3-none-any.whl (3.1MB)
+    100% |████████████████████████████████| 3.1MB 112kB/s 
+
+...
+  ...
+
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from requests>=2.0.0->sphinx)
+Requirement already satisfied: certifi>=2017.4.17 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from requests>=2.0.0->sphinx)
+Requirement already satisfied: idna<2.8,>=2.5 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from requests>=2.0.0->sphinx)
+Requirement already satisfied: urllib3<1.25,>=1.21.1 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from requests>=2.0.0->sphinx)
+Requirement already satisfied: pyparsing>=2.0.2 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from packaging->sphinx)
+Installing collected packages: Pygments, sphinxcontrib-websupport, MarkupSafe, Jinja2, pytz, babel, imagesize, alabaster, snowballstemmer, sphinx
+Successfully installed Jinja2-2.10 MarkupSafe-1.1.0 Pygments-2.2.0 alabaster-0.7.12 babel-2.6.0 imagesize-1.1.0 pytz-2018.7 snowballstemmer-1.2.1 sphinx-1.8.2 sphinxcontrib-websupport-1.1.0
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ make test-sphinxext test-doc
+pytest --showlocals -v doc/sphinxext/
+
+...
+...
+
+=============================================================== 1 passed in 0.18 seconds ===============================================================
+pytest doc/about.rst doc/authors.rst doc/data_transforms.rst doc/datasets/index.rst doc/developers/advanced_installation.rst doc/developers/contributing.rst doc/developers/index.rst doc/developers/maintainer.rst doc/developers/performance.rst doc/developers/tips.rst doc/developers/utilities.rst doc/documentation.rst doc/faq.rst doc/glossary.rst doc/includes/big_toc_css.rst doc/includes/bigger_toc_css.rst doc/index.rst doc/install.rst doc/model_selection.rst doc/modules/biclustering.rst doc/modules/calibration.rst doc/modules/classes.rst doc/modules/clustering.rst doc/modules/compose.rst doc/modules/computing.rst doc/modules/covariance.rst doc/modules/cross_decomposition.rst doc/modules/cross_validation.rst doc/modules/decomposition.rst doc/modules/density.rst doc/modules/ensemble.rst doc/modules/feature_extraction.rst doc/modules/feature_selection.rst doc/modules/gaussian_process.rst doc/modules/grid_search.rst doc/modules/impute.rst doc/modules/isotonic.rst doc/modules/kernel_approximation.rst doc/modules/kernel_ridge.rst doc/modules/label_propagation.rst doc/modules/lda_qda.rst doc/modules/learning_curve.rst doc/modules/linear_model.rst doc/modules/manifold.rst doc/modules/metrics.rst doc/modules/mixture.rst doc/modules/model_evaluation.rst doc/modules/model_persistence.rst doc/modules/multiclass.rst doc/modules/naive_bayes.rst doc/modules/neighbors.rst doc/modules/neural_networks_supervised.rst doc/modules/neural_networks_unsupervised.rst doc/modules/outlier_detection.rst doc/modules/pipeline.rst doc/modules/preprocessing.rst doc/modules/preprocessing_targets.rst doc/modules/random_projection.rst doc/modules/sgd.rst doc/modules/svm.rst doc/modules/tree.rst doc/modules/unsupervised_reduction.rst doc/other_distributions.rst doc/preface.rst doc/presentations.rst doc/related_projects.rst doc/supervised_learning.rst doc/support.rst doc/templates/class.rst doc/templates/class_with_call.rst doc/templates/class_without_init.rst doc/templates/deprecated_class.rst doc/templates/deprecated_class_with_call.rst doc/templates/deprecated_class_without_init.rst doc/templates/deprecated_function.rst doc/templates/function.rst doc/templates/numpydoc_docstring.rst doc/testimonials/testimonials.rst doc/themes/scikit-learn/static/ML_MAPS_README.rst doc/tune_toc.rst doc/tutorial/basic/tutorial.rst doc/tutorial/index.rst doc/tutorial/machine_learning_map/index.rst doc/tutorial/statistical_inference/finding_help.rst doc/tutorial/statistical_inference/index.rst doc/tutorial/statistical_inference/model_selection.rst doc/tutorial/statistical_inference/putting_together.rst doc/tutorial/statistical_inference/settings.rst doc/tutorial/statistical_inference/supervised_learning.rst doc/tutorial/statistical_inference/unsupervised_learning.rst doc/tutorial/text_analytics/working_with_text_data.rst doc/unsupervised_learning.rst doc/user_guide.rst doc/whats_new.rst doc/whats_new/_contributors.rst doc/whats_new/older_versions.rst doc/whats_new/v0.13.rst doc/whats_new/v0.14.rst doc/whats_new/v0.15.rst doc/whats_new/v0.16.rst doc/whats_new/v0.17.rst doc/whats_new/v0.18.rst doc/whats_new/v0.19.rst doc/whats_new/v0.20.rst doc/whats_new/v0.21.rst
+
+...
+...
+
+================================================== 36 passed, 4 skipped, 99 warnings in 17.58 seconds ==================================================
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ ls build
+lib.linux-x86_64-3.7  temp.linux-x86_64-3.7
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ ls build/temp.linux-x86_64-3.7/
+libcblas.a  liblibsvm-skl.a  sklearn
+ 
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ make install
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ python3.7 examples/plot_isotonic_regression.py 
+
+===================
+Isotonic Regression
+===================
+
+An illustration of the isotonic regression on generated data. The
+isotonic regression finds a non-decreasing approximation of a function
+while minimizing the mean squared error on the training data. The benefit
+of such a model is that it does not assume any form for the target
+function such as linearity. For comparison a linear regression is also
+presented.
+
+
+Traceback (most recent call last):
+  File "examples/plot_isotonic_regression.py", line 21, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ pip install matplotlib
+Collecting matplotlib
+  Downloading https://files.pythonhosted.org/packages/e7/f9/5377596cb1c035c102396f5934237a046f80da69974026f90bee5db8b7ba/matplotlib-3.0.2-cp37-cp37m-manylinux1_x86_64.whl (12.9MB)
+
+...
+  ...
+
+Requirement already satisfied: numpy>=1.10.0 in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from matplotlib)
+Requirement already satisfied: six in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from cycler>=0.10->matplotlib)
+Requirement already satisfied: setuptools in /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages (from kiwisolver>=1.0.1->matplotlib)
+Installing collected packages: cycler, kiwisolver, python-dateutil, matplotlib
+Successfully installed cycler-0.10.0 kiwisolver-1.0.1 matplotlib-3.0.2 python-dateutil-2.7.5
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ python examples/plot_isotonic_regression.py 
+
+===================
+Isotonic Regression
+===================
+
+An illustration of the isotonic regression on generated data. The
+isotonic regression finds a non-decreasing approximation of a function
+while minimizing the mean squared error on the training data. The benefit
+of such a model is that it does not assume any form for the target
+function such as linearity. For comparison a linear regression is also
+presented.
+
+
+Traceback (most recent call last):
+  File "examples/plot_isotonic_regression.py", line 24, in <module>
+    from sklearn.linear_model import LinearRegression
+ModuleNotFoundError: No module named 'sklearn'
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ python setup.py install
+Partial import of sklearn during the build process.
+/usr/lib/python3.7/distutils/dist.py:274: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+
+...
+...
+
+sklearn/setup.py:73: UserWarning: 
+    Blas (http://www.netlib.org/blas/) libraries not found.
+    Directories to search for the libraries can be specified in the
+    numpy/distutils/site.cfg file (section [blas]) or by setting
+    the BLAS environment variable.
+  warnings.warn(BlasNotFoundError.__doc__)
+sklearn/manifold/_barnes_hut_tsne.pyx: cannot find cimported module 'sklearn.neighbors'
+running install
+running build
+running config_cc
+unifing config_cc, config, build_clib, build_ext, build commands --compiler options
+running config_fc
+unifing config_fc, config, build_clib, build_ext, build commands --fcompiler options
+running build_src
+build_src
+building library "libsvm-skl" sources
+building library "cblas" sources
+building extension "sklearn.__check_build._check_build" sources
+building extension "sklearn.preprocessing._csr_polynomial_expansion" sources
+###
+### >>> snippets >>>
+###
+copying sklearn/tree/_criterion.pxd -> /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/sklearn/tree/
+copying sklearn/tree/_splitter.pxd -> /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/sklearn/tree/
+copying sklearn/tree/_tree.pxd -> /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/sklearn/tree/
+copying sklearn/tree/_utils.pxd -> /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/sklearn/tree/
+running install_egg_info
+Writing /home/vagrant/scikit-learn-python3.7-venv/lib/python3.7/site-packages/scikit_learn-0.21.dev0.egg-info
+running install_clib
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ ls ~/scikit-learn-python3.7-venv/lib64/python3.7/site-packages/sklearn/
+__check_build                              cluster                   ensemble            kernel_approximation.py  multioutput.py        setup.py
+__init__.py                                compose                   exceptions.py       kernel_ridge.py          naive_bayes.py        svm
+__pycache__                                covariance                externals           linear_model             neighbors             tests
+_build_utils                               cross_decomposition       feature_extraction  manifold                 neural_network        tree
+_config.py                                 datasets                  feature_selection   metrics                  pipeline.py           utils
+_isotonic.cpython-37m-x86_64-linux-gnu.so  decomposition             gaussian_process    mixture                  preprocessing
+base.py                                    discriminant_analysis.py  impute.py           model_selection          random_projection.py
+calibration.py                             dummy.py                  isotonic.py         multiclass.py            semi_supervised
+
+
+
+(scikit-learn-python3.7-venv) vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/scikit-learn/scikit-learn$ python examples/plot_isotonic_regression.py 
+
+===================
+Isotonic Regression
+===================
+
+An illustration of the isotonic regression on generated data. The
+isotonic regression finds a non-decreasing approximation of a function
+while minimizing the mean squared error on the training data. The benefit
+of such a model is that it does not assume any form for the target
+function such as linearity. For comparison a linear regression is also
+presented.
+
+
+
+

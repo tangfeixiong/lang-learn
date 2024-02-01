@@ -1,0 +1,425 @@
+
+
+
+
+**Notes**
++ more earlier version have not command option `rustc --print cfg`
++ more earlier cargo limit package edition version (<=2018)  <https://stackoverflow.com/questions/74697023/how-to-fix-this-version-of-cargo-is-older-than-the-2021-edition-error>
++ latest version (1.60+) can not compile in Mac OS X
++ rustup install: command `mktemp -d` failed - <https://users.rust-lang.org/t/rustup-installation-error-command-failed-mktemp-d/67999>
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+usage: mktemp [-d] [-q] [-t prefix] [-u] template ...
+       mktemp [-d] [-q] [-u] -t prefix 
+rustup: command failed: mktemp -d
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o rustup-init.sh
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ sh rustup-init.sh 
+info: downloading installer
+
+Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  /Users/fanhongling/.rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+The Cargo home directory is located at:
+
+  /Users/fanhongling/.cargo
+
+This can be modified with the CARGO_HOME environment variable.
+
+The cargo, rustc, rustup and other commands will be added to
+Cargo's bin directory, located at:
+
+  /Users/fanhongling/.cargo/bin
+
+This path will then be added to your PATH environment variable by
+modifying the profile files located at:
+
+  /Users/fanhongling/.profile
+  /Users/fanhongling/.zshenv
+
+You can uninstall at any time with rustup self uninstall and
+these changes will be reverted.
+
+Current installation options:
+
+
+   default host triple: x86_64-apple-darwin
+     default toolchain: stable (default)
+               profile: default
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+>2
+
+I'm going to ask you the value of each of these installation options.
+You may simply press the Enter key to leave unchanged.
+
+Default host triple? [x86_64-apple-darwin]
+
+
+Default toolchain? (stable/beta/nightly/none) [stable]
+none
+
+Profile (which tools and data to install)? (minimal/default/complete) [default]
+minimal
+
+Modify PATH variable? (Y/n)
+y
+
+
+Current installation options:
+
+
+   default host triple: x86_64-apple-darwin
+     default toolchain: none
+               profile: minimal
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+>
+
+info: profile set to 'minimal'
+info: setting default host triple to x86_64-apple-darwin
+info: skipping toolchain installation
+
+
+Rust is installed now. Great!
+
+To get started you may need to restart your current shell.
+This would reload your PATH environment variable to include
+Cargo's bin directory ($HOME/.cargo/bin).
+
+To configure your current shell, run:
+source "$HOME/.cargo/env"
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ . ~/.cargo/env 
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup --version
+rustup 1.26.0 (5af9b9484 2023-04-05)
+info: This is the version for the rustup toolchain manager, not the rustc compiler.
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ ls ~/.cargo/
+bin	env
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ ls ~/.cargo/bin/
+cargo		cargo-miri	rust-analyzer	rust-lldb	rustfmt
+cargo-clippy	clippy-driver	rust-gdb	rustc		rustup
+cargo-fmt	rls		rust-gdbgui	rustdoc
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ ls ~/.rustup/
+settings.toml
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup --verbose toolchain install 1.0.0
+verbose: read metadata version: '12'
+verbose: creating update-hash directory: '/Users/fanhongling/.rustup/update-hashes'
+verbose: installing toolchain '1.0.0-x86_64-apple-darwin'
+verbose: toolchain directory: '/Users/fanhongling/.rustup/toolchains/1.0.0-x86_64-apple-darwin'
+info: syncing channel updates for '1.0.0-x86_64-apple-darwin'
+verbose: creating temp root: /Users/fanhongling/.rustup/tmp
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/sut8m3edd_q8tyre_file
+verbose: downloading file from: 'https://static.rust-lang.org/dist/channel-rust-1.0.0.toml.sha256'
+verbose: downloading with reqwest
+verbose: manifest not found. trying legacy manifest
+info: downloading component 'rust'
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/09vxu7h7g2shzsxd_file
+verbose: downloading file from: 'https://static.rust-lang.org/dist/rust-1.0.0-x86_64-apple-darwin.tar.gz.sha256'
+verbose: downloading with reqwest
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/09vxu7h7g2shzsxd_file
+verbose: no update hash at: '/Users/fanhongling/.rustup/update-hashes/1.0.0-x86_64-apple-darwin'
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/a2pb6n_xbdb607e6_file.tar.gz
+verbose: downloading file from: 'https://static.rust-lang.org/dist/rust-1.0.0-x86_64-apple-darwin.tar.gz'
+verbose: downloading with reqwest
+ 88.3 MiB /  88.3 MiB (100 %) 142.7 KiB/s in 27m 18s ETA:  0s        
+verbose: checksum passed
+info: installing component 'rust'
+verbose: creating temp directory: /Users/fanhongling/.rustup/tmp/__qc358990uvi1cm_dir
+ 88.3 MiB /  88.3 MiB (100 %) 307.2 KiB/s in 22s ETA:  0s
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/1ovdu59npdekzlkh_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/xj20w7cgekbqnr2y_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/q0j8usk0_jjiijzi_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/4bbadsk32w5xy_9j_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/1ovdu59npdekzlkh_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/xj20w7cgekbqnr2y_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/q0j8usk0_jjiijzi_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/4bbadsk32w5xy_9j_file
+verbose: deleted temp directory: /Users/fanhongling/.rustup/tmp/__qc358990uvi1cm_dir
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/a2pb6n_xbdb607e6_file.tar.gz
+verbose: toolchain '1.0.0-x86_64-apple-darwin' installed
+
+  1.0.0-x86_64-apple-darwin installed - rustc 1.0.0 (a59de37e9 2015-05-13) (built 2015-05-14)
+
+info: default toolchain set to '1.0.0-x86_64-apple-darwin'
+info: checking for self-update
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup --verbose toolchain install 1.6.0
+verbose: read metadata version: '12'
+verbose: installing toolchain '1.6.0-x86_64-apple-darwin'
+verbose: toolchain directory: '/Users/fanhongling/.rustup/toolchains/1.6.0-x86_64-apple-darwin'
+info: syncing channel updates for '1.6.0-x86_64-apple-darwin'
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/yq2_8v79czhpnx8r_file
+verbose: downloading file from: 'https://static.rust-lang.org/dist/channel-rust-1.6.0.toml.sha256'
+verbose: downloading with reqwest
+verbose: manifest not found. trying legacy manifest
+info: downloading component 'rust'
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/1_egfd57iji1gcyg_file
+verbose: downloading file from: 'https://static.rust-lang.org/dist/rust-1.6.0-x86_64-apple-darwin.tar.gz.sha256'
+verbose: downloading with reqwest
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/1_egfd57iji1gcyg_file
+verbose: no update hash at: '/Users/fanhongling/.rustup/update-hashes/1.6.0-x86_64-apple-darwin'
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/2m726vo_jdmlwv4j_file.tar.gz
+verbose: downloading file from: 'https://static.rust-lang.org/dist/rust-1.6.0-x86_64-apple-darwin.tar.gz'
+verbose: downloading with reqwest
+ 84.1 MiB /  84.1 MiB (100 %)   1.9 MiB/s in 42s ETA:  0s    
+verbose: checksum passed
+info: installing component 'rust'
+verbose: creating temp directory: /Users/fanhongling/.rustup/tmp/qvm2wk2evkmh_inn_dir
+ 84.1 MiB /  84.1 MiB (100 %)  16.1 MiB/s in  6s ETA:  0s
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/ell13mxi1wej3qy0_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/j9phmlyzk4eg_vto_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/_7o10la2ejfdbm8l_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/ertt3mn3zd8biwaf_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/z1pm01cplt0k2mlr_file
+verbose: creating temp file: /Users/fanhongling/.rustup/tmp/1bma6gt28yvjxwc1_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/ell13mxi1wej3qy0_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/j9phmlyzk4eg_vto_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/_7o10la2ejfdbm8l_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/ertt3mn3zd8biwaf_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/z1pm01cplt0k2mlr_file
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/1bma6gt28yvjxwc1_file
+verbose: deleted temp directory: /Users/fanhongling/.rustup/tmp/qvm2wk2evkmh_inn_dir
+verbose: deleted temp file: /Users/fanhongling/.rustup/tmp/2m726vo_jdmlwv4j_file.tar.gz
+verbose: toolchain '1.6.0-x86_64-apple-darwin' installed
+
+  1.6.0-x86_64-apple-darwin installed - rustc 1.6.0 (c30b771ad 2016-01-19)
+
+info: checking for self-update
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain list
+1.0.0-x86_64-apple-darwin (default)
+1.6.0-x86_64-apple-darwin
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup default 1.6.0
+info: using existing install for '1.6.0-x86_64-apple-darwin'
+info: default toolchain set to '1.6.0-x86_64-apple-darwin'
+
+  1.6.0-x86_64-apple-darwin unchanged - rustc 1.6.0 (c30b771ad 2016-01-19)
+
+
+
+
+fanhonglingdeMacBook-Pro:vagrant-centos7 fanhongling$ rustc --version
+rustc 1.6.0 (c30b771ad 2016-01-19)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain uninstall 1.0.0
+info: uninstalling toolchain '1.0.0-x86_64-apple-darwin'
+info: toolchain '1.0.0-x86_64-apple-darwin' uninstalled
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustc --print cfg
+error: unknown print request `cfg`
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain install 1.8.0
+info: syncing channel updates for '1.8.0-x86_64-apple-darwin'
+info: latest update on 2016-04-12, rust version 1.8.0 (db2939409 2016-04-11)
+info: downloading component 'cargo'
+  2.5 MiB /   2.5 MiB (100 %)   2.3 MiB/s in  1s ETA:  0s
+info: downloading component 'rust-docs'
+  5.4 MiB /   5.4 MiB (100 %)   3.8 MiB/s in  1s ETA:  0s
+info: downloading component 'rust-std'
+ 50.3 MiB /  50.3 MiB (100 %)   1.9 MiB/s in 24s ETA:  0s
+info: downloading component 'rustc'
+ 37.1 MiB /  37.1 MiB (100 %)   2.3 MiB/s in 16s ETA:  0s
+info: installing component 'cargo'
+info: installing component 'rust-docs'
+info: installing component 'rust-std'
+info: installing component 'rustc'
+
+  1.8.0-x86_64-apple-darwin installed - rustc 1.8.0 (db2939409 2016-04-11)
+
+info: checking for self-update
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup default 1.8.0
+info: using existing install for '1.8.0-x86_64-apple-darwin'
+info: default toolchain set to '1.8.0-x86_64-apple-darwin'
+
+  1.8.0-x86_64-apple-darwin unchanged - rustc 1.8.0 (db2939409 2016-04-11)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustc --version
+rustc 1.8.0 (db2939409 2016-04-11)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustc --print cfg
+target_os="macos"
+target_family="unix"
+target_arch="x86_64"
+target_endian="little"
+target_pointer_width="64"
+target_env=""
+target_vendor="apple"
+unix
+target_thread_local
+debug_assertions
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ cargo --version
+cargo 0.9.0-nightly (8fc3fd8 2016-02-29)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain install 1.20.0
+info: syncing channel updates for '1.20.0-x86_64-apple-darwin'
+info: latest update on 2017-08-31, rust version 1.20.0 (f3d6973f4 2017-08-27)
+info: downloading component 'cargo'
+  2.6 MiB /   2.6 MiB (100 %)   1.2 MiB/s in  2s ETA:  0s
+info: downloading component 'rust-docs'
+  3.6 MiB /   3.6 MiB (100 %)   2.0 MiB/s in  2s ETA:  0s
+info: downloading component 'rust-std'
+ 49.0 MiB /  49.0 MiB (100 %)   3.1 MiB/s in 18s ETA:  0s
+info: downloading component 'rustc'
+ 35.1 MiB /  35.1 MiB (100 %)   3.2 MiB/s in 12s ETA:  0s
+info: installing component 'cargo'
+info: installing component 'rust-docs'
+info: installing component 'rust-std'
+ 49.0 MiB /  49.0 MiB (100 %)  14.3 MiB/s in  3s ETA:  0s
+info: installing component 'rustc'
+ 35.1 MiB /  35.1 MiB (100 %)  14.1 MiB/s in  2s ETA:  0s
+
+  1.20.0-x86_64-apple-darwin installed - rustc 1.20.0 (f3d6973f4 2017-08-27)
+
+info: checking for self-update
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup default 1.20.0
+info: using existing install for '1.20.0-x86_64-apple-darwin'
+info: default toolchain set to '1.20.0-x86_64-apple-darwin'
+
+  1.20.0-x86_64-apple-darwin unchanged - rustc 1.20.0 (f3d6973f4 2017-08-27)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ cargo --version
+cargo 0.21.0 (5b4b8b2ae 2017-08-12)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain install 1.30.0
+info: syncing channel updates for '1.30.0-x86_64-apple-darwin'
+info: latest update on 2018-10-25, rust version 1.30.0 (da5f414c2 2018-10-24)
+info: downloading component 'cargo'
+  3.3 MiB /   3.3 MiB (100 %)   1.4 MiB/s in  3s ETA:  0s 
+info: downloading component 'rust-docs'
+  8.9 MiB /   8.9 MiB (100 %)   2.1 MiB/s in  5s ETA:  0s
+info: downloading component 'rust-std'
+ 47.3 MiB /  47.3 MiB (100 %)   2.2 MiB/s in 19s ETA:  0s
+info: downloading component 'rustc'
+ 61.6 MiB /  61.6 MiB (100 %)   3.1 MiB/s in 20s ETA:  0s
+info: installing component 'cargo'
+info: installing component 'rust-docs'
+  8.9 MiB /   8.9 MiB (100 %)   3.4 MiB/s in  2s ETA:  0s
+info: installing component 'rust-std'
+ 47.3 MiB /  47.3 MiB (100 %)  16.4 MiB/s in  2s ETA:  0s
+info: installing component 'rustc'
+ 61.6 MiB /  61.6 MiB (100 %)  13.7 MiB/s in  4s ETA:  0s
+
+  1.30.0-x86_64-apple-darwin installed - rustc 1.30.0 (da5f414c2 2018-10-24)
+
+info: checking for self-update
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup default 1.30.0
+info: using existing install for '1.30.0-x86_64-apple-darwin'
+info: default toolchain set to '1.30.0-x86_64-apple-darwin'
+
+  1.30.0-x86_64-apple-darwin unchanged - rustc 1.30.0 (da5f414c2 2018-10-24)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ cargo --version
+cargo 1.30.0 (36d96825d 2018-10-24)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustup toolchain list
+1.58.0-x86_64-apple-darwin (default)
+
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ rustc --version; cargo --version
+rustc 1.58.0 (02072b482 2022-01-11)
+cargo 1.58.0 (7f08ace4f 2021-11-24)
+
+

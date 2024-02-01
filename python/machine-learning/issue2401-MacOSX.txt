@@ -1,0 +1,1407 @@
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install python311
+Password:
+--->  Computing dependencies for python311
+The following dependencies will be installed: 
+ bzip2
+ expat
+ libedit
+ libffi
+ openssl
+ openssl3
+ python3_select
+ python3_select-311
+ python_select
+ python_select-311
+ sqlite3
+ zlib
+Continue? [Y/n]: y
+
+...
+...
+
+--->  Fetching archive for python311
+--->  Attempting to fetch python311-3.11.7_0+lto+optimizations.darwin_14.x86_64.tbz2 from http://kmq.jp.packages.macports.org/python311
+--->  Attempting to fetch python311-3.11.7_0+lto+optimizations.darwin_14.x86_64.tbz2.rmd160 from http://kmq.jp.packages.macports.org/python311
+--->  Installing python311 @3.11.7_0+lto+optimizations
+--->  Activating python311 @3.11.7_0+lto+optimizations
+--->  Cleaning python311
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  python311 has the following notes:
+    To make this the default Python or Python 3 (i.e., the version run by the 'python'
+    or 'python3' commands), run one or both of:
+    
+        sudo port select --set python python311
+        sudo port select --set python3 python311
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install py311-pip
+--->  Computing dependencies for py311-pip
+The following dependencies will be installed: 
+ pip_select
+ py311-setuptools
+Continue? [Y/n]: y
+
+...
+...
+
+--->  Installing py311-pip @23.2.1_0
+--->  Activating py311-pip @23.2.1_0
+--->  Cleaning py311-pip
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  py311-pip has the following notes:
+    To make the Python 3.11 version of pip the one that is run when you execute the
+    commands without a version suffix, e.g. 'pip', run:
+    sudo port select --set pip pip311
+    sudo port select --set pip3 pip311
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip-3.11 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scikit-learn
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting numpy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/42/db/82cc805d96ba48622fbb7395a7b44cf59567fca235e397cdf64555081773/numpy-1.26.3-cp311-cp311-macosx_10_9_x86_64.whl (20.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.6/20.6 MB 2.1 MB/s eta 0:00:00
+Collecting scikit-learn
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/08/5d/e5acecd6e99a6b656e42e7a7b18284e2f9c9f512e8ed6979e1e75d25f05f/scikit_learn-1.3.2-cp311-cp311-macosx_10_9_x86_64.whl (10.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.1/10.1 MB 2.0 MB/s eta 0:00:00
+
+...
+...
+
+Installing collected packages: threadpoolctl, numpy, joblib, scipy, scikit-learn
+  WARNING: The script f2py is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed joblib-1.3.2 numpy-1.26.3 scikit-learn-1.3.2 scipy-1.11.4 threadpoolctl-3.2.0
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip-3.11 install -i https://pypi.tuna.tsinghua.edu.cn/simple pandas
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting pandas
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6e/48/892f8835774dd5a84fff3e890f31d1da3dfba2ee1571ac739589b14af66d/pandas-2.1.4-cp311-cp311-macosx_10_9_x86_64.whl (11.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.6/11.6 MB 2.1 MB/s eta 0:00:00
+Requirement already satisfied: numpy<2,>=1.23.2 in /Users/fanhongling/Library/Python/3.11/lib/python/site-packages (from pandas) (1.26.3)
+
+...
+...
+
+Installing collected packages: pytz, tzdata, six, python-dateutil, pandas
+Successfully installed pandas-2.1.4 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.16.0 tzdata-2023.4
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip-3.11 install -i https://pypi.tuna.tsinghua.edu.cn/simple matplotlib
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting matplotlib
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/ab/38a0e94cb01dacb50f06957c2bed1c83b8f9dac6618988a37b2487862944/matplotlib-3.8.2.tar.gz (35.9 MB)
+
+  ...
+  ...
+
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for matplotlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [1191 lines of output]
+    
+      ...
+      ...
+
+      building 'matplotlib.backends._macosx' extension
+      creating build/temp.macosx-10.10-x86_64-cpython-311/matplotlib.backends._macosx
+      creating build/temp.macosx-10.10-x86_64-cpython-311/matplotlib.backends._macosx/src
+      /usr/bin/clang -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -pipe -Os -I/opt/local/Library/Frameworks/Python.framework/Versions/3.11/include/python3.11 -c src/_macosx.m -o build/temp.macosx-10.10-x86_64-cpython-311/matplotlib.backends._macosx/src/_macosx.o -Werror -fvisibility=hidden -flto
+      src/_macosx.m:48:49: error: suggest braces around initialization of subobject [-Werror,-Wmissing-braces]
+      static struct sigaction originalSigintAction = {0};
+                                                      ^
+                                                      {}
+      src/_macosx.m:61:42: error: suggest braces around initialization of subobject [-Werror,-Wmissing-braces]
+              struct sigaction customAction = {0};
+                                               ^
+                                               {}
+      src/_macosx.m:85:64: error: use of undeclared identifier 'NSEventMaskAny'
+                      NSEvent *event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                                     ^
+      src/_macosx.m:241:52: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          [NSApp postEvent: [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                         NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:284:39: error: use of undeclared identifier 'NSEventModifierFlagControl'
+          if (mpl_check_modifier(modifiers, NSEventModifierFlagControl, list, "ctrl")
+                                            ^
+      src/_macosx.m:285:42: error: use of undeclared identifier 'NSEventModifierFlagOption'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagOption, list, "alt")
+                                               ^
+      src/_macosx.m:286:42: error: use of undeclared identifier 'NSEventModifierFlagShift'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagShift, list, "shift")
+                                               ^
+      src/_macosx.m:287:42: error: use of undeclared identifier 'NSEventModifierFlagCommand'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagCommand, list, "cmd")) {
+                                               ^
+      src/_macosx.m:386:47: error: use of undeclared identifier 'NSEventMaskAny'
+              event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                    ^
+      src/_macosx.m:467:56: error: use of undeclared identifier 'NSEventMaskAny'
+          {   NSEvent* event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                             ^
+      src/_macosx.m:471:36: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+             if (!event || [event type]==NSEventTypeApplicationDefined) { break; }
+                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                         NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:481:51: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          NSEvent* event = [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                        NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:583:53: error: use of undeclared identifier 'NSWindowStyleMaskTitled'
+                                               styleMask: NSWindowStyleMaskTitled
+                                                          ^
+      src/_macosx.m:584:53: error: use of undeclared identifier 'NSWindowStyleMaskClosable'
+                                                        | NSWindowStyleMaskClosable
+                                                          ^
+      src/_macosx.m:585:53: error: use of undeclared identifier 'NSWindowStyleMaskResizable'
+                                                        | NSWindowStyleMaskResizable
+                                                          ^
+      src/_macosx.m:586:53: error: use of undeclared identifier 'NSWindowStyleMaskMiniaturizable'
+                                                        | NSWindowStyleMaskMiniaturizable
+                                                          ^
+      src/_macosx.m:609:23: error: instance method '-setTabbingMode:' not found (return type defaults to 'id') [-Werror,-Wobjc-method-access]
+              [self->window setTabbingMode: NSWindowTabbingModePreferred];
+                            ^~~~~~~~~~~~~~
+      src/_macosx.m:107:12: note: receiver is instance of class declared here
+      @interface Window : NSWindow
+                 ^
+      src/_macosx.m:609:39: error: use of undeclared identifier 'NSWindowTabbingModePreferred'
+              [self->window setTabbingMode: NSWindowTabbingModePreferred];
+                                            ^
+      src/_macosx.m:611:23: error: instance method '-setTabbingMode:' not found (return type defaults to 'id') [-Werror,-Wobjc-method-access]
+              [self->window setTabbingMode: NSWindowTabbingModeDisallowed];
+                            ^~~~~~~~~~~~~~
+      src/_macosx.m:107:12: note: receiver is instance of class declared here
+      @interface Window : NSWindow
+                 ^
+      fatal error: too many errors emitted, stopping now [-ferror-limit=]
+      20 errors generated.
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for matplotlib
+Failed to build matplotlib
+ERROR: Could not build wheels for matplotlib, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install python39 py39-pip
+
+...
+...
+
+--->  Installing py39-pip @23.2.1_0
+--->  Activating py39-pip @23.2.1_0
+--->  Cleaning py39-pip
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  py39-pip has the following notes:
+    To make the Python 3.9 version of pip the one that is run when you execute the
+    commands without a version suffix, e.g. 'pip', run:
+    sudo port select --set pip pip39
+    sudo port select --set pip3 pip39
+  python39 has the following notes:
+    To make this the default Python or Python 3 (i.e., the version run by the 'python'
+    or 'python3' commands), run one or both of:
+    
+        sudo port select --set python python39
+        sudo port select --set python3 python39
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set python3 python39
+Selecting 'python39' for 'python3' succeeded. 'python39' is now active.
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set pip3 pip39
+Selecting 'pip39' for 'pip3' succeeded. 'pip39' is now active.
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --summary
+Name     Selected  Options
+====     ========  =======
+pip      none      pip311 pip39 none
+pip2     none      none
+pip3     pip39     pip311 pip39 none
+python   none      python26-apple python27-apple python311 python39 none
+python3  python39  python311 python39 none
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install numpy scikit-learn pandas matplotlib
+Defaulting to user installation because normal site-packages is not writeable
+
+...
+  ...
+
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for matplotlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [1206 lines of output]
+    
+      ...
+      ...
+    
+      building 'matplotlib.backends._macosx' extension
+      creating build/temp.macosx-10.10-x86_64-cpython-39/matplotlib.backends._macosx
+      creating build/temp.macosx-10.10-x86_64-cpython-39/matplotlib.backends._macosx/src
+      /usr/bin/clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -pipe -Os -I/opt/local/Library/Frameworks/Python.framework/Versions/3.9/include/python3.9 -c src/_macosx.m -o build/temp.macosx-10.10-x86_64-cpython-39/matplotlib.backends._macosx/src/_macosx.o -Werror -fvisibility=hidden -flto
+      src/_macosx.m:48:49: error: suggest braces around initialization of subobject [-Werror,-Wmissing-braces]
+      static struct sigaction originalSigintAction = {0};
+                                                      ^
+                                                      {}
+      src/_macosx.m:61:42: error: suggest braces around initialization of subobject [-Werror,-Wmissing-braces]
+              struct sigaction customAction = {0};
+                                               ^
+                                               {}
+      src/_macosx.m:85:64: error: use of undeclared identifier 'NSEventMaskAny'
+                      NSEvent *event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                                     ^
+      src/_macosx.m:241:52: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          [NSApp postEvent: [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                         NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:284:39: error: use of undeclared identifier 'NSEventModifierFlagControl'
+          if (mpl_check_modifier(modifiers, NSEventModifierFlagControl, list, "ctrl")
+                                            ^
+      src/_macosx.m:285:42: error: use of undeclared identifier 'NSEventModifierFlagOption'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagOption, list, "alt")
+                                               ^
+      src/_macosx.m:286:42: error: use of undeclared identifier 'NSEventModifierFlagShift'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagShift, list, "shift")
+                                               ^
+      src/_macosx.m:287:42: error: use of undeclared identifier 'NSEventModifierFlagCommand'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagCommand, list, "cmd")) {
+                                               ^
+      src/_macosx.m:386:47: error: use of undeclared identifier 'NSEventMaskAny'
+              event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                    ^
+      src/_macosx.m:467:56: error: use of undeclared identifier 'NSEventMaskAny'
+          {   NSEvent* event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                             ^
+      src/_macosx.m:471:36: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+             if (!event || [event type]==NSEventTypeApplicationDefined) { break; }
+                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                         NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:481:51: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          NSEvent* event = [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                        NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:583:53: error: use of undeclared identifier 'NSWindowStyleMaskTitled'
+                                               styleMask: NSWindowStyleMaskTitled
+                                                          ^
+      src/_macosx.m:584:53: error: use of undeclared identifier 'NSWindowStyleMaskClosable'
+                                                        | NSWindowStyleMaskClosable
+                                                          ^
+      src/_macosx.m:585:53: error: use of undeclared identifier 'NSWindowStyleMaskResizable'
+                                                        | NSWindowStyleMaskResizable
+                                                          ^
+      src/_macosx.m:586:53: error: use of undeclared identifier 'NSWindowStyleMaskMiniaturizable'
+                                                        | NSWindowStyleMaskMiniaturizable
+                                                          ^
+      src/_macosx.m:609:23: error: instance method '-setTabbingMode:' not found (return type defaults to 'id') [-Werror,-Wobjc-method-access]
+              [self->window setTabbingMode: NSWindowTabbingModePreferred];
+                            ^~~~~~~~~~~~~~
+      src/_macosx.m:107:12: note: receiver is instance of class declared here
+      @interface Window : NSWindow
+                 ^
+      src/_macosx.m:609:39: error: use of undeclared identifier 'NSWindowTabbingModePreferred'
+              [self->window setTabbingMode: NSWindowTabbingModePreferred];
+                                            ^
+      src/_macosx.m:611:23: error: instance method '-setTabbingMode:' not found (return type defaults to 'id') [-Werror,-Wobjc-method-access]
+              [self->window setTabbingMode: NSWindowTabbingModeDisallowed];
+                            ^~~~~~~~~~~~~~
+      src/_macosx.m:107:12: note: receiver is instance of class declared here
+      @interface Window : NSWindow
+                 ^
+      fatal error: too many errors emitted, stopping now [-ferror-limit=]
+      20 errors generated.
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for matplotlib
+Failed to build matplotlib
+ERROR: Could not build wheels for matplotlib, which is required to install pyproject.toml-based projects
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install python37 py37-pip
+
+...
+...
+
+--->  Installing python37 @3.7.17_0+optimizations
+--->  Activating python37 @3.7.17_0+optimizations
+--->  Cleaning python37
+--->  Computing dependencies for py37-pip
+The following dependencies will be installed:  py37-setuptools
+Continue? [Y/n]: y
+--->  Fetching archive for py37-setuptools
+--->  Attempting to fetch py37-setuptools-67.7.2_0.darwin_any.noarch.tbz2 from http://kmq.jp.packages.macports.org/py37-setuptools
+--->  Attempting to fetch py37-setuptools-67.7.2_0.darwin_any.noarch.tbz2 from http://fra.de.packages.macports.org/py37-setuptools
+--->  Attempting to fetch py37-setuptools-67.7.2_0.darwin_any.noarch.tbz2.rmd160 from http://fra.de.packages.macports.org/py37-setuptools
+--->  Installing py37-setuptools @67.7.2_0
+--->  Activating py37-setuptools @67.7.2_0
+--->  Cleaning py37-setuptools
+--->  Fetching archive for py37-pip
+--->  Attempting to fetch py37-pip-23.2.1_0.darwin_any.noarch.tbz2 from http://kmq.jp.packages.macports.org/py37-pip
+--->  Attempting to fetch py37-pip-23.2.1_0.darwin_any.noarch.tbz2.rmd160 from http://kmq.jp.packages.macports.org/py37-pip
+--->  Installing py37-pip @23.2.1_0
+--->  Activating py37-pip @23.2.1_0
+--->  Cleaning py37-pip
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  openssl11 has the following notes:
+    This is the last release of OpenSSL 1.1. No further public security updates will
+    be provided. Please migrate to the openssl3 port.
+  py37-pip has the following notes:
+    This port is for a software version that is no longer receiving upstream updates.
+    It may have security vulnerabilities or other issues that will not be fixed. Newer
+    versions are provided as separate ports.
+
+    To make the Python 3.7 version of pip the one that is run when you execute the
+    commands without a version suffix, e.g. 'pip', run:
+    sudo port select --set pip pip37
+    sudo port select --set pip3 pip37
+  python37 has the following notes:
+    This port is for a software version that is no longer receiving upstream updates.
+    It may have security vulnerabilities or other issues that will not be fixed. Newer
+    versions are provided as separate ports.
+
+    To make this the default Python or Python 3 (i.e., the version run by the 'python'
+    or 'python3' commands), run one or both of:
+    
+        sudo port select --set python python37
+        sudo port select --set python3 python37
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set python3 python37
+Password:
+Selecting 'python37' for 'python3' succeeded. 'python37' is now active.
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set pip3 pip37
+Selecting 'pip37' for 'pip3' succeeded. 'pip37' is now active.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scikit-learn pandas matplotlib
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting numpy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/32/dd/43d8b2b2ebf424f6555271a4c9f5b50dc3cc0aafa66c72b4d36863f71358/numpy-1.21.6-cp37-cp37m-macosx_10_9_x86_64.whl (16.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 707.9 kB/s eta 0:00:00
+Collecting scikit-learn
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/75/44/074b780d8ac0b0899937e9b8ba6d5d8873a71b99aa915219251ef85a8890/scikit-learn-1.0.2.tar.gz (6.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 811.0 kB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [1563 lines of output]
+    
+    ...
+    ...
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+
+
+
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install python38 py38-setuptools py38-pip
+
+...
+...
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set python3 python38
+Password:
+Selecting 'python38' for 'python3' succeeded. 'python38' is now active.
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port select --set pip3 pip38
+Selecting 'pip38' for 'pip3' succeeded. 'pip38' is now active.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install numpy scikit-learn pandas matplotlib
+
+..
+..
+
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for matplotlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [1156 lines of output]
+    
+    ...
+    ...
+    
+      building 'matplotlib.backends._macosx' extension
+      creating build/temp.macosx-10.10-x86_64-cpython-38/matplotlib.backends._macosx
+      creating build/temp.macosx-10.10-x86_64-cpython-38/matplotlib.backends._macosx/src
+      /usr/bin/clang -Wno-unused-result -Wsign-compare -Wunreachable-code -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -pipe -Os -I/opt/local/Library/Frameworks/Python.framework/Versions/3.8/include/python3.8 -c src/_macosx.m -o build/temp.macosx-10.10-x86_64-cpython-38/matplotlib.backends._macosx/src/_macosx.o -Werror -fvisibility=hidden -flto
+      src/_macosx.m:151:55: error: use of undeclared identifier 'NSEventMaskAny'
+                      event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                            ^
+      src/_macosx.m:343:39: error: use of undeclared identifier 'NSEventModifierFlagControl'
+          if (mpl_check_modifier(modifiers, NSEventModifierFlagControl, list, "ctrl")
+                                            ^
+      src/_macosx.m:344:42: error: use of undeclared identifier 'NSEventModifierFlagOption'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagOption, list, "alt")
+                                               ^
+      src/_macosx.m:345:42: error: use of undeclared identifier 'NSEventModifierFlagShift'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagShift, list, "shift")
+                                               ^
+      src/_macosx.m:346:42: error: use of undeclared identifier 'NSEventModifierFlagCommand'
+              || mpl_check_modifier(modifiers, NSEventModifierFlagCommand, list, "cmd")) {
+                                               ^
+      src/_macosx.m:445:47: error: use of undeclared identifier 'NSEventMaskAny'
+              event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                    ^
+      src/_macosx.m:554:56: error: use of undeclared identifier 'NSEventMaskAny'
+          {   NSEvent* event = [NSApp nextEventMatchingMask: NSEventMaskAny
+                                                             ^
+      src/_macosx.m:558:36: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+             if (!event || [event type]==NSEventTypeApplicationDefined) { break; }
+                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                         NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:573:51: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          NSEvent* event = [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                        NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:675:53: error: use of undeclared identifier 'NSWindowStyleMaskTitled'
+                                               styleMask: NSWindowStyleMaskTitled
+                                                          ^
+      src/_macosx.m:676:53: error: use of undeclared identifier 'NSWindowStyleMaskClosable'
+                                                        | NSWindowStyleMaskClosable
+                                                          ^
+      src/_macosx.m:677:53: error: use of undeclared identifier 'NSWindowStyleMaskResizable'
+                                                        | NSWindowStyleMaskResizable
+                                                          ^
+      src/_macosx.m:678:53: error: use of undeclared identifier 'NSWindowStyleMaskMiniaturizable'
+                                                        | NSWindowStyleMaskMiniaturizable
+                                                          ^
+      src/_macosx.m:1032:30: error: property 'maximumNumberOfLines' not found on object of type 'NSTextContainer *'
+          messagebox.textContainer.maximumNumberOfLines = 2;
+                                   ^
+      src/_macosx.m:1033:30: error: property 'lineBreakMode' not found on object of type 'NSTextContainer *'
+          messagebox.textContainer.lineBreakMode = NSLineBreakByTruncatingTail;
+                                   ^
+      src/_macosx.m:1034:28: error: use of undeclared identifier 'NSTextAlignmentRight'; did you mean 'kCTTextAlignmentRight'?
+          messagebox.alignment = NSTextAlignmentRight;
+                                 ^~~~~~~~~~~~~~~~~~~~
+                                 kCTTextAlignmentRight
+      /System/Library/Frameworks/CoreText.framework/Headers/CTParagraphStyle.h:72:5: note: 'kCTTextAlignmentRight' declared here
+          kCTTextAlignmentRight = 1,
+          ^
+      src/_macosx.m:1466:51: error: use of undeclared identifier 'NSEventTypeApplicationDefined'; did you mean 'NSApplicationDefined'?
+          NSEvent* event = [NSEvent otherEventWithType: NSEventTypeApplicationDefined
+                                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                        NSApplicationDefined
+      /System/Library/Frameworks/AppKit.framework/Headers/NSEvent.h:34:5: note: 'NSApplicationDefined' declared here
+          NSApplicationDefined        = 15,
+          ^
+      src/_macosx.m:1520:15: error: use of undeclared identifier 'NSEventTypeLeftMouseDown'; did you mean 'kCGEventLeftMouseDown'?
+          {    case NSEventTypeLeftMouseDown:
+                    ^~~~~~~~~~~~~~~~~~~~~~~~
+                    kCGEventLeftMouseDown
+      /System/Library/Frameworks/CoreGraphics.framework/Headers/CGEventTypes.h:106:3: note: 'kCGEventLeftMouseDown' declared here
+        kCGEventLeftMouseDown = NX_LMOUSEDOWN,
+        ^
+      src/_macosx.m:1522:29: error: use of undeclared identifier 'NSEventModifierFlagControl'
+                   if (modifier & NSEventModifierFlagControl)
+                                  ^
+      fatal error: too many errors emitted, stopping now [-ferror-limit=]
+      20 errors generated.
+      /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-n9nq01nh/overlay/lib/python3.8/site-packages/setuptools_scm/git.py:308: UserWarning: git archive did not support describe output
+        warnings.warn("git archive did not support describe output")
+      /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-n9nq01nh/overlay/lib/python3.8/site-packages/setuptools_scm/git.py:327: UserWarning: unprocessed git archival found (no export subst applied)
+        warnings.warn("unprocessed git archival found (no export subst applied)")
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for matplotlib
+Failed to build matplotlib
+ERROR: Could not build wheels for matplotlib, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install pypisearch
+
+...
+...
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ python3 -m pypisearch matplotlib
+matplotlib (3.8.2)              Python plotting package
+matplotlib-ephys (0.0.2)        Electrophysiology plotting functions
+jirafs-matplotlib (1.0.3)       Render matplotlib charts in your JIRA issues
+matplotlib-aximgcache (0.1.0)   Easily store and re-replot matplotlib Axes content
+mcs-matplotlib (1.0.2)          More utilities for matplotlib
+matplotlib-coolors (4.0)        (Nothing to see here)
+matplotlib-publishutil (0.0.4)  Utilities to help configure matplotlib figures for publication.
+matplotlib-pyodide (0.2.1)      HTML5 backends for Matplotlib compatible with Pyodide
+matplotlib-helper (1.2)         Module for helping and plotting in matplotlib
+matplotlib-extract (0.1.2)      Extract matplotlib plots components
+matplotlib-polyroi (0.1.7)      Module for selecting polygonal ROIs on images, spline fitting and ROI expansion
+matplotlib-venn (0.11.9)        Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+matplotlib-ai (1.0.3)           A GPT-powered tool to bring no-code data visualization to life!
+matplotlib-table (0.0.3)        Create prettier tables in matplotlib
+japanize-matplotlib (1.1.3)     matplotlibのフォント設定を自動で日本語化する
+chineseize-matplotlib (1.2)     自动设置matplotlib的中文字体
+catppuccin-matplotlib (0.4)     📊 Soothing pastel theme for matplotlib
+trame-matplotlib (2.0.2)        Markdown widget for trame
+matplotlib-stubs (0.2.0)        Unofficial stubs for the matplotlib package.
+matplotlib-cern (0.1.2)         A matplotlib template package for CERN plots
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 index versions matplotlib
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+matplotlib (3.7.4)
+Available versions: 3.7.4, 3.7.3, 3.7.2, 3.7.1, 3.7.0, 3.6.3, 3.6.2, 3.6.1, 3.6.0, 3.5.3, 3.5.2, 3.5.1, 3.5.0, 3.4.3, 3.4.2, 3.4.1, 3.4.0, 3.3.4, 3.3.3, 3.3.2, 3.3.1, 3.3.0, 3.2.2, 3.2.1, 3.2.0, 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 2.2.5, 2.2.4, 2.2.3, 2.2.2, 2.2.0, 2.1.2, 2.1.1, 2.1.0, 2.0.2, 2.0.1, 2.0.0, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.1, 1.3.0, 1.2.1, 1.2.0, 1.1.1, 1.1.0, 1.0.1, 0.91.1, 0.91.0, 0.86.2, 0.86.1, 0.86
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install numpy scikit-learn pandas matplotlib==3.2.0
+Defaulting to user installation because normal site-packages is not writeable
+
+...
+  ...
+
+Installing collected packages: pytz, tzdata, threadpoolctl, six, pyparsing, numpy, kiwisolver, joblib, cycler, scipy, python-dateutil, scikit-learn, pandas, matplotlib
+  WARNING: The scripts f2py, f2py3 and f2py3.8 are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed cycler-0.12.1 joblib-1.3.2 kiwisolver-1.4.5 matplotlib-3.2.0 numpy-1.24.4 pandas-2.0.3 pyparsing-3.1.1 python-dateutil-2.8.2 pytz-2023.3.post1 scikit-learn-1.3.2 scipy-1.10.1 six-1.16.0 threadpoolctl-3.2.0 tzdata-2023.4
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install numpy scikit-learn pandas matplotlib==3.2.0 seaborn
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (1.24.4)
+Requirement already satisfied: scikit-learn in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (1.3.2)
+Requirement already satisfied: pandas in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (2.0.3)
+Requirement already satisfied: matplotlib==3.2.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (3.2.0)
+
+...
+...
+
+Installing collected packages: seaborn
+Successfully installed seaborn-0.12.2
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ ./exercise2401/datagy_sklearn.py 
+
+    ...
+    ...
+
+Traceback (most recent call last):
+  File "./exercise2401/datagy_sklearn.py", line 61, in <module>
+    example1()
+  File "./exercise2401/datagy_sklearn.py", line 50, in example1
+    final_df = df_train.append(df_test)
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py", line 5989, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'append'
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple torch
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+
+...
+  ...
+  
+Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+  WARNING: The script isympy is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts convert-caffe2-to-onnx, convert-onnx-to-caffe2 and torchrun are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-2.1.3 filelock-3.13.1 fsspec-2023.12.2 jinja2-3.1.2 mpmath-1.3.0 networkx-3.1 sympy-1.12 torch-2.1.2 typing-extensions-4.9.0
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python3 exercise2401/zhihu_493461795_torch_training.py
+
+...
+...
+
+Traceback (most recent call last):
+  File "exercise2401/zhihu_493461795_torch_training.py", line 37, in <module>
+    torchDatasetUtility(X_train, X_test, y_train, y_test)
+  File "exercise2401/zhihu_493461795_torch_training.py", line 20, in torchDatasetUtility
+    import torch
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/__init__.py", line 234, in <module>
+    _load_global_deps()
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/__init__.py", line 193, in _load_global_deps
+    raise err
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/__init__.py", line 174, in _load_global_deps
+    ctypes.CDLL(lib_path, mode=ctypes.RTLD_GLOBAL)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: dlopen(/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/lib/libtorch_global_deps.dylib, 10): no suitable image found.  Did find:
+	/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/lib/libtorch_global_deps.dylib: code signature invalid for '/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torch/lib/libtorch_global_deps.dylib'
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ otool -L libtorch_global_deps.dylib
+error: /Library/Developer/CommandLineTools/usr/bin/otool: can't open file: libtorch_global_deps.dylib (No such file or directory)
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install torch==1.6.0 -f https://download.pytorch.org/whl/torch_stable.html
+Defaulting to user installation because normal site-packages is not writeable
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+
+...
+...
+
+Installing collected packages: future, torch
+  WARNING: The scripts futurize and pasteurize are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts convert-caffe2-to-onnx and convert-onnx-to-caffe2 are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed future-0.18.3 torch-1.6.0
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ python3
+Python 3.8.18 (default, Aug 25 2023, 02:55:01) 
+[Clang 7.0.2 (clang-700.1.81)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import seaborn as sns
+>>> sns.get_data_home()
+'/Users/fanhongling/Library/Caches/seaborn'
+>>> sns.get_dataset_names()
+Traceback (most recent call last):
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1354, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1425, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1073, in _create
+    self.do_handshake()
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/seaborn/utils.py", line 512, in get_dataset_names
+    with urlopen(url) as resp:
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 542, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 502, in _call_chain
+    result = func(*args)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1397, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/urllib/request.py", line 1357, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:1131)>
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python3 exercise2401/pandas_tutorials.py 
+
+...
+...
+
+Traceback (most recent call last):
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401/pandas_tutorials.py", line 241, in <module>
+    userGuide_pandas10Minutes()
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401/pandas_tutorials.py", line 234, in userGuide_pandas10Minutes
+    df.to_parquet("foo.parquet")
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas/core/frame.py", line 2889, in to_parquet
+    return to_parquet(
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas/io/parquet.py", line 407, in to_parquet
+    impl = get_engine(engine)
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas/io/parquet.py", line 60, in get_engine
+    raise ImportError(
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 index versions fastparquet
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+fastparquet (2023.10.1)
+Available versions: 2023.10.1, 2023.10.0, 2023.8.0, 2023.7.0, 2023.4.0, 2023.2.0, 2023.1.0, 2022.12.0, 2022.11.0, 0.8.3, 0.8.2, 0.8.1, 0.8.0, 0.7.2, 0.7.1, 0.7.0, 0.6.3, 0.6.2, 0.6.1, 0.6.0.post1, 0.6.0, 0.5.0, 0.4.1, 0.4.0, 0.3.3, 0.3.2, 0.3.1, 0.3.0, 0.2.1, 0.2.0, 0.1.6, 0.1.5, 0.1.4, 0.1.3, 0.1.2, 0.1.1, 0.1.0, 0.0.6, 0.0.5, 0.0.4.post1, 0.0.4, 0.0.3, 0.0.2, 0.0.1.post2, 0.0.1.post1, 0.0.1
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install fastparquet==0.7.0
+
+...
+...
+
+Collecting cramjam>=2.3.0 (from fastparquet==0.7.0)
+  Using cached cramjam-2.8.0.tar.gz (1.1 MB)
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [59 lines of output]
+
+      ...
+      ...
+    
+      Failed to build maturin
+      ERROR: Could not build wheels for maturin, which is required to install pyproject.toml-based projects
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 index versions cramjam
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+cramjam (2.8.0)
+Available versions: 2.8.0, 2.7.0, 2.6.2, 2.6.1, 2.6.0, 2.5.0, 2.4.0, 2.3.2, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.2, 2.0.1, 2.0.0, 1.3.2, 1.3.0, 1.2.0, 1.1.0, 1.0.1, 1.0.0
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install cramjam==2.3.2
+Defaulting to user installation because normal site-packages is not writeable
+Collecting cramjam==2.3.2
+  Downloading cramjam-2.3.2-cp38-cp38-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 671.7 kB/s eta 0:00:00
+Installing collected packages: cramjam
+Successfully installed cramjam-2.3.2
+
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip3 install fastparquet
+Defaulting to user installation because normal site-packages is not writeable
+Collecting fastparquet
+  Obtaining dependency information for fastparquet from https://files.pythonhosted.org/packages/49/c9/ff130464f4ae0527a92339a73c5578a1f222b10de8e2209afed7a97d9f62/fastparquet-2023.10.1-cp38-cp38-macosx_10_9_universal2.whl.metadata
+  Using cached fastparquet-2023.10.1-cp38-cp38-macosx_10_9_universal2.whl.metadata (4.1 kB)
+Requirement already satisfied: pandas>=1.5.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet) (2.0.3)
+Requirement already satisfied: numpy>=1.20.3 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet) (1.24.4)
+Requirement already satisfied: cramjam>=2.3 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet) (2.3.2)
+Requirement already satisfied: fsspec in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet) (2023.12.2)
+Requirement already satisfied: packaging in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet) (23.2)
+Requirement already satisfied: python-dateutil>=2.8.2 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas>=1.5.0->fastparquet) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas>=1.5.0->fastparquet) (2023.3.post1)
+Requirement already satisfied: tzdata>=2022.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas>=1.5.0->fastparquet) (2023.4)
+Requirement already satisfied: six>=1.5 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from python-dateutil>=2.8.2->pandas>=1.5.0->fastparquet) (1.16.0)
+Downloading fastparquet-2023.10.1-cp38-cp38-macosx_10_9_universal2.whl (911 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 911.6/911.6 kB 1.8 MB/s eta 0:00:00
+Installing collected packages: fastparquet
+Successfully installed fastparquet-2023.10.1
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 index versions pyarrow
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+pyarrow (14.0.2)
+Available versions: 14.0.2, 14.0.1, 14.0.0, 13.0.0, 12.0.1, 12.0.0, 11.0.0, 10.0.1, 10.0.0, 9.0.0, 8.0.0, 7.0.0, 6.0.1, 6.0.0, 5.0.0, 4.0.1, 4.0.0, 3.0.0, 2.0.0, 1.0.1, 1.0.0, 0.17.1, 0.17.0, 0.16.0, 0.15.1, 0.14.0, 0.13.0, 0.12.1, 0.12.0, 0.11.1, 0.11.0, 0.10.0, 0.9.0
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install pyarrow==10.0.0
+
+...
+...
+
+Building wheels for collected packages: pyarrow
+  Building wheel for pyarrow (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for pyarrow (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [289 lines of output]
+
+      ...
+      ...
+
+      error: command 'cmake' failed: No such file or directory
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pyarrow
+Failed to build pyarrow
+ERROR: Could not build wheels for pyarrow, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install cmake
+Password:
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+--->  Computing dependencies for cmake
+The following dependencies will be installed: 
+ brotli
+ curl
+ curl-ca-bundle
+ icu
+ legacy-support
+ libarchive
+ libb2
+ libcxx
+ libidn2
+ libpsl
+ libunistring
+ libuv
+ libxml2
+ lz4
+ lzo2
+ nghttp2
+ zstd
+Continue? [Y/n]: y
+
+    ...
+    ...
+
+--->  Updating database of binaries
+--->  Updating database of C++ stdlib usage
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+--->  Some of the ports you installed have notes:
+  legacy-support has the following notes:
+    To help make sure your system continues to be well represented by MacPorts,
+    especially if your system is not one of the latest macOS releases, please
+    consider installing mpstats. It will periodically send an anonymous synopsis
+    of your OS settings and installed ports. The information provided by this is
+    useful to help determine how resources are allocated.
+    
+    You can install mpstats like this:    sudo port install mpstats
+  libpsl has the following notes:
+    libpsl API documentation is provided by the port 'libpsl-docs'.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ python3 -m pip install pyarrow==10.0.0
+
+...
+...
+
+Building wheels for collected packages: pyarrow
+  Building wheel for pyarrow (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for pyarrow (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [320 lines of output]
+
+      ...
+      ...
+    
+      CMake Error at CMakeLists.txt:63 (find_package):
+        By not providing "FindArrow.cmake" in CMAKE_MODULE_PATH this project has
+        asked CMake to find a package configuration file provided by "Arrow", but
+        CMake did not find one.
+      
+        Could not find a package configuration file provided by "Arrow" with any of
+        the following names:
+      
+          ArrowConfig.cmake
+          arrow-config.cmake
+      
+        Add the installation prefix of "Arrow" to CMAKE_PREFIX_PATH or set
+        "Arrow_DIR" to a directory containing one of the above files.  If "Arrow"
+        provides a separate development package or SDK, be sure it has been
+        installed.
+      
+      
+      -- Configuring incomplete, errors occurred!
+      See also "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-install-iqpjbail/pyarrow_e65f8e1151fb4cccbb256e33e79376ab/build/cpp/CMakeFiles/CMakeOutput.log".
+      error: command '/opt/local/bin/cmake' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pyarrow
+Failed to build pyarrow
+ERROR: Could not build wheels for pyarrow, which is required to install pyproject.toml-based projects
+    
+
+
+
+fanhonglingdeMacBook-Pro:go-to-bigdata fanhongling$ sudo port install apache-arrow 
+Password:
+Warning: port definitions are more than two weeks old, consider updating them by running 'port selfupdate'.
+--->  Computing dependencies for apache-arrow
+The following dependencies will be installed: 
+ abseil
+ bison
+ bison-runtime
+ boost181
+ c-ares
+ cctools
+ clang-16
+ clang_select
+ gflags
+ gmake
+ gmp
+ gnutls
+ google-glog
+ grpc
+ lbzip2
+ ld64
+ ld64-274
+ libevent
+ libomp
+ libtasn1
+ libutf8proc
+ libxslt
+ llvm-16
+ llvm-9.0
+ llvm_select
+ lzma
+ nettle
+ ninja
+ p11-kit
+ pcre2
+ perl5
+ protobuf3-cpp
+ rapidjson
+ re2
+ snappy
+ thrift
+ wget
+ xar
+Continue? [Y/n]: y
+
+    ...
+    ...
+
+--->  Configuring thrift
+--->  Building thrift                                    
+Error: Failed to build thrift: command execution failed  
+Error: See /opt/local/var/macports/logs/_opt_local_var_macports_sources_rsync.macports.org_macports_release_tarballs_ports_devel_thrift/thrift/main.log for details.
+Error: Follow https://guide.macports.org/#project.tickets if you believe there is
+a bug.
+Error: Processing of port apache-arrow failed
+--->  Some of the ports you installed have notes:
+  libomp has the following notes:
+    To use this OpenMP library:
+     * For clang-3.8+, or clang-3.7 with +openmp variant:
+        add "-fopenmp" during compilation / linking.
+     * For clang-3.7 without +openmp variant, use:
+        "-I/opt/local/include/libomp -L/opt/local/lib/libomp -fopenmp"
+  lzma has the following notes:
+    The LZMA SDK program is installed as "lzma_alone", to avoid conflict with LZMA
+    Utils
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port selfupdate
+--->  Updating MacPorts base sources using rsync
+MacPorts base version 2.8.1 installed,
+MacPorts base version 2.8.1 downloaded.
+--->  Updating the ports tree
+--->  MacPorts base is already the latest version
+
+The ports tree has been updated. To upgrade your installed ports, you should run
+  port upgrade outdated
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install apache-arrow
+    
+    ...
+    ...
+    
+The following dependencies will be installed: 
+ gmp
+ gnutls
+ libtasn1
+ libxslt
+ nettle
+ p11-kit
+ pcre2
+ thrift
+ wget
+Continue? [Y/n]: y
+--->  Fetching archive for thrift
+--->  Attempting to fetch thrift-0.19.0_1.darwin_14.x86_64.tbz2 from http://packages.macports.org/thrift
+--->  Attempting to fetch thrift-0.19.0_1.darwin_14.x86_64.tbz2 from http://pek.cn.packages.macports.org/macports/packages/thrift
+--->  Building thrift
+Error: Failed to build thrift: command execution failed  
+Error: See /opt/local/var/macports/logs/_opt_local_var_macports_sources_rsync.macports.org_macports_release_tarballs_ports_devel_thrift/thrift/main.log for details.
+Error: Follow https://guide.macports.org/#project.tickets if you believe there is
+a bug.
+Error: Processing of port apache-arrow failed
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ port info apache-arrow
+apache-arrow @13.0.0_4 (devel)
+Sub-ports:            py39-pyarrow, py310-pyarrow, py311-pyarrow
+
+...
+...
+
+License:              Apache-2
+Maintainers:          none
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip3 uninstall pandas
+Found existing installation: pandas 2.0.3
+Uninstalling pandas-2.0.3:
+  Would remove:
+    /Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas-2.0.3.dist-info/*
+    /Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pandas/*
+Proceed (Y/n)? y
+  Successfully uninstalled pandas-2.0.3
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip3 install pandas==1.5.2
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas==1.5.2
+  Downloading pandas-1.5.2-cp38-cp38-macosx_10_9_x86_64.whl (11.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.9/11.9 MB 1.3 MB/s eta 0:00:00
+Requirement already satisfied: python-dateutil>=2.8.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas==1.5.2) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas==1.5.2) (2023.3.post1)
+Requirement already satisfied: numpy>=1.20.3 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas==1.5.2) (1.24.4)
+Requirement already satisfied: six>=1.5 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from python-dateutil>=2.8.1->pandas==1.5.2) (1.16.0)
+Installing collected packages: pandas
+Successfully installed pandas-1.5.2
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip3 install fastparquet==0.4.0 pyarrow==1.0.1
+Defaulting to user installation because normal site-packages is not writeable
+Collecting fastparquet==0.4.0
+  Using cached fastparquet-0.4.0-cp38-cp38-macosx_10_10_x86_64.whl
+Collecting pyarrow==1.0.1
+  Downloading pyarrow-1.0.1-cp38-cp38-macosx_10_9_x86_64.whl (11.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.0/11.0 MB 2.0 MB/s eta 0:00:00
+Requirement already satisfied: pandas>=0.19 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet==0.4.0) (1.5.2)
+Requirement already satisfied: numba>=0.28 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet==0.4.0) (0.58.1)
+Requirement already satisfied: numpy>=1.11 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet==0.4.0) (1.24.4)
+Requirement already satisfied: thrift>=0.11.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet==0.4.0) (0.16.0)
+Requirement already satisfied: six in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from fastparquet==0.4.0) (1.16.0)
+Requirement already satisfied: llvmlite<0.42,>=0.41.0dev0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from numba>=0.28->fastparquet==0.4.0) (0.41.1)
+Requirement already satisfied: importlib-metadata in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from numba>=0.28->fastparquet==0.4.0) (7.0.1)
+Requirement already satisfied: python-dateutil>=2.8.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas>=0.19->fastparquet==0.4.0) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pandas>=0.19->fastparquet==0.4.0) (2023.3.post1)
+Requirement already satisfied: zipp>=0.5 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from importlib-metadata->numba>=0.28->fastparquet==0.4.0) (3.17.0)
+Installing collected packages: pyarrow, fastparquet
+  WARNING: The script plasma_store is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed fastparquet-0.4.0 pyarrow-1.0.1
+
+
+
+>>> import pandas as pd
+>>> pd.show_versions()
+/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/fastparquet/encoding.py:73: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit(nogil=True)
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/fastparquet/writer.py:267: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit(nogil=True)
+
+INSTALLED VERSIONS
+------------------
+commit           : 8dab54d6573f7186ff0c3b6364d5e4dd635ff3e7
+python           : 3.8.18.final.0
+python-bits      : 64
+OS               : Darwin
+OS-release       : 14.4.0
+Version          : Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64
+machine          : x86_64
+processor        : i386
+byteorder        : little
+LC_ALL           : None
+LANG             : zh_CN.UTF-8
+LOCALE           : zh_CN.UTF-8
+
+pandas           : 1.5.2
+numpy            : 1.24.4
+pytz             : 2023.3.post1
+dateutil         : 2.8.2
+setuptools       : 68.2.2
+pip              : 23.2.1
+Cython           : 3.0.8
+pytest           : None
+hypothesis       : None
+sphinx           : None
+blosc            : None
+feather          : None
+xlsxwriter       : None
+lxml.etree       : None
+html5lib         : None
+pymysql          : None
+psycopg2         : None
+jinja2           : 3.1.2
+IPython          : None
+pandas_datareader: None
+bs4              : None
+bottleneck       : None
+brotli           : None
+fastparquet      : 0.4.0
+fsspec           : 2023.12.2
+gcsfs            : None
+matplotlib       : 3.2.0
+numba            : 0.58.1
+numexpr          : 2.8.6
+odfpy            : None
+openpyxl         : 3.1.2
+pandas_gbq       : None
+pyarrow          : 1.0.1
+pyreadstat       : None
+pyxlsb           : None
+s3fs             : None
+scipy            : 1.10.1
+snappy           : None
+sqlalchemy       : None
+tables           : 3.8.0
+tabulate         : 0.8.9
+xarray           : None
+xlrd             : None
+xlwt             : None
+zstandard        : None
+tzdata           : 2023.4
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python3 exercise2401/pandas_tutorials.py
+
+    ...
+    ...
+
+ModuleNotFoundError: No module named 'openpyxl'
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install openpyxl
+Defaulting to user installation because normal site-packages is not writeable
+Collecting openpyxl
+  Downloading openpyxl-3.1.2-py2.py3-none-any.whl (249 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.0/250.0 kB 889.5 kB/s eta 0:00:00
+Collecting et-xmlfile (from openpyxl)
+  Downloading et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)
+Installing collected packages: et-xmlfile, openpyxl
+Successfully installed et-xmlfile-1.1.0 openpyxl-3.1.2    
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python3 exercise2401/pandas_tutorials.py
+
+    ...
+    ...
+
+ModuleNotFoundError: No module named 'tables'
+
+...
+...
+
+ImportError: Missing optional dependency 'pytables'.  Use pip or conda to install pytables.
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ pip3 install tables
+
+...
+...
+
+Installing collected packages: py-cpuinfo, numexpr, msgpack, cython, blosc2, tables
+  WARNING: The script cpuinfo is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts cygdb, cython and cythonize are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts pt2to3, ptdump, ptrepack and pttree are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed blosc2-2.0.0 cython-3.0.8 msgpack-1.0.7 numexpr-2.8.6 py-cpuinfo-9.0.0 tables-3.8.0
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip3 install torchvision==0.7.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting torchvision==0.7.0
+  Using cached torchvision-0.7.0-cp38-cp38-macosx_10_9_x86_64.whl (387 kB)
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.7.0) (1.24.4)
+Requirement already satisfied: torch==1.6.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.7.0) (1.6.0)
+Requirement already satisfied: pillow>=4.1.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.7.0) (10.2.0)
+Requirement already satisfied: future in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch==1.6.0->torchvision==0.7.0) (0.18.3)
+Installing collected packages: torchvision
+Successfully installed torchvision-0.7.0
+
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python3 exercise2401/torchTutorialsIntroyt.py 
+Traceback (most recent call last):
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401/torchTutorialsIntroyt.py", line 117, in <module>
+    import torchvision
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torchvision/datasets/__init__.py", line 1, in <module>
+    from ._optical_flow import FlyingChairs, FlyingThings3D, HD1K, KittiFlow, Sintel
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/torchvision/datasets/_optical_flow.py", line 10, in <module>
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+
+
+
+fanhonglingdeMacBook-Pro:~ fanhongling$ sudo port install libjpeg-turbo
+--->  Fetching archive for libjpeg-turbo
+--->  Attempting to fetch libjpeg-turbo-2.1.5.1_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/libjpeg-turbo
+--->  Attempting to fetch libjpeg-turbo-2.1.5.1_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/libjpeg-turbo
+--->  Installing libjpeg-turbo @2.1.5.1_0
+--->  Activating libjpeg-turbo @2.1.5.1_0
+--->  Cleaning libjpeg-turbo
+--->  Updating database of binaries
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install pillow==4.1.1
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pillow==4.1.1
+  Using cached Pillow-4.1.1.tar.gz (11.3 MB)
+  Preparing metadata (setup.py) ... done
+Collecting olefile (from pillow==4.1.1)
+  Obtaining dependency information for olefile from https://files.pythonhosted.org/packages/17/d3/b64c356a907242d719fc668b71befd73324e47ab46c8ebbbede252c154b2/olefile-0.47-py2.py3-none-any.whl.metadata
+  Using cached olefile-0.47-py2.py3-none-any.whl.metadata (9.7 kB)
+Using cached olefile-0.47-py2.py3-none-any.whl (114 kB)
+Building wheels for collected packages: pillow
+  Building wheel for pillow (setup.py) ... done
+  Created wheel for pillow: filename=Pillow-4.1.1-cp38-cp38-macosx_10_10_x86_64.whl size=390574 sha256=fde7f844a34a1aeadbcb545af4623f4944501e4eabf261a66343746de2bc6ec3
+  Stored in directory: /Users/fanhongling/Library/Caches/pip/wheels/5f/7d/2d/ac6d1b3ee8ffb0bfc9bebb84a2a863e7b584de9046e24f67d8
+Successfully built pillow
+Installing collected packages: olefile, pillow
+Successfully installed olefile-0.47 pillow-4.1.1
+
+
+
+
+

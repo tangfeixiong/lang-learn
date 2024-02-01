@@ -1,0 +1,156 @@
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.11 -mpip install rpds-py==0.13.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting rpds-py==0.13.0
+  Downloading rpds_py-0.13.0-cp311-cp311-macosx_10_7_x86_64.whl.metadata (3.7 kB)
+Downloading rpds_py-0.13.0-cp311-cp311-macosx_10_7_x86_64.whl (337 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 337.7/337.7 kB 1.4 MB/s eta 0:00:00
+Installing collected packages: rpds-py
+Successfully installed rpds-py-0.13.0
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.11 -mpip install notebook==6.0.0
+Defaulting to user installation because normal site-packages is not writeable
+...
+  ...
+...
+Installing collected packages: webencodings, wcwidth, pure-eval, ptyprocess, ipython-genutils, fastjsonschema, appnope, traitlets, tornado, tinycss2, soupsieve, Send2Trash, pyzmq, pygments, psutil, prompt-toolkit, prometheus-client, platformdirs, pexpect, parso, pandocfilters, packaging, nest-asyncio, mistune, MarkupSafe, jupyterlab-pygments, executing, defusedxml, decorator, debugpy, bleach, attrs, asttokens, terminado, stack-data, referencing, matplotlib-inline, jupyter-core, jinja2, jedi, comm, beautifulsoup4, jupyter-client, jsonschema-specifications, ipython, jsonschema, ipykernel, nbformat, nbclient, nbconvert, notebook
+  WARNING: The script send2trash is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script pygmentize is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter, jupyter-migrate and jupyter-troubleshoot are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-kernel, jupyter-kernelspec and jupyter-run are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts ipython and ipython3 are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jsonschema is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-trust is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-execute is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-dejavu and jupyter-nbconvert are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-bundlerextension, jupyter-nbextension, jupyter-notebook and jupyter-serverextension are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-2.1.4 Send2Trash-1.8.2 appnope-0.1.3 asttokens-2.4.1 attrs-23.2.0 beautifulsoup4-4.12.3 bleach-6.1.0 comm-0.2.1 debugpy-1.8.0 decorator-5.1.1 defusedxml-0.7.1 executing-2.0.1 fastjsonschema-2.19.1 ipykernel-6.29.0 ipython-8.20.0 ipython-genutils-0.2.0 jedi-0.19.1 jinja2-3.1.3 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 jupyter-client-8.6.0 jupyter-core-5.7.1 jupyterlab-pygments-0.3.0 matplotlib-inline-0.1.6 mistune-3.0.2 nbclient-0.9.0 nbconvert-7.14.2 nbformat-5.9.2 nest-asyncio-1.6.0 notebook-6.0.0 packaging-23.2 pandocfilters-1.5.1 parso-0.8.3 pexpect-4.9.0 platformdirs-4.1.0 prometheus-client-0.19.0 prompt-toolkit-3.0.43 psutil-5.9.8 ptyprocess-0.7.0 pure-eval-0.2.2 pygments-2.17.2 pyzmq-25.1.2 referencing-0.32.1 soupsieve-2.5 stack-data-0.6.3 terminado-0.18.0 tinycss2-1.2.1 tornado-6.4 traitlets-5.14.1 wcwidth-0.2.13 webencodings-0.5.1
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.11 -mpip install pandas==2.2.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas==2.2.0
+  Downloading pandas-2.2.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata (19 kB)
+Requirement already satisfied: numpy<2,>=1.23.2 in /Users/fanhongling/Library/Python/3.11/lib/python/site-packages (from pandas==2.2.0) (1.26.3)
+Requirement already satisfied: python-dateutil>=2.8.2 in /Users/fanhongling/Library/Python/3.11/lib/python/site-packages (from pandas==2.2.0) (2.8.2)
+Collecting pytz>=2020.1 (from pandas==2.2.0)
+  Using cached pytz-2023.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.2.0)
+  Using cached tzdata-2023.4-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: six>=1.5 in /Users/fanhongling/Library/Python/3.11/lib/python/site-packages (from python-dateutil>=2.8.2->pandas==2.2.0) (1.16.0)
+Downloading pandas-2.2.0-cp311-cp311-macosx_10_9_x86_64.whl (12.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.5/12.5 MB 4.1 MB/s eta 0:00:00
+Downloading pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 502.5/502.5 kB 2.7 MB/s eta 0:00:00
+Downloading tzdata-2023.4-py2.py3-none-any.whl (346 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 kB 3.7 MB/s eta 0:00:00
+Installing collected packages: pytz, tzdata, pandas
+Successfully installed pandas-2.2.0 pytz-2023.3.post1 tzdata-2023.4
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ ~/Library/Python/3.11/bin/jupyter notebook
+[I 11:18:47.334 NotebookApp] 启动notebooks 在本地路径: /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python
+[I 11:18:47.334 NotebookApp] 本程序运行在: http://localhost:8888/?token=0eeb8fcb58a122903c169dc61ae679d878ad4909ee7d1fcd
+[I 11:18:47.334 NotebookApp]  or http://127.0.0.1:8888/?token=0eeb8fcb58a122903c169dc61ae679d878ad4909ee7d1fcd
+[I 11:18:47.334 NotebookApp] 使用control-c停止此服务器并关闭所有内核(两次跳过确认).
+[C 11:18:47.345 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///Users/fanhongling/Library/Jupyter/runtime/nbserver-2131-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=0eeb8fcb58a122903c169dc61ae679d878ad4909ee7d1fcd
+     or http://127.0.0.1:8888/?token=0eeb8fcb58a122903c169dc61ae679d878ad4909ee7d1fcd
+
+
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -m pip install rpds-py==0.13.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting rpds-py==0.13.0
+  Downloading rpds_py-0.13.0-cp312-cp312-macosx_10_7_x86_64.whl.metadata (3.7 kB)
+Downloading rpds_py-0.13.0-cp312-cp312-macosx_10_7_x86_64.whl (335 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 335.6/335.6 kB 1.1 MB/s eta 0:00:00
+Installing collected packages: rpds-py
+Successfully installed rpds-py-0.13.0
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -m pip install notebook==6.0.0
+Defaulting to user installation because normal site-packages is not writeable
+...
+  ...
+...
+Installing collected packages: webencodings, wcwidth, pure-eval, ptyprocess, ipython-genutils, fastjsonschema, appnope, traitlets, tornado, tinycss2, soupsieve, six, Send2Trash, pyzmq, pygments, psutil, prompt-toolkit, prometheus-client, platformdirs, pexpect, parso, pandocfilters, packaging, nest-asyncio, mistune, MarkupSafe, jupyterlab-pygments, executing, defusedxml, decorator, debugpy, attrs, terminado, referencing, python-dateutil, matplotlib-inline, jupyter-core, jinja2, jedi, comm, bleach, beautifulsoup4, asttokens, stack-data, jupyter-client, jsonschema-specifications, jsonschema, ipython, nbformat, ipykernel, nbclient, nbconvert, notebook
+  WARNING: The script send2trash is installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script pygmentize is installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter, jupyter-migrate and jupyter-troubleshoot are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-kernel, jupyter-kernelspec and jupyter-run are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jsonschema is installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts ipython and ipython3 are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-trust is installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-execute is installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-dejavu and jupyter-nbconvert are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-bundlerextension, jupyter-nbextension, jupyter-notebook and jupyter-serverextension are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-2.1.4 Send2Trash-1.8.2 appnope-0.1.3 asttokens-2.4.1 attrs-23.2.0 beautifulsoup4-4.12.3 bleach-6.1.0 comm-0.2.1 debugpy-1.8.0 decorator-5.1.1 defusedxml-0.7.1 executing-2.0.1 fastjsonschema-2.19.1 ipykernel-6.29.0 ipython-8.20.0 ipython-genutils-0.2.0 jedi-0.19.1 jinja2-3.1.3 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 jupyter-client-8.6.0 jupyter-core-5.7.1 jupyterlab-pygments-0.3.0 matplotlib-inline-0.1.6 mistune-3.0.2 nbclient-0.9.0 nbconvert-7.14.2 nbformat-5.9.2 nest-asyncio-1.6.0 notebook-6.0.0 packaging-23.2 pandocfilters-1.5.1 parso-0.8.3 pexpect-4.9.0 platformdirs-4.1.0 prometheus-client-0.19.0 prompt-toolkit-3.0.43 psutil-5.9.8 ptyprocess-0.7.0 pure-eval-0.2.2 pygments-2.17.2 python-dateutil-2.8.2 pyzmq-25.1.2 referencing-0.32.1 six-1.16.0 soupsieve-2.5 stack-data-0.6.3 terminado-0.18.0 tinycss2-1.2.1 tornado-6.4 traitlets-5.14.1 wcwidth-0.2.13 webencodings-0.5.1
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ ~/Library/Python/3.12/bin/jupyter notebook
+Traceback (most recent call last):
+  File "/Users/fanhongling/Library/Python/3.12/bin/jupyter-notebook", line 5, in <module>
+    from notebook.notebookapp import main
+  File "/Users/fanhongling/Library/Python/3.12/lib/python/site-packages/notebook/notebookapp.py", line 79, in <module>
+    from .base.handlers import Template404, RedirectWithParams
+  File "/Users/fanhongling/Library/Python/3.12/lib/python/site-packages/notebook/base/handlers.py", line 43, in <module>
+    from notebook.utils import is_hidden, url_path_join, url_is_absolute, url_escape
+  File "/Users/fanhongling/Library/Python/3.12/lib/python/site-packages/notebook/utils.py", line 16, in <module>
+    from distutils.version import LooseVersion
+ModuleNotFoundError: No module named 'distutils'
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ Python3.12 -m pip install setuptools
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ ~/Library/Python/3.12/bin/jupyter notebook
+[I 04:37:53.022 NotebookApp] 启动notebooks 在本地路径: /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python
+[I 04:37:53.022 NotebookApp] 本程序运行在: http://localhost:8888/?token=1560004e9316f789ef67bf9b7c5958140ec9c7f8693a199a
+[I 04:37:53.022 NotebookApp]  or http://127.0.0.1:8888/?token=1560004e9316f789ef67bf9b7c5958140ec9c7f8693a199a
+[I 04:37:53.022 NotebookApp] 使用control-c停止此服务器并关闭所有内核(两次跳过确认).
+[C 04:37:53.028 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///Users/fanhongling/Library/Jupyter/runtime/nbserver-83995-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=1560004e9316f789ef67bf9b7c5958140ec9c7f8693a199a
+     or http://127.0.0.1:8888/?token=1560004e9316f789ef67bf9b7c5958140ec9c7f8693a199a
+

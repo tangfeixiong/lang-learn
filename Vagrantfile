@@ -12,14 +12,21 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  ###--- https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190212.1.0 ---
+  #--- https://app.vagrantup.com/ubuntu/boxes/bionic64/versions/20190212.1.0
   #config.vm.box = "ubuntu/bionic64"
   #config.vm.box_version = "20190212.1.0"
-  ###--- https://cloud-images.ubuntu.com/releases ---
-  #config.vm.box = "ubuntu-bionic-18.04-server-cloud"
-  #config.vm.box_url = "https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
-  config.vm.box = "ubuntu-focal-20.04-server-cloud"
-  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/focal/release-20200625/ubuntu-20.04-server-cloudimg-amd64-vagrant.box"
+  #--- 18.04/bionic cloud-image
+  #config.vm.box = "ubuntu18.04-bionic-cloud-image"
+  #config.vm.box_url = "https://cloud-images.ubuntu.com/releases/bionic/release/ubuntu-18.04-server-cloudimg-amd64-vagrant.box"
+  #--- 20.04/focal cloud-image
+  #config.vm.box = "ubuntu20.04-focal-cloud-image"
+  #config.vm.box_url = "https://cloud-images.ubuntu.com/releases/focal/release/ubuntu-20.04-server-cloudimg-amd64-vagrant.box"
+  #--- 22.04/jammy cloud-image
+  config.vm.box = "ubuntu22.04-jammy-cloud-image"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/releases/22.04/release-20221214/ubuntu-22.04-server-cloudimg-amd64-vagrant.box"
+  #--- 24.04/nobel cloud-image
+  #config.vm.box = "ubuntu24.04-nobel-cloud-image"
+  #config.vm.box_url = "http://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64-vagrant.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -29,13 +36,13 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 5080
-  config.vm.network "forwarded_port", guest: 443, host: 5443
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 443, host: 8443
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", type: "dhcp"
+  #config.vm.network "private_network", ip: "192.168.33.10", auto_config: false
+  config.vm.network "private_network", type: "dhcp", name: "vboxnet2"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -69,13 +76,13 @@ Vagrant.configure("2") do |config|
   # information on available options.
   config.vm.provider "virtualbox" do |vb, override|
     vb.cpus = "1"
-    vb.memory = "5120"
+    vb.memory = "2048"
 
     #override.ssh.insert_key = false
     #override.vm.base_mac = "08002708697F"
   end  
 
-  config.ssh.insert_key = false
+  #config.ssh.insert_key = true
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
@@ -91,4 +98,25 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+
+  #---plugin--- https://github.com/sprotheroe/vagrant-disksize
+  #config.disksize.size = '12GB'
+
+  #---plugin--- https://github.com/dotless-de/vagrant-vbguest
+  # we will try to autodetect this path. 
+  # However, if we cannot or you have a special one you may pass it like:
+  # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
+  # or an URL:
+  # config.vbguest.iso_path = "http://company.server/VirtualBox/%{version}/VBoxGuestAdditions.iso"
+  # or relative to the Vagrantfile:
+  # config.vbguest.iso_path = "../relative/path/to/VBoxGuestAdditions.iso"
+  
+  # set auto_update to false, if you do NOT want to check the correct 
+  # additions version when booting this machine
+  # config.vbguest.auto_update = false
+  
+  # do NOT download the iso file from a webserver
+  config.vbguest.no_remote = true
+
 end

@@ -1,18 +1,28 @@
-.vagrant/
-ubuntu-bionic-18.04-cloudimg-console.log
-ubuntu-*-cloudimg-console.log
-
-c-cpp/**/*.o
-c-cpp/reversedstr/reversefirsthalf
+c/**/*.o
+c/**/*.lo
+c/**/*.so
+c/reversedstr/reversefirsthalf
+cpp/**/*.o
+cpp/**/*.lo
+cpp/**/*.so
 
 java/**/*.class
 java/**/*.jar
 java/**/*.zip
+java/out/
+
+rustup-init.sh
+rustup*.sh
 
 .idea
 **/*.iml
-java/out/
 
 *.ppt
 *.pdf
+*.tiff
+
+.vagrant/
+ubuntu-bionic-18.04-cloudimg-console.log
+ubuntu-*-cloudimg-console.log
+
 .DS_Store

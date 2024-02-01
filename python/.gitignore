@@ -1,4 +1,20 @@
-mlcourse/
-*dir.txt
+*.pyc
+__pycache__
+
+get-pip.py
+pip.pyz
+.Python
+
+.env
+
+.ipynb_checkpoints/
+notebook4.0.0-dependencies-requirements.txt
+*_temp.txt
+
+python.pdf
+python_logo.png
+*.mp4
 
 .DS_Store
+
+

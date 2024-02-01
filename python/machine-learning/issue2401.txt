@@ -1,0 +1,239 @@
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install sklearn
+Collecting sklearn
+  Downloading https://files.pythonhosted.org/packages/46/1c/395a83ee7b2d2ad7a05b453872053d41449564477c81dc356f720b16eac4/sklearn-0.0.post12.tar.gz
+    Complete output from command python setup.py egg_info:
+    The 'sklearn' PyPI package is deprecated, use 'scikit-learn'
+    rather than 'sklearn' for pip commands.
+    
+    Here is how to fix this error in the main use cases:
+    - use 'pip install scikit-learn' rather than 'pip install sklearn'
+    - replace 'sklearn' by 'scikit-learn' in your pip requirements files
+      (requirements.txt, setup.py, setup.cfg, Pipfile, etc ...)
+    - if the 'sklearn' package is used by one of your dependencies,
+      it would be great if you take some time to track which package uses
+      'sklearn' instead of 'scikit-learn' and report it to their issue tracker
+    - as a last resort, set the environment variable
+      SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error
+    
+    More information is available at
+    https://github.com/scikit-learn/sklearn-pypi-package
+    
+    ----------------------------------------
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-hk99tf__/sklearn/
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install scikit-learn
+Collecting scikit-learn
+  Downloading https://files.pythonhosted.org/packages/88/00/835e3d280fdd7784e76bdef91dd9487582d7951a7254f59fc8004fc8b213/scikit-learn-1.3.2.tar.gz (7.5MB)
+    100% |████████████████████████████████| 7.5MB 18kB/s 
+    Complete output from command python setup.py egg_info:
+    Partial import of sklearn during the build process.
+    Traceback (most recent call last):
+      File "/tmp/pip-build-gw82cgrs/scikit-learn/setup.py", line 161, in check_package_status
+        module = importlib.import_module(package)
+      File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'numpy'
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-build-gw82cgrs/scikit-learn/setup.py", line 633, in <module>
+        setup_package()
+      File "/tmp/pip-build-gw82cgrs/scikit-learn/setup.py", line 623, in setup_package
+        check_package_status("numpy", min_deps.NUMPY_MIN_VERSION)
+      File "/tmp/pip-build-gw82cgrs/scikit-learn/setup.py", line 188, in check_package_status
+        raise ImportError(
+    ImportError: numpy is not installed.
+    scikit-learn requires numpy >= 1.17.3.
+    Installation instructions are available on the scikit-learn website: http://scikit-learn.org/stable/install.html
+    
+    
+    ----------------------------------------
+Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-gw82cgrs/scikit-learn/
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy
+Collecting numpy
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/a4/9b/027bec52c633f6556dba6b722d9a0befb40498b9ceddd29cbe67a45a127c/numpy-1.24.4.tar.gz
+Building wheels for collected packages: numpy
+  Running setup.py bdist_wheel for numpy ... error
+  Complete output from command /usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-zphk1p1d/numpy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/tmp_5pdm6uipip-wheel- --python-tag cp38:
+  Running from numpy source directory.
+  /tmp/pip-build-zphk1p1d/numpy/setup.py:67: DeprecationWarning:
+  
+    `numpy.distutils` is deprecated since NumPy 1.23.0, as a result
+    of the deprecation of `distutils` itself. It will be removed for
+    Python >= 3.12. For older Python versions it will remain present.
+    It is recommended to use `setuptools < 60.0` for those Python versions.
+    For more details, see:
+      https://numpy.org/devdocs/reference/distutils_status_migration.html
+  
+  
+    import numpy.distutils.command.sdist
+  Traceback (most recent call last):
+    File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 233, in generate_cython
+      import Cython
+  ModuleNotFoundError: No module named 'Cython'
+  
+  The above exception was the direct cause of the following exception:
+  
+  Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 479, in <module>
+      setup_package()
+    File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 458, in setup_package
+      generate_cython()
+    File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 240, in generate_cython
+      raise OSError(msg) from e
+  OSError: Cython needs to be installed in Python as a module
+  
+  ----------------------------------------
+  Failed building wheel for numpy
+  Running setup.py clean for numpy
+  Complete output from command /usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-zphk1p1d/numpy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" clean --all:
+  Running from numpy source directory.
+  /tmp/pip-build-zphk1p1d/numpy/setup.py:67: DeprecationWarning:
+  
+    `numpy.distutils` is deprecated since NumPy 1.23.0, as a result
+    of the deprecation of `distutils` itself. It will be removed for
+    Python >= 3.12. For older Python versions it will remain present.
+    It is recommended to use `setuptools < 60.0` for those Python versions.
+    For more details, see:
+      https://numpy.org/devdocs/reference/distutils_status_migration.html
+  
+  
+    import numpy.distutils.command.sdist
+  
+  `setup.py clean` is not supported, use one of the following instead:
+  
+    - `git clean -xdf` (cleans all files)
+    - `git clean -Xdf` (cleans all versioned files, doesn't touch
+                        files that aren't checked into the git repo)
+  
+  Add `--force` to your command to use it anyway if you must (unsupported).
+  
+  
+  ----------------------------------------
+  Failed cleaning build dir for numpy
+Failed to build numpy
+Installing collected packages: numpy
+  Running setup.py install for numpy ... error
+    Complete output from command /usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-zphk1p1d/numpy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-dx9r7v65-record/install-record.txt --single-version-externally-managed --compile --user --prefix=:
+    Running from numpy source directory.
+    /tmp/pip-build-zphk1p1d/numpy/setup.py:67: DeprecationWarning:
+    
+      `numpy.distutils` is deprecated since NumPy 1.23.0, as a result
+      of the deprecation of `distutils` itself. It will be removed for
+      Python >= 3.12. For older Python versions it will remain present.
+      It is recommended to use `setuptools < 60.0` for those Python versions.
+      For more details, see:
+        https://numpy.org/devdocs/reference/distutils_status_migration.html
+    
+    
+      import numpy.distutils.command.sdist
+    
+    Note: if you need reliable uninstall behavior, then install
+    with pip instead of using `setup.py install`:
+    
+      - `pip install .`       (from a git repo or downloaded source
+                               release)
+      - `pip install numpy`   (last NumPy release on PyPI)
+    
+    
+    Traceback (most recent call last):
+      File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 233, in generate_cython
+        import Cython
+    ModuleNotFoundError: No module named 'Cython'
+    
+    The above exception was the direct cause of the following exception:
+    
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 479, in <module>
+        setup_package()
+      File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 458, in setup_package
+        generate_cython()
+      File "/tmp/pip-build-zphk1p1d/numpy/setup.py", line 240, in generate_cython
+        raise OSError(msg) from e
+    OSError: Cython needs to be installed in Python as a module
+    
+    ----------------------------------------
+Command "/usr/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-zphk1p1d/numpy/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" install --record /tmp/pip-dx9r7v65-record/install-record.txt --single-version-externally-managed --compile --user --prefix=" failed with error code 1 in /tmp/pip-build-zphk1p1d/numpy/
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple Cython
+Collecting Cython
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/da/6a/5ec6c7d2239240f937eb0dbe6d436fe5f09677e26a957b56b0dbf61e6dba/Cython-3.0.7-py2.py3-none-any.whl (1.2MB)
+    100% |████████████████████████████████| 1.2MB 846kB/s 
+Installing collected packages: Cython
+Successfully installed Cython-3.0.7
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
+Collecting pip
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/15/aa/3f4c7bcee2057a76562a5b33ecbd199be08cdb4443a02e26bd2c3cf6fc39/pip-23.3.2-py3-none-any.whl (2.1MB)
+    100% |████████████████████████████████| 2.1MB 406kB/s 
+Installing collected packages: pip
+Successfully installed pip-23.3.2
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting numpy
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/98/5d/5738903efe0ecb73e51eb44feafba32bdba2081263d40c5043568ff60faf/numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 2.3 MB/s eta 0:00:00
+Installing collected packages: numpy
+  WARNING: The scripts f2py, f2py3 and f2py3.8 are installed in '/home/vagrant/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed numpy-1.24.4
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple scikit-learn
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting scikit-learn
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3f/48/6fdd99f5717045f9984616b5c2ec683d6286d30c0ac234563062132b83ab/scikit_learn-1.3.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 2.6 MB/s eta 0:00:00
+Requirement already satisfied: numpy<2.0,>=1.17.3 in /home/vagrant/.local/lib/python3.8/site-packages (from scikit-learn) (1.24.4)
+Collecting scipy>=1.5.0 (from scikit-learn)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/69/f0/fb07a9548e48b687b8bf2fa81d71aba9cfc548d365046ca1c791e24db99d/scipy-1.10.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.5/34.5 MB 2.4 MB/s eta 0:00:00
+Collecting joblib>=1.1.1 (from scikit-learn)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/10/40/d551139c85db202f1f384ba8bcf96aca2f329440a844f924c8a0040b6d02/joblib-1.3.2-py3-none-any.whl (302 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 302.2/302.2 kB 2.5 MB/s eta 0:00:00
+Collecting threadpoolctl>=2.0.0 (from scikit-learn)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/81/12/fd4dea011af9d69e1cad05c75f3f7202cdcbeac9b712eea58ca779a72865/threadpoolctl-3.2.0-py3-none-any.whl (15 kB)
+Installing collected packages: threadpoolctl, scipy, joblib, scikit-learn
+Successfully installed joblib-1.3.2 scikit-learn-1.3.2 scipy-1.10.1 threadpoolctl-3.2.0
+
+
+vagrant@ubuntu-bionic:/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/exercise2401$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pandas
+WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting pandas
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f8/7f/5b047effafbdd34e52c9e2d7e44f729a0655efafb22198c45cf692cdc157/pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 2.3 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2 (from pandas)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 2.5 MB/s eta 0:00:00
+Collecting pytz>=2020.1 (from pandas)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/32/4d/aaf7eff5deb402fd9a24a1449a8119f00d74ae9c2efa79f8ef9994261fc2/pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 502.5/502.5 kB 2.6 MB/s eta 0:00:00
+Collecting tzdata>=2022.1 (from pandas)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a3/fb/52b62131e21b24ee297e4e95ed41eba29647dad0e0051a92bb66b43c70ff/tzdata-2023.4-py2.py3-none-any.whl (346 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 346.6/346.6 kB 3.0 MB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.20.3 in /home/vagrant/.local/lib/python3.8/site-packages (from pandas) (1.24.4)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.8.2->pandas) (1.11.0)
+Installing collected packages: pytz, tzdata, python-dateutil, pandas
+Successfully installed pandas-2.0.3 python-dateutil-2.8.2 pytz-2023.3.post1 tzdata-2023.4

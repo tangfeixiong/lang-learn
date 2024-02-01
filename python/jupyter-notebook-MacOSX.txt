@@ -1,0 +1,512 @@
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 index versions notebook
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+notebook (7.0.7)
+Available versions: 7.0.7, 7.0.6, 7.0.5, 7.0.4, 7.0.3, 7.0.2, 7.0.1, 7.0.0, 6.5.6, 6.5.5, 6.5.4, 6.5.3, 6.5.2, 6.5.1, 6.4.13, 6.4.12, 6.4.11, 6.4.10, 6.4.9, 6.4.8, 6.4.7, 6.4.6, 6.4.5, 6.4.4, 6.4.3, 6.4.2, 6.4.1, 6.4.0, 6.3.0, 6.2.0, 6.1.6, 6.1.5, 6.1.4, 6.1.3, 6.1.2, 6.1.1, 6.1.0, 6.0.3, 6.0.2, 6.0.1, 6.0.0, 5.7.16, 5.7.15, 5.7.14, 5.7.13, 5.7.12, 5.7.11, 5.7.10, 5.7.9, 5.7.8, 5.7.6, 5.7.5, 5.7.4, 5.7.3, 5.7.2, 5.7.1, 5.7.0, 5.6.0, 5.5.0, 5.4.1, 5.4.0, 5.3.1, 5.3.0, 5.2.2, 5.2.1, 5.2.0, 5.1.0, 5.0.0, 4.4.1, 4.4.0, 4.3.2, 4.3.1, 4.3.0, 4.2.3, 4.2.2, 4.2.1, 4.2.0, 4.1.0, 4.0.6, 4.0.5, 4.0.4, 4.0.2, 4.0.1, 4.0.0
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install notebook==7.0.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting notebook==7.0.0
+  Obtaining dependency information for notebook==7.0.0 from https://files.pythonhosted.org/packages/b6/7a/9a32d2c8a2652614f66ee889f67c352fa11e1042e668de3224c4da2370db/notebook-7.0.0-py3-none-any.whl.metadata
+  Downloading notebook-7.0.0-py3-none-any.whl.metadata (10 kB)
+
+...
+  ...
+
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [59 lines of output]
+      Collecting maturin<2.0,>=1.0
+        Using cached maturin-1.4.0.tar.gz (177 kB)
+        Installing build dependencies: started
+        Installing build dependencies: finished with status 'done'
+        Getting requirements to build wheel: started
+        Getting requirements to build wheel: finished with status 'done'
+        Preparing metadata (pyproject.toml): started
+        Preparing metadata (pyproject.toml): finished with status 'done'
+      Collecting tomli>=1.1.0 (from maturin<2.0,>=1.0)
+        Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
+      Building wheels for collected packages: maturin
+        Building wheel for maturin (pyproject.toml): started
+        Building wheel for maturin (pyproject.toml): finished with status 'error'
+        error: subprocess-exited-with-error
+      
+        × Building wheel for maturin (pyproject.toml) did not run successfully.
+        │ exit code: 1
+        ╰─> [35 lines of output]
+            running bdist_wheel
+            running build
+            running build_py
+            creating build
+            creating build/lib.macosx-10.10-x86_64-cpython-38
+            creating build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__init__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__main__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/import_hook.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            running egg_info
+            creating maturin.egg-info
+            writing maturin.egg-info/PKG-INFO
+            writing dependency_links to maturin.egg-info/dependency_links.txt
+            writing requirements to maturin.egg-info/requires.txt
+            writing top-level names to maturin.egg-info/top_level.txt
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest template 'MANIFEST.in'
+            /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-jn081u8w/overlay/lib/python3.8/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+              corresp(dist, value, root_dir)
+            warning: no files found matching '*.json' under directory 'src/python_interpreter'
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            running build_ext
+            running build_rust
+            error: can't find Rust compiler
+      
+            If you are using an outdated pip version, it is possible a prebuilt wheel is available for this package but pip is not able to install from it. Installing from the wheel would avoid the need for a Rust compiler.
+      
+            To update pip, run:
+      
+                pip install --upgrade pip
+      
+            and then retry package installation.
+      
+            If you did intend to build this package from source, try installing a Rust compiler from your system package manager and ensure it is on the PATH during installation. Alternatively, rustup (available at https://rustup.rs) is the recommended way to download and update the Rust compiler toolchain.
+            [end of output]
+      
+        note: This error originates from a subprocess, and is likely not a problem with pip.
+        ERROR: Failed building wheel for maturin
+      Failed to build maturin
+      ERROR: Could not build wheels for maturin, which is required to install pyproject.toml-based projects
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple notebook==4.0.0
+
+...
+  ...
+
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [61 lines of output]
+      Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+      Collecting maturin<2.0,>=1.0
+        Downloading https://pypi.tuna.tsinghua.edu.cn/packages/20/90/43a3aa35f037e91582ec7516a92084a71f84e89e39ef580813bed072b154/maturin-1.4.0.tar.gz (177 kB)
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 178.0/178.0 kB 3.5 MB/s eta 0:00:00
+        Installing build dependencies: started
+        Installing build dependencies: finished with status 'done'
+        Getting requirements to build wheel: started
+        Getting requirements to build wheel: finished with status 'done'
+        Preparing metadata (pyproject.toml): started
+        Preparing metadata (pyproject.toml): finished with status 'done'
+      Collecting tomli>=1.1.0 (from maturin<2.0,>=1.0)
+        Using cached https://pypi.tuna.tsinghua.edu.cn/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl (12 kB)
+      Building wheels for collected packages: maturin
+        Building wheel for maturin (pyproject.toml): started
+        Building wheel for maturin (pyproject.toml): finished with status 'error'
+        error: subprocess-exited-with-error
+      
+        × Building wheel for maturin (pyproject.toml) did not run successfully.
+        │ exit code: 1
+        ╰─> [35 lines of output]
+            running bdist_wheel
+            running build
+            running build_py
+            creating build
+            creating build/lib.macosx-10.10-x86_64-cpython-38
+            creating build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__init__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__main__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/import_hook.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            running egg_info
+            creating maturin.egg-info
+            writing maturin.egg-info/PKG-INFO
+            writing dependency_links to maturin.egg-info/dependency_links.txt
+            writing requirements to maturin.egg-info/requires.txt
+            writing top-level names to maturin.egg-info/top_level.txt
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest template 'MANIFEST.in'
+            /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-zmtff4r2/overlay/lib/python3.8/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+              corresp(dist, value, root_dir)
+            warning: no files found matching '*.json' under directory 'src/python_interpreter'
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            running build_ext
+            running build_rust
+            error: can't find Rust compiler
+      
+            If you are using an outdated pip version, it is possible a prebuilt wheel is available for this package but pip is not able to install from it. Installing from the wheel would avoid the need for a Rust compiler.
+      
+            To update pip, run:
+      
+                pip install --upgrade pip
+      
+            and then retry package installation.
+      
+            If you did intend to build this package from source, try installing a Rust compiler from your system package manager and ensure it is on the PATH during installation. Alternatively, rustup (available at https://rustup.rs) is the recommended way to download and update the Rust compiler toolchain.
+            [end of output]
+      
+        note: This error originates from a subprocess, and is likely not a problem with pip.
+        ERROR: Failed building wheel for maturin
+      Failed to build maturin
+      ERROR: Could not build wheels for maturin, which is required to install pyproject.toml-based projects
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 index -i https://pypi.tuna.tsinghua.edu.cn/simple versions maturin
+WARNING: pip index is currently an experimental command. It may be removed/changed in a future release without prior warning.
+maturin (1.4.0)
+Available versions: 1.4.0, 1.3.2, 1.3.1, 1.3.0, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0, 1.0.1, 1.0.0, 0.15.3, 0.15.2, 0.15.1, 0.15.0, 0.14.17, 0.14.16, 0.14.15, 0.14.14, 0.14.13, 0.14.12, 0.14.11, 0.14.10, 0.14.9, 0.14.8, 0.14.7, 0.14.6, 0.14.5, 0.14.4, 0.14.3, 0.14.2, 0.14.1, 0.14.0, 0.13.7, 0.13.6, 0.13.5, 0.13.3, 0.13.2, 0.13.1, 0.13.0, 0.12.20, 0.12.19, 0.12.18, 0.12.17, 0.12.16, 0.12.15, 0.12.14, 0.12.13, 0.12.12, 0.12.11, 0.12.10, 0.12.9, 0.12.8, 0.12.7, 0.12.6, 0.12.5, 0.12.4, 0.12.3, 0.12.2, 0.12.1, 0.12.0, 0.11.5, 0.11.4, 0.11.3, 0.11.2, 0.11.1, 0.11.0, 0.10.6, 0.10.5, 0.10.4, 0.10.3, 0.10.2, 0.10.1, 0.10.0, 0.9.4, 0.9.3, 0.9.1, 0.9.0, 0.8.3, 0.8.2, 0.8.1, 0.8.0, 0.7.9, 0.7.8, 0.7.7, 0.7.6, 0.7.2, 0.7.1
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple maturin==1.0.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting maturin==1.0.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/be/d5/bec7bddd6fa2c8aaeec5fed23fec200fc4ae203ede4c66315556f6aab722/maturin-1.0.0-py3-none-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl (14.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.6/14.6 MB 5.6 MB/s eta 0:00:00
+Requirement already satisfied: tomli>=1.1.0 in /opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages (from maturin==1.0.0) (2.0.1)
+Installing collected packages: maturin
+Successfully installed maturin-1.0.0
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple notebook==4.0.0
+
+...
+...
+
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [60 lines of output]
+
+      ...
+      ...
+    
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            running build_ext
+            running build_rust
+            error: can't find Rust compiler
+      
+            ...
+            ...
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple maturin==1.4.0
+
+...
+...
+
+  Building wheel for maturin (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for maturin (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [35 lines of output]
+
+      ...
+      ...
+    
+      running build_rust
+      error: can't find Rust compiler
+
+      ...
+      ...
+
+Failed to build maturin
+ERROR: Could not build wheels for maturin, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ sudo port install py38-maturin
+Password:
+--->  Computing dependencies for py38-maturin
+The following dependencies will be installed: 
+ cargo
+ libgit2
+ libssh2
+ pcre2
+ py38-semantic_version
+ py38-setuptools-rust
+ py38-typing_extensions
+ python311
+ rust
+Continue? [Y/n]: n
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ port search --name --line --regex '^rust$'
+rust	1.71.1	lang devel	A safe, concurrent, practical language
+
+
+
+
+https://ports.macports.org/port/rust/details/
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple maturin==1.3.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: maturin==1.3.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (1.3.0)
+Requirement already satisfied: tomli>=1.1.0 in /opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages (from maturin==1.3.0) (2.0.1)
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r notebook4.0.0-dependencies-requirements.txt 
+
+...
+  ...
+
+Collecting rpds_py==0.17.1 (from -r notebook4.0.0-requirements.txt (line 149))
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b7/0a/e3bdcc977e6db3bf32a3f42172f583adfa7c3604091a03d512333e0161fe/rpds_py-0.17.1.tar.gz (24 kB)
+  Installing build dependencies ... error
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [109 lines of output]
+      Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+      Collecting maturin<2.0,>=1.0
+        Using cached https://pypi.tuna.tsinghua.edu.cn/packages/20/90/43a3aa35f037e91582ec7516a92084a71f84e89e39ef580813bed072b154/maturin-1.4.0.tar.gz (177 kB)
+        Installing build dependencies: started
+        Installing build dependencies: finished with status 'done'
+        Getting requirements to build wheel: started
+        Getting requirements to build wheel: finished with status 'done'
+        Preparing metadata (pyproject.toml): started
+        Preparing metadata (pyproject.toml): finished with status 'done'
+      Collecting tomli>=1.1.0 (from maturin<2.0,>=1.0)
+        Using cached https://pypi.tuna.tsinghua.edu.cn/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl (12 kB)
+      Building wheels for collected packages: maturin
+        Building wheel for maturin (pyproject.toml): started
+        Building wheel for maturin (pyproject.toml): finished with status 'error'
+        error: subprocess-exited-with-error
+      
+        × Building wheel for maturin (pyproject.toml) did not run successfully.
+        │ exit code: 1
+        ╰─> [84 lines of output]
+            running bdist_wheel
+            running build
+            running build_py
+            creating build
+            creating build/lib.macosx-10.10-x86_64-cpython-38
+            creating build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__init__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/__main__.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            copying maturin/import_hook.py -> build/lib.macosx-10.10-x86_64-cpython-38/maturin
+            running egg_info
+            creating maturin.egg-info
+            writing maturin.egg-info/PKG-INFO
+            writing dependency_links to maturin.egg-info/dependency_links.txt
+            writing requirements to maturin.egg-info/requires.txt
+            writing top-level names to maturin.egg-info/top_level.txt
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest file 'maturin.egg-info/SOURCES.txt'
+            reading manifest template 'MANIFEST.in'
+            /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+              corresp(dist, value, root_dir)
+            warning: no files found matching '*.json' under directory 'src/python_interpreter'
+            writing manifest file 'maturin.egg-info/SOURCES.txt'
+            running build_ext
+            running build_rust
+            error: unknown print request `cfg`
+            Traceback (most recent call last):
+              File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
+                main()
+              File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
+                json_out['return_val'] = hook(**hook_input['kwargs'])
+              File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 251, in build_wheel
+                return _build_backend().build_wheel(wheel_directory, config_settings,
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 404, in build_wheel
+                return self._build_with_temp_dir(
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 389, in _build_with_temp_dir
+                self.run_setup()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/build_meta.py", line 311, in run_setup
+                exec(code, locals())
+              File "<string>", line 53, in <module>
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/__init__.py", line 103, in setup
+                return distutils.core.setup(**attrs)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 185, in setup
+                return run_commands(dist)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/core.py", line 201, in run_commands
+                dist.run_commands()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 969, in run_commands
+                self.run_command(cmd)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
+                super().run_command(command)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
+                cmd_obj.run()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/wheel/bdist_wheel.py", line 368, in run
+                self.run_command("build")
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+                self.distribution.run_command(command)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
+                super().run_command(command)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
+                cmd_obj.run()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/command/build.py", line 131, in run
+                self.run_command(cmd_name)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+                self.distribution.run_command(command)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/dist.py", line 963, in run_command
+                super().run_command(command)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools/_distutils/dist.py", line 988, in run_command
+                cmd_obj.run()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/setuptools_ext.py", line 168, in run
+                build_rust.run()
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/command.py", line 100, in run
+                self.run_for_extension(ext)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/build.py", line 136, in run_for_extension
+                dylib_paths = self.build_extension(ext, self.target)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/build.py", line 143, in build_extension
+                rustc_cfgs = get_rustc_cfgs(target_triple)
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/rustc_info.py", line 36, in get_rustc_cfgs
+                for entry in get_rust_target_info(target_triple):
+              File "/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-r4ggxe0x/overlay/lib/python3.8/site-packages/setuptools_rust/rustc_info.py", line 51, in get_rust_target_info
+                output = subprocess.check_output(cmd, text=True)
+              File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/subprocess.py", line 415, in check_output
+                return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+              File "/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/subprocess.py", line 516, in run
+                raise CalledProcessError(retcode, process.args,
+            subprocess.CalledProcessError: Command '['rustc', '--print', 'cfg']' returned non-zero exit status 101.
+            [end of output]
+      
+        note: This error originates from a subprocess, and is likely not a problem with pip.
+        ERROR: Failed building wheel for maturin
+      Failed to build maturin
+      ERROR: Could not build wheels for maturin, which is required to install pyproject.toml-based projects
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
+
+
+fanhonglingdeMacBook-Pro:go-to-bigdata fanhongling$ pip3 install rpds-py==0.10.0
+Defaulting to user installation because normal site-packages is not writeable
+Collecting rpds-py==0.10.0
+  Obtaining dependency information for rpds-py==0.10.0 from https://files.pythonhosted.org/packages/01/53/d8408b550253a93057d57eaa64818a8ba69566ea7ef20380e0417bb34b6d/rpds_py-0.10.0-cp38-cp38-macosx_10_7_x86_64.whl.metadata
+  Downloading rpds_py-0.10.0-cp38-cp38-macosx_10_7_x86_64.whl.metadata (3.7 kB)
+Downloading rpds_py-0.10.0-cp38-cp38-macosx_10_7_x86_64.whl (321 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 321.4/321.4 kB 1.2 MB/s eta 0:00:00
+Installing collected packages: rpds-py
+Successfully installed rpds-py-0.10.0
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r notebook4.0.0-dependencies-requirements.txt 
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+
+...
+  ...
+
+Building wheels for collected packages: beautifulsoup4
+  Building wheel for beautifulsoup4 (setup.py) ... done
+  Created wheel for beautifulsoup4: filename=beautifulsoup4-4.1.2-py3-none-any.whl size=66263 sha256=19e65376ac500574e94679dc0a662ade89208eb45b6d972beb6e14ddaeef5398
+  Stored in directory: /Users/fanhongling/Library/Caches/pip/wheels/cf/e4/27/57994a1b20b01e437894b6a81730002147922f9174d7f02499
+Successfully built beautifulsoup4
+Installing collected packages: webencodings, wcwidth, pure-eval, ptyprocess, pickleshare, ipython_genutils, fastjsonschema, beautifulsoup4, backcall, appnope, traitlets, tornado, tinycss2, pyzmq, pygments, psutil, prompt-toolkit, platformdirs, pkgutil-resolve_name, pexpect, parso, pandocfilters, nest-asyncio, mistune, jupyterlab-pygments, importlib-resources, executing, defusedxml, decorator, debugpy, bleach, attrs, asttokens, terminado, stack-data, referencing, matplotlib-inline, jupyter_core, jedi, comm, jupyter_client, jsonschema-specifications, ipython, jsonschema, ipykernel, nbformat, nbclient, nbconvert
+  WARNING: The script pygmentize is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter, jupyter-migrate and jupyter-troubleshoot are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-kernel, jupyter-kernelspec and jupyter-run are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts ipython and ipython3 are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jsonschema is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-trust is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script jupyter-execute is installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts jupyter-dejavu and jupyter-nbconvert are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed appnope-0.1.3 asttokens-2.4.1 attrs-23.2.0 backcall-0.2.0 beautifulsoup4-4.1.2 bleach-6.1.0 comm-0.2.1 debugpy-1.8.0 decorator-5.1.1 defusedxml-0.7.1 executing-2.0.1 fastjsonschema-2.19.1 importlib-resources-6.1.1 ipykernel-6.29.0 ipython-8.12.3 ipython_genutils-0.2.0 jedi-0.19.1 jsonschema-4.21.1 jsonschema-specifications-2023.12.1 jupyter_client-8.6.0 jupyter_core-5.7.1 jupyterlab-pygments-0.3.0 matplotlib-inline-0.1.6 mistune-3.0.2 nbclient-0.9.0 nbconvert-7.14.2 nbformat-5.9.2 nest-asyncio-1.6.0 pandocfilters-1.5.1 parso-0.8.3 pexpect-4.9.0 pickleshare-0.7.5 pkgutil-resolve_name-1.3.10 platformdirs-4.1.0 prompt-toolkit-3.0.43 psutil-5.9.8 ptyprocess-0.7.0 pure-eval-0.2.2 pygments-2.17.2 pyzmq-25.1.2 referencing-0.32.1 stack-data-0.6.3 terminado-0.18.0 tinycss2-1.2.1 tornado-6.4 traitlets-5.14.1 wcwidth-0.2.13 webencodings-0.5.1 
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-deps notebook==4.0.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting notebook==4.0.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/df/63/41c2a00a3c93a978d4d6e16f081fff700354ebfc8c0c0da638a3ca17f12c/notebook-4.0.0.zip (7.3 MB)
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: notebook
+  Building wheel for notebook (setup.py) ... done
+  Created wheel for notebook: filename=notebook-4.0.0-py2.py3-none-any.whl size=5504109 sha256=991b7cf5f69e1049913a432848f3021da71f4705fa95250e6e4cd158e049aa3a
+  Stored in directory: /Users/fanhongling/Library/Caches/pip/wheels/2d/25/6e/6fa0f7df93823f2debacac618222e21579e8df22fd44419216
+Successfully built notebook
+Installing collected packages: notebook
+Successfully installed notebook-4.0.0
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ ~/Library/Python/3.8/bin/jupyter notebook
+[I 12:05:23.365 NotebookApp] Writing notebook server cookie secret to /Users/fanhongling/Library/Jupyter/runtime/notebook_cookie_secret
+[W 12:05:23.383 NotebookApp] ipywidgets package not installed.  Widgets are unavailable.
+[I 12:05:23.394 NotebookApp] Serving notebooks from local directory: /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python
+[I 12:05:23.394 NotebookApp] 0 active kernels 
+[I 12:05:23.394 NotebookApp] The IPython Notebook is running at: http://localhost:8888/
+[I 12:05:23.395 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+

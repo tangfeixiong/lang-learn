@@ -1,0 +1,163 @@
+
+fanhonglingdeMacBook-Pro:github.com fanhongling$ git clone -b 0.20.1 --depth 1 https://github.com/scikit-learn/scikit-learn.git scikit-learn/scikit-learn
+Cloning into 'scikit-learn/scikit-learn'...
+remote: Enumerating objects: 1332, done.
+remote: Counting objects: 100% (1332/1332), done.
+remote: Compressing objects: 100% (1278/1278), done.
+remote: Total 1332 (delta 79), reused 387 (delta 34), pack-reused 0
+Receiving objects: 100% (1332/1332), 6.30 MiB | 2.29 MiB/s, done.
+Resolving deltas: 100% (79/79), done.
+Checking connectivity... done.
+Note: checking out '55bf5d93e5674f13a1134d93a11fd0cd11aabcd1'.
+
+...
+...
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ . venv-mac/bin/activate
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip install numpy scipy scikit-learn
+Collecting numpy
+  Downloading https://files.pythonhosted.org/packages/c0/b9/2b485bb32d0b26631f433580d90daad5dea830e6dc5bd18c4f227b1829f7/numpy-1.15.4-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (24.5MB)
+    100% ø████████████████████████████████ø 24.5MB 418kB/s 
+Collecting scipy
+  Downloading https://files.pythonhosted.org/packages/d1/d6/3eac96ffcf7cbeb37ed72982cf3fdd3138472cb04ab32cdce1f444d765f2/scipy-1.1.0-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (16.8MB)
+    100% ø████████████████████████████████ø 16.8MB 404kB/s 
+Collecting scikit-learn
+  Downloading https://files.pythonhosted.org/packages/11/2a/ca1d592d30856cf0d72fa3fb581f4c7fef81511411283ca412e9c12af769/scikit_learn-0.20.0-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (8.2MB)
+    100% ø████████████████████████████████ø 8.2MB 240kB/s 
+Installing collected packages: numpy, scipy, scikit-learn
+Successfully installed numpy-1.15.4 scikit-learn-0.20.0 scipy-1.1.0
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python ../../../../scikit-learn/scikit-learn/examples/plot_isotonic_regression.py 
+
+===================
+Isotonic Regression
+===================
+
+An illustration of the isotonic regression on generated data. The
+isotonic regression finds a non-decreasing approximation of a function
+while minimizing the mean squared error on the training data. The benefit
+of such a model is that it does not assume any form for the target
+function such as linearity. For comparison a linear regression is also
+presented.
+
+
+Traceback (most recent call last):
+  File "../../../../scikit-learn/scikit-learn/examples/plot_isotonic_regression.py", line 21, in <module>
+    import matplotlib.pyplot as plt
+ImportError: No module named matplotlib.pyplot
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:scikit-learn-0.21-python2.7-venv fanhongling$ pip install matplotlib
+Collecting matplotlib
+  Downloading https://files.pythonhosted.org/packages/23/16/8f83901b3094199078acd965657b9ee22604f33795fcb32a704566dd4cdf/matplotlib-2.2.3-cp27-cp27m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (13.8MB)
+    100% ø████████████████████████████████ø 13.8MB 1.1MB/s 
+Requirement already satisfied: numpy>=1.7.1 in ./venv-mac/lib/python2.7/site-packages (from matplotlib) (1.15.4)
+
+...
+...
+
+Requirement already satisfied: setuptools in ./venv-mac/lib/python2.7/site-packages (from kiwisolver>=1.0.1->matplotlib) (40.6.2)
+Installing collected packages: pyparsing, six, python-dateutil, kiwisolver, cycler, subprocess32, pytz, backports.functools-lru-cache, matplotlib
+Successfully installed backports.functools-lru-cache-1.5 cycler-0.10.0 kiwisolver-1.0.1 matplotlib-2.2.3 pyparsing-2.3.0 python-dateutil-2.7.5 pytz-2018.7 six-1.11.0 subprocess32-3.5.3
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python ../../../../scikit-learn/scikit-learn/examples/plot_isotonic_regression.py 
+
+...
+...
+
+Traceback (most recent call last):
+  File "../../../../scikit-learn/scikit-learn/examples/plot_isotonic_regression.py", line 21, in <module>
+    import matplotlib.pyplot as plt
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/scikit-learn-0.21-python2.7-venv/venv-mac/lib/python2.7/site-packages/matplotlib/pyplot.py", line 115, in <module>
+    _backend_mod, new_figure_manager, draw_if_interactive, _show = pylab_setup()
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/scikit-learn-0.21-python2.7-venv/venv-mac/lib/python2.7/site-packages/matplotlib/backends/__init__.py", line 62, in pylab_setup
+    Æbackend_nameÅ, 0)
+  File "/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/scikit-learn-0.21-python2.7-venv/venv-mac/lib/python2.7/site-packages/matplotlib/backends/backend_macosx.py", line 17, in <module>
+    from matplotlib.backends import _macosx
+RuntimeError: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework. See the Python documentation for more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using (Ana)Conda please install python.app and replace the use of 'python' with 'pythonw'. See 'Working with Matplotlib on OSX' in the Matplotlib FAQ for more information.
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:scikit-learn-0.21-python2.7-venv fanhongling$ which pythonw
+/usr/bin/pythonw
+(venv-py2-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ /usr/bin/pythonw --version
+Python 2.7.6
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ /usr/bin/pythonw ../../../../scikit-learn/scikit-learn/examples/plot_isotonic_regression.py 
+
+===================
+Isotonic Regression
+===================
+
+An illustration of the isotonic regression on generated data. The
+isotonic regression finds a non-decreasing approximation of a function
+while minimizing the mean squared error on the training data. The benefit
+of such a model is that it does not assume any form for the target
+function such as linearity. For comparison a linear regression is also
+presented.
+
+
+/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/scikit-learn-0.21-python2.7-venv/venv-mac/lib/python2.7/site-packages/sklearn/linear_model/base.py:485: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+  linalg.lstsq(X, y)
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ /usr/bin/pythonw ../../../../scikit-learn/scikit-learn/examples/plot_multioutput_face_completion.py 
+
+==============================================
+Face completion with a multi-output estimators
+==============================================
+
+This example shows the use of multi-output estimator to complete images.
+The goal is to predict the lower half of a face given its upper half.
+
+The first column of images shows true faces. The next columns illustrate
+how extremely randomized trees, k nearest neighbors, linear
+regression and ridge regression complete the lower half of those faces.
+
+
+downloading Olivetti faces from https://ndownloader.figshare.com/files/5976027 to /Users/fanhongling/scikit_learn_data
+
+
+
+(venv-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ /usr/bin/pythonw ../../../../scikit-learn/scikit-learn/examples/plot_multilabel.py 
+
+=========================
+Multilabel classification
+=========================
+
+This example simulates a multi-label document classification problem. The
+dataset is generated randomly based on the following process:
+
+    - pick the number of labels: n ~ Poisson(n_labels)
+    - n times, choose a class c: c ~ Multinomial(theta)
+    - pick the document length: k ~ Poisson(length)
+    - k times, choose a word: w ~ Multinomial(theta_c)
+
+In the above process, rejection sampling is used to make sure that n is more
+than 2, and that the document length is never zero. Likewise, we reject classes
+which have already been chosen.  The documents that are assigned to both
+classes are plotted surrounded by two colored circles.
+
+The classification is performed by projecting to the first two principal
+components found by PCA and CCA for visualisation purposes, followed by using
+the :class:`sklearn.multiclass.OneVsRestClassifier` metaclassifier using two
+SVCs with linear kernels to learn a discriminative model for each class.
+Note that PCA is used to perform an unsupervised dimensionality reduction,
+while CCA is used to perform a supervised one.
+
+Note: in the plot, "unlabeled samples" does not mean that we don't know the
+labels (as in semi-supervised learning) but that the samples simply do *not*
+have a label.

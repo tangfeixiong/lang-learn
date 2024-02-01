@@ -1,0 +1,548 @@
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ ls ~/Library/Python/3.8/bin/lep
+/Users/fanhongling/Library/Python/3.8/bin/lep
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ python3 -d -X dev ~/Library/Python/3.8/bin/lep --help
+Fatal Python error: Segmentation fault
+
+Current thread 0x00007fff79a4a300 (most recent call first):
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 1166 in create_module
+  File "<frozen importlib._bootstrap>", line 556 in module_from_spec
+  File "<frozen importlib._bootstrap>", line 657 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pydantic_core/__init__.py", line 6 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/pydantic/__init__.py", line 3 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/api/types.py", line 10 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1042 in _handle_fromlist
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/api/deployment.py", line 6 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1042 in _handle_fromlist
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/api/__init__.py", line 25 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 961 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/__init__.py", line 7 in <module>
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 843 in exec_module
+  File "<frozen importlib._bootstrap>", line 671 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 975 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "<frozen importlib._bootstrap>", line 219 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 961 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 991 in _find_and_load
+  File "/Users/fanhongling/Library/Python/3.8/bin/lep", line 5 in <module>
+Segmentation fault: 11
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade pydantic==1.10.14
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting pydantic==1.10.14
+  Downloading https://mirrors.aliyun.com/pypi/packages/1d/87/640920bcf21e2610acdddb6dee67040c1c4087ee27ae1ee4532b46affc8e/pydantic-1.10.14-cp38-cp38-macosx_10_9_x86_64.whl (2.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 1.0 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions>=4.2.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pydantic==1.10.14) (4.9.0)
+Installing collected packages: pydantic
+Successfully installed pydantic-1.10.14
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade pydantic-core==0.42.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting pydantic-core==0.42.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/48/35/5614ced7afe883a8526c2b7c7f08ca23480bc7bbdebe373433e97b18411e/pydantic_core-0.42.0-cp38-cp38-macosx_10_7_x86_64.whl (1.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 672.0 kB/s eta 0:00:00
+Requirement already satisfied: typing_extensions in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pydantic-core==0.42.0) (4.9.0)
+Installing collected packages: pydantic-core
+Successfully installed pydantic-core-0.42.0
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade accelerate==0.20.3
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=120.0)")': /simple/accelerate/
+Collecting accelerate==0.20.3
+  Downloading https://mirrors.aliyun.com/pypi/packages/10/d3/5382aa337d3e67214003a17b06bfc07cf0334356b4e8aaf3b12b0d38c83f/accelerate-0.20.3-py3-none-any.whl (227 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.6/227.6 kB 586.3 kB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.17 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from accelerate==0.20.3) (1.24.4)
+Requirement already satisfied: packaging>=20.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from accelerate==0.20.3) (23.2)
+Requirement already satisfied: psutil in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from accelerate==0.20.3) (5.9.8)
+Requirement already satisfied: pyyaml in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from accelerate==0.20.3) (6.0.1)
+Requirement already satisfied: torch>=1.6.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from accelerate==0.20.3) (1.6.0)
+Requirement already satisfied: future in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch>=1.6.0->accelerate==0.20.3) (0.18.3)
+Installing collected packages: accelerate
+  Attempting uninstall: accelerate
+    Found existing installation: accelerate 0.20.0
+    Uninstalling accelerate-0.20.0:
+      Successfully uninstalled accelerate-0.20.0
+  WARNING: The scripts accelerate, accelerate-config and accelerate-launch are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed accelerate-0.20.3
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade sentencepiece==0.1.96
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting sentencepiece==0.1.96
+  Downloading https://mirrors.aliyun.com/pypi/packages/f8/30/a47fb2ab4b1b214f3177efe700af7032b4ac229edae148a4f06016c8541a/sentencepiece-0.1.96-cp38-cp38-macosx_10_6_x86_64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 8.8 kB/s eta 0:00:00
+Installing collected packages: sentencepiece
+  Attempting uninstall: sentencepiece
+    Found existing installation: sentencepiece 0.1.97
+    Uninstalling sentencepiece-0.1.97:
+      Successfully uninstalled sentencepiece-0.1.97
+Successfully installed sentencepiece-0.1.96
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade torch==1.8.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting torch==1.8.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/3f/c5/20c6caa30ca628b9468a90d188ded935524b710a36445d63bdfeac8ee33e/torch-1.8.0-cp38-none-macosx_10_9_x86_64.whl (119.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.6/119.6 MB 1.2 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch==1.8.0) (4.9.0)
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch==1.8.0) (1.24.4)
+Installing collected packages: torch
+  Attempting uninstall: torch
+    Found existing installation: torch 1.6.0
+    Uninstalling torch-1.6.0:
+      Successfully uninstalled torch-1.6.0
+  WARNING: The scripts convert-caffe2-to-onnx and convert-onnx-to-caffe2 are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchvision 0.7.0 requires torch==1.6.0, but you have torch 1.8.0 which is incompatible.
+Successfully installed torch-1.8.0
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade torchvision==0.9.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting torchvision==0.9.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/31/6f/3a24bd6e209c385c1209081a721bff0d9029207433cbc3da8777d722e59e/torchvision-0.9.0-cp38-cp38-macosx_10_9_x86_64.whl (13.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.2/13.2 MB 1.3 MB/s eta 0:00:00
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.9.0) (1.24.4)
+Requirement already satisfied: torch==1.8.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.9.0) (1.8.0)
+Requirement already satisfied: pillow>=4.1.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.9.0) (4.1.1)
+Requirement already satisfied: typing-extensions in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch==1.8.0->torchvision==0.9.0) (4.9.0)
+Requirement already satisfied: olefile in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from pillow>=4.1.1->torchvision==0.9.0) (0.47)
+Installing collected packages: torchvision
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.7.0
+    Uninstalling torchvision-0.7.0:
+      Successfully uninstalled torchvision-0.7.0
+Successfully installed torchvision-0.9.0
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade urllib3==2.0.2
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting urllib3==2.0.2
+  Using cached https://mirrors.aliyun.com/pypi/packages/4b/1d/f8383ef593114755429c307449e7717b87044b3bcd5f7860b89b1f759e34/urllib3-2.0.2-py3-none-any.whl (123 kB)
+Installing collected packages: urllib3
+  Attempting uninstall: urllib3
+    Found existing installation: urllib3 1.26.18
+    Uninstalling urllib3-1.26.18:
+      Successfully uninstalled urllib3-1.26.18
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+requests 2.28.0 requires urllib3<1.27,>=1.21.1, but you have urllib3 2.0.2 which is incompatible.
+Successfully installed urllib3-2.0.2
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade requests==2.30.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting requests==2.30.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/96/80/034ffeca15c0f4e01b7b9c6ad0fb704b44e190cde4e757edbd60be404c41/requests-2.30.0-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.5/62.5 kB 1.3 MB/s eta 0:00:00
+Requirement already satisfied: charset-normalizer<4,>=2 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests==2.30.0) (2.0.12)
+Requirement already satisfied: idna<4,>=2.5 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests==2.30.0) (2.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests==2.30.0) (2.0.2)
+Requirement already satisfied: certifi>=2017.4.17 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests==2.30.0) (2020.12.5)
+Installing collected packages: requests
+  Attempting uninstall: requests
+    Found existing installation: requests 2.28.0
+    Uninstalling requests-2.28.0:
+      Successfully uninstalled requests-2.28.0
+Successfully installed requests-2.30.0
+
+
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ python3 -d -X dev ~/Library/Python/3.8/bin/lep photon create --name mygpt2 --model hf:gpt2
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/starlette/middleware/wsgi.py:12: DeprecationWarning: starlette.middleware.wsgi is deprecated and will be removed in a future release. Please refer to https://github.com/abersheeran/a2wsgi as a replacement.
+  warnings.warn(
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:1156: DeprecationWarning: `example` has been deprecated, please use `examples` instead
+  typed_handler, typed_handler_kwargs = self._create_typed_handler(
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:910: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/fastapi/applications.py:4495: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  return self.router.on_event(event_type)
+Photon mygpt2 created.
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ python3 -d -X dev ~/Library/Python/3.8/bin/lep photon run --name mygpt2 --local
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/starlette/middleware/wsgi.py:12: DeprecationWarning: starlette.middleware.wsgi is deprecated and will be removed in a future release. Please refer to https://github.com/abersheeran/a2wsgi as a replacement.
+  warnings.warn(
+Launching photon on port: 8080
+2024-01-29 15:59:50.408 | INFO     | leptonai.photon.hf.hf:pipeline:213 - Creating pipeline for text-generation(model=gpt2, revision=11c5a3d5).
+HuggingFace download might take a while, please be patient...
+2024-01-29 15:59:50.408 | INFO     | leptonai.photon.hf.hf:pipeline:218 - Note: HuggingFace caches the downloaded models in ~/.cache/huggingface/ (or C:\Users\<username>\.cache\huggingface\ on Windows). If you have already downloaded the model before, the download should be much faster. If you run out of disk space, you can delete the cache folder.
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/accelerate/utils/torch_xla.py:18: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+Downloading config.json: 100%|█████████████████| 665/665 [00:00<00:00, 43.3kB/s]
+Downloading vocab.json: 100%|██████████████| 1.04M/1.04M [00:00<00:00, 1.88MB/s]
+Downloading merges.txt: 100%|████████████████| 456k/456k [00:00<00:00, 3.96MB/s]
+Downloading tokenizer.json: 100%|██████████| 1.36M/1.36M [00:00<00:00, 2.21MB/s]
+Downloading model.safetensors: 100%|█████████| 548M/548M [04:17<00:00, 2.12MB/s]
+2024-01-29 16:04:18.432 | INFO     | leptonai.photon.hf.hf_utils:_create_hf_transformers_pipeline:258 - Failed to create pipeline with torch.float32: module 'torch' has no attribute 'frombuffer', fallback to fp32
+Failed to launch photon: <class 'AttributeError'>: module 'torch' has no 
+attribute 'frombuffer'
+Traceback:
+Traceback (most recent call last):
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+hf/hf_utils.py", line 256, in _create_hf_transformers_pipeline
+    pipe = pipeline(task=task, revision=revision, **kwargs)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/pip
+elines/__init__.py", line 834, in pipeline
+    framework, model = infer_framework_load_model(
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/pip
+elines/base.py", line 269, in infer_framework_load_model
+    model = model_class.from_pretrained(model, **kwargs)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+els/auto/auto_factory.py", line 565, in from_pretrained
+    return model_class.from_pretrained(
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+eling_utils.py", line 3019, in from_pretrained
+    state_dict = load_state_dict(resolved_archive_file)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+eling_utils.py", line 474, in load_state_dict
+    return safe_load_file(checkpoint_file)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/safetensors/torc
+h.py", line 261, in load_file
+    result = f.get_tensor(k)
+AttributeError: module 'torch' has no attribute 'frombuffer'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/cli/pho
+ton.py", line 785, in run
+    photon.launch(port=port)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+photon.py", line 892, in launch
+    self._call_init_once()
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+photon.py", line 613, in _call_init_once
+    self._init_res = self.init()
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+hf/hf.py", line 254, in init
+    self.pipeline
+  File 
+"/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/funct
+ools.py", line 967, in __get__
+    val = self.func(instance)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+hf/hf.py", line 225, in pipeline
+    pipeline = pipeline_creator(
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+hf/hf_utils.py", line 279, in create_transformers_pipeline
+    return _create_hf_transformers_pipeline(task, model, revision)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/
+hf/hf_utils.py", line 271, in _create_hf_transformers_pipeline
+    pipe = pipeline(task=task, revision=revision, **kwargs)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/pip
+elines/__init__.py", line 834, in pipeline
+    framework, model = infer_framework_load_model(
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/pip
+elines/base.py", line 269, in infer_framework_load_model
+    model = model_class.from_pretrained(model, **kwargs)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+els/auto/auto_factory.py", line 565, in from_pretrained
+    return model_class.from_pretrained(
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+eling_utils.py", line 3019, in from_pretrained
+    state_dict = load_state_dict(resolved_archive_file)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/transformers/mod
+eling_utils.py", line 474, in load_state_dict
+    return safe_load_file(checkpoint_file)
+  File 
+"/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/safetensors/torc
+h.py", line 261, in load_file
+    result = f.get_tensor(k)
+AttributeError: module 'torch' has no attribute 'frombuffer'
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade torchvision==0.10.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting torchvision==0.10.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/a6/e1/97492d5dba950d6a84d7c5d6ab2fe1cfe5b091ed02bd8e39b8931ffbac95/torchvision-0.10.0-cp38-cp38-macosx_10_9_x86_64.whl (13.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.9/13.9 MB 1.5 MB/s eta 0:00:00
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.10.0) (1.24.4)
+Collecting torch==1.9.0 (from torchvision==0.10.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/98/71/b1aeecd8bf033a163dc03c24ceba0952107afb515a7a767f3fb8694d835c/torch-1.9.0-cp38-none-macosx_10_9_x86_64.whl (127.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 1.3 MB/s eta 0:00:00
+Collecting pillow>=5.3.0 (from torchvision==0.10.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/4f/d3/5b5682b498805c06b900cdd778b649a4132162b17da674a1fef56da56a77/pillow-10.2.0-cp38-cp38-macosx_10_10_x86_64.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 1.6 MB/s eta 0:00:00
+Requirement already satisfied: typing-extensions in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torch==1.9.0->torchvision==0.10.0) (4.9.0)
+Installing collected packages: torch, pillow, torchvision
+  Attempting uninstall: torch
+    Found existing installation: torch 1.8.0
+    Uninstalling torch-1.8.0:
+      Successfully uninstalled torch-1.8.0
+  WARNING: The scripts convert-caffe2-to-onnx and convert-onnx-to-caffe2 are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  Attempting uninstall: pillow
+    Found existing installation: Pillow 4.1.1
+    Uninstalling Pillow-4.1.1:
+      Successfully uninstalled Pillow-4.1.1
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.9.0
+    Uninstalling torchvision-0.9.0:
+      Successfully uninstalled torchvision-0.9.0
+Successfully installed pillow-10.2.0 torch-1.9.0 torchvision-0.10.0
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ python3 -d -X dev ~/Library/Python/3.8/bin/lep photon run --name mygpt2 --local
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/starlette/middleware/wsgi.py:12: DeprecationWarning: starlette.middleware.wsgi is deprecated and will be removed in a future release. Please refer to https://github.com/abersheeran/a2wsgi as a replacement.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Users/fanhongling/Library/Python/3.8/bin/lep", line 5, in <module>
+    from leptonai.cli import lep
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/__init__.py", line 7, in <module>
+    from .api.workspace import login
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/api/__init__.py", line 26, in <module>
+    from . import photon
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/api/photon.py", line 10, in <module>
+    import leptonai.photon  # noqa: F401
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/__init__.py", line 10, in <module>
+    from .photon import (  # noqa: F401
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py", line 56, in <module>
+    from leptonai.photon.types import (  # noqa: F401
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/types/__init__.py", line 7, in <module>
+    from .util import (
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/types/util.py", line 9, in <module>
+    from PIL.Image import Image
+  File "/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/PIL/Image.py", line 84, in <module>
+    from . import _imaging as core
+ImportError: dlopen(/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/PIL/_imaging.cpython-38-darwin.so, 2): Library not loaded: @loader_path/libXau.6.0.0.dylib
+  Referenced from: /Users/fanhongling/Library/Python/3.8/lib/python/site-packages/PIL/.dylibs/libxcb.1.1.0.dylib
+  Reason: no suitable image found.  Did find:
+	/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/PIL/.dylibs/libXau.6.0.0.dylib: cannot load 'libXau.6.0.0.dylib' (load command 0x80000034 is unknown)
+	/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/PIL/.dylibs/libXau.6.0.0.dylib: cannot load 'libXau.6.0.0.dylib' (load command 0x80000034 is unknown)
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade pillow==5.3.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting pillow==5.3.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/1b/e1/1118d60e9946e4e77872b69c58bc2f28448ec02c99a2ce456cd1a272c5fd/Pillow-5.3.0.tar.gz (15.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 1.5 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: pillow
+  Building wheel for pillow (setup.py) ... done
+  Created wheel for pillow: filename=Pillow-5.3.0-cp38-cp38-macosx_10_10_x86_64.whl size=420193 sha256=0c38a13b6136cf424a0e4e9114f5d363a6cc0c2bcaec16cc0b0a952813900179
+  Stored in directory: /Users/fanhongling/Library/Caches/pip/wheels/f1/da/74/6a0badb264fb69b621312139ca70a174ec07bddc05eb4e1580
+Successfully built pillow
+Installing collected packages: pillow
+  Attempting uninstall: pillow
+    Found existing installation: pillow 10.2.0
+    Uninstalling pillow-10.2.0:
+      Successfully uninstalled pillow-10.2.0
+Successfully installed pillow-5.3.0
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ PIP_CONFIG_FILE=~/.config/pip/pip.conf pip3 install --upgrade torchvision==0.12.0
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: https://pypi.org/simple, https://pypi.org/simple, https://pypi.tuna.tsinghua.edu.cn/simple, https://repo.huaweicloud.com/repository/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting torchvision==0.12.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/30/2e/7bef6bb1f62d3cfd98620537858284b5be294ad6c2f917ef86080e2a4a02/torchvision-0.12.0-cp38-cp38-macosx_10_9_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 736.5 kB/s eta 0:00:00
+Requirement already satisfied: typing-extensions in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.12.0) (4.9.0)
+Requirement already satisfied: numpy in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.12.0) (1.24.4)
+Requirement already satisfied: requests in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.12.0) (2.30.0)
+Collecting torch==1.11.0 (from torchvision==0.12.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/79/df/c5ac776569d658eeec99bb8cf908c17ff7e89d15dc5d94ba5ec6df6b3e55/torch-1.11.0-cp38-none-macosx_10_9_x86_64.whl (129.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.9/129.9 MB 1.2 MB/s eta 0:00:00
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from torchvision==0.12.0) (5.3.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests->torchvision==0.12.0) (2.0.12)
+Requirement already satisfied: idna<4,>=2.5 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests->torchvision==0.12.0) (2.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests->torchvision==0.12.0) (2.0.2)
+Requirement already satisfied: certifi>=2017.4.17 in /Users/fanhongling/Library/Python/3.8/lib/python/site-packages (from requests->torchvision==0.12.0) (2020.12.5)
+Installing collected packages: torch, torchvision
+  Attempting uninstall: torch
+    Found existing installation: torch 1.9.0
+    Uninstalling torch-1.9.0:
+      Successfully uninstalled torch-1.9.0
+  WARNING: The scripts convert-caffe2-to-onnx, convert-onnx-to-caffe2 and torchrun are installed in '/Users/fanhongling/Library/Python/3.8/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.10.0
+    Uninstalling torchvision-0.10.0:
+      Successfully uninstalled torchvision-0.10.0
+Successfully installed torch-1.11.0 torchvision-0.12.0
+
+
+
+
+fanhonglingdeMacBook-Pro:llm fanhongling$ python3 -d -X dev ~/Library/Python/3.8/bin/lep photon run --name mygpt2 --local
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/starlette/middleware/wsgi.py:12: DeprecationWarning: starlette.middleware.wsgi is deprecated and will be removed in a future release. Please refer to https://github.com/abersheeran/a2wsgi as a replacement.
+  warnings.warn(
+Launching photon on port: 8080
+2024-01-29 16:19:19.109 | INFO     | leptonai.photon.hf.hf:pipeline:213 - Creating pipeline for text-generation(model=gpt2, revision=11c5a3d5).
+HuggingFace download might take a while, please be patient...
+2024-01-29 16:19:19.109 | INFO     | leptonai.photon.hf.hf:pipeline:218 - Note: HuggingFace caches the downloaded models in ~/.cache/huggingface/ (or C:\Users\<username>\.cache\huggingface\ on Windows). If you have already downloaded the model before, the download should be much faster. If you run out of disk space, you can delete the cache folder.
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/accelerate/utils/torch_xla.py:18: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/opt/local/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+Downloading generation_config.json: 100%|██████| 124/124 [00:00<00:00, 8.66kB/s]
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:1156: DeprecationWarning: `example` has been deprecated, please use `examples` instead
+  typed_handler, typed_handler_kwargs = self._create_typed_handler(
+2024-01-29 16:19:28.628 | WARNING  | leptonai.photon.photon:_mount_route:928 - Skip mounting ui as `gradio` is not installed
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:910: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/fastapi/applications.py:4495: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  return self.router.on_event(event_type)
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:760: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/Users/fanhongling/Library/Python/3.8/lib/python/site-packages/leptonai/photon/photon.py:765: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+2024-01-29 16:19:28.647 | INFO     | leptonai.photon.photon:_uvicorn_run:820 - Setting up signal handlers for graceful incoming traffic shutdown after 5 seconds.
+2024-01-29 16:19:28,647 - INFO:  
+If you are using standard photon, a few urls that may be helpful:
+	- http://0.0.0.0:8080/docs OpenAPI documentation
+	- http://0.0.0.0:8080/redoc Redoc documentation
+	- http://0.0.0.0:8080/openapi.json Raw OpenAPI schema
+	- http://0.0.0.0:8080/metrics Prometheus metrics
+
+If you are using python clients, here is an example code snippet:
+	from leptonai.client import Client, local
+	client = Client(local(port=8080))
+	client.healthz()  # checks the health of the photon
+	client.paths()  # lists all the paths of the photon
+	client.method_name?  # If client has a method_name method, get the docstring
+	client.method_name(...)  # calls the method_name method
+If you are using ipython, you can use tab completion by typing `client.` and then press tab.
+	
+2024-01-29 16:19:28,681 - INFO:     Started server process [58179]
+2024-01-29 16:19:28,682 - INFO:     Waiting for application startup.
+2024-01-29 16:19:28.690 | INFO     | leptonai.photon.photon:uvicorn_startup:763 - Starting photon app - running startup prep code.
+2024-01-29 16:19:28,704 - INFO:     Application startup complete.
+2024-01-29 16:19:28,706 - INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+
+
+fanhonglingdeMacBook-Pro:centos7-vagrant fanhongling$ curl -X POST http://127.0.0.1:8080/run -H 'accept: application/json' -H 'content-type: application/json' -d  '{"inputs": "China spring festival"}'
+"China spring festival in\n\ntwo days.\n\n\"We watched over Mercedes Finnstmeister with his arms wrapped around Paige's neck, flexing her whip against his arm,\" journalist\n\nsuch as Dan Read says.\n\nThe marriage"
+
+
+

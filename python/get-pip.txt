@@ -1,0 +1,45 @@
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ vagrant up
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ VBoxManage guestproperty enumerate $(VBoxManage list runningvms | grep "lang-learn" | awk -F\  '{print $2}' | awk '{print substr($0, 2, 36)}') --patterns "*/V4/IP"
+Name: /VirtualBox/GuestInfo/Net/0/V4/IP, value: 10.0.2.15, timestamp: 1706738676036928000, flags: 
+Name: /VirtualBox/GuestInfo/Net/1/V4/IP, value: 192.168.56.6, timestamp: 1706738676044064000, flags: 
+
+
+
+fanhonglingdeMacBook-Pro:lang-learn fanhongling$ ssh -i .vagrant/machines/default/virtualbox/private_key vagrant@192.168.56.6
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-92-generic x86_64)
+...
+...
+...
+
+
+
+vagrant@ubuntu-jammy:~$ curl -jkSL https://bootstrap.pypa.io/get-pip.py | python3 -
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2573k  100 2573k    0     0  2019k      0  0:00:01  0:00:01 --:--:-- 2019k
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pip
+  Downloading pip-23.3.2-py3-none-any.whl.metadata (3.5 kB)
+Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 1.8 MB/s eta 0:00:00
+DEPRECATION: distro-info 1.1build1 has a non-standard version number. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of distro-info or contact the author to suggest that they release a version with a conforming version number. Discussion can be found at https://github.com/pypa/pip/issues/12063
+DEPRECATION: python-debian 0.1.43ubuntu1 has a non-standard version number. pip 24.0 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of python-debian or contact the author to suggest that they release a version with a conforming version number. Discussion can be found at https://github.com/pypa/pip/issues/12063
+Installing collected packages: pip
+Successfully installed pip-23.3.2
+
+
+
+vagrant@ubuntu-jammy:~$ python3 -mpip --version
+pip 23.3.2 from /home/vagrant/.local/lib/python3.10/site-packages/pip (python 3.10)
+
+
+vagrant@ubuntu-jammy:~$ python3 .local/lib/python3.10/site-packages/pip --version
+pip 23.3.2 from /home/vagrant/.local/lib/python3.10/site-packages/pip (python 3.10)
+
+

@@ -1,0 +1,259 @@
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ git clone -b 3.2.0 --depth 1 https://github.com/matplotlib/matplotlib ../../../matplotlib/matplotlib
+Cloning into '../../../matplotlib/matplotlib'...
+warning: Could not find remote branch 3.2.0 to clone.
+fatal: Remote branch 3.2.0 not found in upstream origin
+fanhonglingdeMacBook-Pro:python fanhongling$ git clone -b v3.2.0 --depth 1 https://github.com/matplotlib/matplotlib ../../../matplotlib/matplotlib
+Cloning into '../../../matplotlib/matplotlib'...
+remote: Enumerating objects: 4274, done.
+remote: Counting objects: 100% (4274/4274), done.
+remote: Compressing objects: 100% (3620/3620), done.
+remote: Total 4274 (delta 904), reused 2511 (delta 624), pack-reused 0
+Receiving objects: 100% (4274/4274), 37.28 MiB | 2.15 MiB/s, done.
+Resolving deltas: 100% (904/904), done.
+Checking connectivity... done.
+Note: checking out 'eff204d7b12fd30c7c373ec28ccddafd34fdeff1'.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ vi ../../../matplotlib/matplotlib/versioneer.py
+fanhonglingdeMacBook-Pro:python fanhongling$ grep "configparser.SafeConfigParser" ../../../matplotlib/matplotlib/versioneer.py 
+    #parser = configparser.SafeConfigParser()
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -mpip install ../../../matplotlib/matplotlib/
+Defaulting to user installation because normal site-packages is not writeable
+Processing /Users/fanhongling/Downloads/workspace/src/github.com/matplotlib/matplotlib
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting cycler>=0.10 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting kiwisolver>=1.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Downloading kiwisolver-1.4.5-cp312-cp312-macosx_10_9_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: numpy>=1.11 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from matplotlib==3.2.0+0.geff204d.dirty) (1.26.3)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Downloading pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: python-dateutil>=2.1 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from matplotlib==3.2.0+0.geff204d.dirty) (2.8.2)
+Requirement already satisfied: six>=1.5 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from python-dateutil>=2.1->matplotlib==3.2.0+0.geff204d.dirty) (1.16.0)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading kiwisolver-1.4.5-cp312-cp312-macosx_10_9_x86_64.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.3/67.3 kB 702.1 kB/s eta 0:00:00
+Downloading pyparsing-3.1.1-py3-none-any.whl (103 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.1/103.1 kB 2.3 MB/s eta 0:00:00
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for matplotlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [575 lines of output]
+      /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-8bfqwhy4/overlay/lib/python3.12/site-packages/setuptools/dist.py:674: SetuptoolsDeprecationWarning: The namespace_packages parameter is deprecated.
+      !!
+      
+              ********************************************************************************
+              Please replace its usage with implicit namespaces (PEP 420).
+      
+              See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages for details.
+              ********************************************************************************
+      
+      !!
+        ep.load()(self, ep.name, value)
+      
+      Edit setup.cfg to change the build options; suppress output with --quiet.
+      
+      BUILDING MATPLOTLIB
+        matplotlib: yes [3.2.0+0.geff204d.dirty]
+            python: yes [3.12.1 (main, Dec  9 2023, 07:39:44) [Clang 7.0.2
+                        (clang-700.1.81)]]
+          platform: yes [darwin]
+       sample_data: yes [installing]
+             tests: no  [skipping due to configuration]
+               agg: yes [installing]
+             tkagg: yes [installing; run-time loading from Python Tcl/Tk]
+            macosx: yes [installing]
+      
+      running bdist_wheel
+      running build
+      running build_py
+
+      ...
+      ...
+    
+      running build_ext
+      building 'matplotlib.ft2font' extension
+      creating build/temp.macosx-10.10-x86_64-cpython-312
+      creating build/temp.macosx-10.10-x86_64-cpython-312/src
+      /usr/bin/clang -fno-strict-overflow -fno-common -dynamic -DNDEBUG -g -O3 -Wall -pipe -Os -DFREETYPE_BUILD_TYPE=system -DPY_ARRAY_UNIQUE_SYMBOL=MPL_matplotlib_ft2font_ARRAY_API -DNPY_NO_DEPRECATED_API=NPY_1_7_API_VERSION -D__STDC_FORMAT_MACROS=1 -Iextern/agg24-svn/include -I/private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-8bfqwhy4/normal/lib/python3.12/site-packages/numpy/core/include -I/opt/local/Library/Frameworks/Python.framework/Versions/3.12/include/python3.12 -c src/checkdep_freetype2.c -o build/temp.macosx-10.10-x86_64-cpython-312/src/checkdep_freetype2.o
+      src/checkdep_freetype2.c:3:6: error: "FreeType version 2.3 or higher is required. You may set the MPLLOCALFREETYPE environment variable to 1 to let Matplotlib download it."
+          #error "FreeType version 2.3 or higher is required. \
+           ^
+      src/checkdep_freetype2.c:9:10: fatal error: 'ft2build.h' file not found
+      #include <ft2build.h>
+               ^
+      2 errors generated.
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for matplotlib
+Failed to build matplotlib
+ERROR: Could not build wheels for matplotlib, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ sudo port install freetype
+Password:
+--->  Computing dependencies for freetype
+The following dependencies will be installed:  libpng
+Continue? [Y/n]: y
+--->  Fetching archive for libpng
+--->  Attempting to fetch libpng-1.6.40_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/libpng
+--->  Attempting to fetch libpng-1.6.40_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/libpng
+--->  Installing libpng @1.6.40_0
+--->  Activating libpng @1.6.40_0
+--->  Cleaning libpng
+--->  Fetching archive for freetype
+--->  Attempting to fetch freetype-2.13.2_0.darwin_14.x86_64.tbz2 from http://packages.macports.org/freetype
+--->  Attempting to fetch freetype-2.13.2_0.darwin_14.x86_64.tbz2.rmd160 from http://packages.macports.org/freetype
+--->  Installing freetype @2.13.2_0
+--->  Activating freetype @2.13.2_0
+--->  Cleaning freetype
+--->  Scanning binaries for linking errors
+--->  No broken files found.                             
+--->  No broken ports found.
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -mpip install ../../../matplotlib/matplotlib/
+Defaulting to user installation because normal site-packages is not writeable
+Processing /Users/fanhongling/Downloads/workspace/src/github.com/matplotlib/matplotlib
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting cycler>=0.10 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting kiwisolver>=1.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Using cached kiwisolver-1.4.5-cp312-cp312-macosx_10_9_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: numpy>=1.11 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from matplotlib==3.2.0+0.geff204d.dirty) (1.26.3)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Using cached pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
+Requirement already satisfied: python-dateutil>=2.1 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from matplotlib==3.2.0+0.geff204d.dirty) (2.8.2)
+Requirement already satisfied: six>=1.5 in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (from python-dateutil>=2.1->matplotlib==3.2.0+0.geff204d.dirty) (1.16.0)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached kiwisolver-1.4.5-cp312-cp312-macosx_10_9_x86_64.whl (67 kB)
+Using cached pyparsing-3.1.1-py3-none-any.whl (103 kB)
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for matplotlib (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [52 lines of output]
+      /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-build-env-ln42ua5o/overlay/lib/python3.12/site-packages/setuptools/dist.py:674: SetuptoolsDeprecationWarning: The namespace_packages parameter is deprecated.
+      !!
+      
+              ********************************************************************************
+              Please replace its usage with implicit namespaces (PEP 420).
+      
+              See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages for details.
+              ********************************************************************************
+      
+      !!
+        ep.load()(self, ep.name, value)
+      
+      Edit setup.cfg to change the build options; suppress output with --quiet.
+      
+      BUILDING MATPLOTLIB
+        matplotlib: yes [3.2.0+0.geff204d.dirty]
+            python: yes [3.12.1 (main, Dec  9 2023, 07:39:44) [Clang 7.0.2
+                        (clang-700.1.81)]]
+          platform: yes [darwin]
+       sample_data: yes [installing]
+             tests: no  [skipping due to configuration]
+               agg: yes [installing]
+             tkagg: yes [installing; run-time loading from Python Tcl/Tk]
+            macosx: yes [installing]
+      
+      running bdist_wheel
+      running build
+      running build_py
+      copying lib/matplotlib/mpl-data/matplotlibrc -> build/lib.macosx-10.10-x86_64-cpython-312/matplotlib/mpl-data
+      UPDATING build/lib.macosx-10.10-x86_64-cpython-312/matplotlib/_version.py
+      set build/lib.macosx-10.10-x86_64-cpython-312/matplotlib/_version.py to '3.2.0+0.geff204d.dirty'
+      running build_ext
+      building 'matplotlib.ft2font' extension
+
+      ...
+      ...
+
+      src/ft2font_wrapper.cpp:706:16: error: use of undeclared identifier 'PyUnicode_GET_SIZE'; did you mean 'PyDict_GET_SIZE'?
+              size = PyUnicode_GET_SIZE(textobj);
+                     ^~~~~~~~~~~~~~~~~~
+                     PyDict_GET_SIZE
+      /opt/local/Library/Frameworks/Python.framework/Versions/3.12/include/python3.12/cpython/dictobject.h:53:26: note: 'PyDict_GET_SIZE' declared here
+      static inline Py_ssize_t PyDict_GET_SIZE(PyObject *op) {
+                               ^
+      src/ft2font_wrapper.cpp:708:30: error: use of undeclared identifier 'PyUnicode_AsUnicode'
+              Py_UNICODE *unistr = PyUnicode_AsUnicode(textobj);
+                                   ^
+      2 errors generated.
+      error: command '/usr/bin/clang' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for matplotlib
+Failed to build matplotlib
+ERROR: Could not build wheels for matplotlib, which is required to install pyproject.toml-based projects
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.11 -mpip install ../../../matplotlib/matplotlib/
+Defaulting to user installation because normal site-packages is not writeable
+Processing /Users/fanhongling/Downloads/workspace/src/github.com/matplotlib/matplotlib
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting cycler>=0.10 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Obtaining dependency information for cycler>=0.10 from https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl.metadata
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting kiwisolver>=1.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Obtaining dependency information for kiwisolver>=1.0.1 from https://files.pythonhosted.org/packages/a6/94/695922e71288855fc7cace3bdb52edda9d7e50edba77abb0c9d7abb51e96/kiwisolver-1.4.5-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+  Downloading kiwisolver-1.4.5-cp311-cp311-macosx_10_9_x86_64.whl.metadata (6.4 kB)
+Collecting numpy>=1.11 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Obtaining dependency information for numpy>=1.11 from https://files.pythonhosted.org/packages/42/db/82cc805d96ba48622fbb7395a7b44cf59567fca235e397cdf64555081773/numpy-1.26.3-cp311-cp311-macosx_10_9_x86_64.whl.metadata
+  Using cached numpy-1.26.3-cp311-cp311-macosx_10_9_x86_64.whl.metadata (61 kB)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Obtaining dependency information for pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 from https://files.pythonhosted.org/packages/39/92/8486ede85fcc088f1b3dba4ce92dd29d126fd96b0008ea213167940a2475/pyparsing-3.1.1-py3-none-any.whl.metadata
+  Using cached pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting python-dateutil>=2.1 (from matplotlib==3.2.0+0.geff204d.dirty)
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting six>=1.5 (from python-dateutil>=2.1->matplotlib==3.2.0+0.geff204d.dirty)
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading kiwisolver-1.4.5-cp311-cp311-macosx_10_9_x86_64.whl (68 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.2/68.2 kB 761.0 kB/s eta 0:00:00
+Using cached numpy-1.26.3-cp311-cp311-macosx_10_9_x86_64.whl (20.6 MB)
+Using cached pyparsing-3.1.1-py3-none-any.whl (103 kB)
+Building wheels for collected packages: matplotlib
+  Building wheel for matplotlib (pyproject.toml) ... done
+  Created wheel for matplotlib: filename=matplotlib-3.2.0+0.geff204d.dirty-cp311-cp311-macosx_10_10_x86_64.whl size=8536667 sha256=310970a3150736a40a9b9935c7e2ef1f34e429f43c422ab12555ded5a2970a27
+  Stored in directory: /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/pip-ephem-wheel-cache-2z_4s7bg/wheels/51/9b/48/5ca5b6887159836ee4a7aa73cdfe15038c3bf11ef382143ab0
+Successfully built matplotlib
+Installing collected packages: six, pyparsing, numpy, kiwisolver, cycler, python-dateutil, matplotlib
+  WARNING: The script f2py is installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed cycler-0.12.1 kiwisolver-1.4.5 matplotlib-3.2.0+0.geff204d.dirty numpy-1.26.3 pyparsing-3.1.1 python-dateutil-2.8.2 six-1.16.0
+

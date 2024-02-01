@@ -1,0 +1,70 @@
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ sudo port install python38 py38-setuptools py38-pip
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ sudo port install python312
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ sudo port install python311
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -m ensurepip --upgrade
+Defaulting to user installation because normal site-packages is not writeable
+Looking in links: /var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/tmpeuj4or5d
+Processing /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/tmpeuj4or5d/pip-23.2.1-py3-none-any.whl
+Installing collected packages: pip
+  WARNING: The scripts pip3 and pip3.12 are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-23.2.1
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -m pip install --upgrade pip
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /Users/fanhongling/Library/Python/3.12/lib/python/site-packages (23.2.1)
+Collecting pip
+  Obtaining dependency information for pip from https://files.pythonhosted.org/packages/15/aa/3f4c7bcee2057a76562a5b33ecbd199be08cdb4443a02e26bd2c3cf6fc39/pip-23.3.2-py3-none-any.whl.metadata
+  Downloading pip-23.3.2-py3-none-any.whl.metadata (3.5 kB)
+Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 1.7 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.2.1
+    Uninstalling pip-23.2.1:
+      Successfully uninstalled pip-23.2.1
+  WARNING: The scripts pip, pip3 and pip3.12 are installed in '/Users/fanhongling/Library/Python/3.12/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-23.3.2
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.12 -m pip install setuptools
+Defaulting to user installation because normal site-packages is not writeable
+Collecting setuptools
+  Using cached setuptools-69.0.3-py3-none-any.whl.metadata (6.3 kB)
+Using cached setuptools-69.0.3-py3-none-any.whl (819 kB)
+Installing collected packages: setuptools
+Successfully installed setuptools-69.0.3
+
+
+
+
+fanhonglingdeMacBook-Pro:python fanhongling$ python3.11 -m ensurepip --upgrade
+Defaulting to user installation because normal site-packages is not writeable
+Looking in links: /var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/tmp429su237
+Processing /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/tmp429su237/setuptools-65.5.0-py3-none-any.whl
+Processing /private/var/folders/xv/4nx2vkgj7s10mh2y8gj2xlc80000gn/T/tmp429su237/pip-23.2.1-py3-none-any.whl
+Installing collected packages: setuptools, pip
+  WARNING: The scripts pip3 and pip3.11 are installed in '/Users/fanhongling/Library/Python/3.11/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-23.2.1 setuptools-65.5.0
+

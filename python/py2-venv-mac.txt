@@ -1,0 +1,72 @@
+
+
+
+fanhonglingdeMacBook-Pro:github.com fanhongling$ git clone -b 16.1.0 --depth 1 https://github.com/pypa/virtualenv pypa/virtualenv
+Cloning into 'virtualenv'...
+remote: Enumerating objects: 61, done.
+remote: Counting objects: 100% (61/61), done.
+remote: Compressing objects: 100% (54/54), done.
+remote: Total 61 (delta 0), reused 26 (delta 0), pack-reused 0
+Unpacking objects: 100% (61/61), done.
+Checking connectivity... done.
+Note: checking out '4ad2742eec5266c2e42b0651d1cd4b78393699c4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python --version
+Python 2.7.6
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ which python2.7
+/usr/bin/python2.7
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ python ../../../../pypa/virtualenv/src/virtualenv.py venv-py2-mac
+New python executable in /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/venv-py2-mac/bin/python
+Installing setuptools, pip, wheel...
+done.
+
+
+
+fanhonglingdeMacBook-Pro:machine-learning fanhongling$ . venv-py2-mac/bin/activate
+
+
+
+(venv-py2-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ which python
+/Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/venv-py2-mac/bin/python
+(venv-py2-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ pip --version
+pip 18.1 from /Users/fanhongling/Downloads/workspace/src/github.com/tangfeixiong/lang-learn/python/machine-learning/venv-py2-mac/lib/python2.7/site-packages/pip (python 2.7)
+
+
+
+(venv-py2-mac) fanhonglingdeMacBook-Pro:machine-learning fanhongling$ deactivate 
+
+
+
+fanhonglingdeMacBook-Pro:github.com fanhongling$ git clone -b 18.1 --depth 1 https://github.com/pypa/pip pypa/pip
+Cloning into 'pypa/pip'...
+remote: Enumerating objects: 767, done.
+remote: Counting objects: 100% (767/767), done.
+remote: Compressing objects: 100% (656/656), done.
+remote: Total 767 (delta 46), reused 378 (delta 34), pack-reused 0
+Receiving objects: 100% (767/767), 5.98 MiB | 1.66 MiB/s, done.
+Resolving deltas: 100% (46/46), done.
+Checking connectivity... done.
+Note: checking out '6af9de97bbd2427f82942e476c590a2db22ea1ff'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
